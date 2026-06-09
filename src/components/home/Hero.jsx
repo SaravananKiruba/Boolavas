@@ -6,10 +6,11 @@ import {
   Stack,
   HStack,
   VStack,
+  Badge,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import CTAButton from '../common/CTAButton'
-import { FaRocket, FaCheckCircle } from 'react-icons/fa'
+import { FaCheckCircle, FaCubes, FaUserTie } from 'react-icons/fa'
 
 const MotionBox = motion(Box)
 const MotionHeading = motion(Heading)
@@ -48,6 +49,18 @@ const Hero = () => {
             flex={1}
             textAlign={{ base: 'center', lg: 'left' }}
           >
+            <Badge
+              colorScheme="blue"
+              fontSize="sm"
+              px={4}
+              py={1}
+              borderRadius="full"
+              textTransform="uppercase"
+              letterSpacing="wider"
+            >
+              Product Company · Solo Tech Lead
+            </Badge>
+
             <MotionHeading
               as="h1"
               size="3xl"
@@ -57,7 +70,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              Custom Software, Website & Mobile App Development in India
+              We Build Products That Solve Real Problems
             </MotionHeading>
 
             <MotionText
@@ -68,31 +81,32 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Launch your digital product under your own brand. We build premium software solutions
-              that drive business growth and deliver exceptional user experiences.
+              Boolavas is a solo-founder product company. We design, build, and ship
+              production-grade SaaS products from the ground up — not templates, not shortcuts,
+              just real engineering.
             </MotionText>
 
             <VStack align={{ base: 'center', lg: 'flex-start' }} spacing={3}>
               <HStack spacing={3}>
                 <FaCheckCircle color="#38BDF8" />
-                <Text color="gray.300">Play Store Publishing Under Your Brand</Text>
+                <Text color="gray.300">Multi-Tenant SaaS Architecture</Text>
               </HStack>
               <HStack spacing={3}>
                 <FaCheckCircle color="#38BDF8" />
-                <Text color="gray.300">Enterprise-Grade Development</Text>
+                <Text color="gray.300">White-Label & Custom Domain Support</Text>
               </HStack>
               <HStack spacing={3}>
                 <FaCheckCircle color="#38BDF8" />
-                <Text color="gray.300">White-Label Solutions Available</Text>
+                <Text color="gray.300">Built, Owned & Operated by One Tech Lead</Text>
               </HStack>
             </VStack>
 
             <HStack spacing={4} pt={4}>
-              <CTAButton href="/contact" size="lg">
-                Start Your Project
+              <CTAButton href="#products" size="lg">
+                See Our Products
               </CTAButton>
-              <CTAButton href="/services" variant="secondary" size="lg">
-                View Services
+              <CTAButton href="/contact" variant="secondary" size="lg">
+                Get in Touch
               </CTAButton>
             </HStack>
           </VStack>
@@ -105,20 +119,49 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <Box
-              bg="linear-gradient(135deg, #2563EB 0%, #38BDF8 100%)"
+              bg="linear-gradient(135deg, #1e3a5f 0%, #2563EB 100%)"
               borderRadius="2xl"
-              p={12}
+              p={10}
               boxShadow="2xl"
               position="relative"
+              border="1px solid"
+              borderColor="whiteAlpha.200"
             >
               <VStack spacing={6} color="white">
-                <FaRocket size={80} />
-                <Heading size="lg" textAlign="center">
-                  Ready to Build Your Vision?
-                </Heading>
-                <Text textAlign="center" fontSize="lg">
-                  From concept to launch, we handle everything—development, design, testing, and deployment.
-                </Text>
+                {/* Boolavas Logo Placeholder */}
+                <Box
+                  bg="whiteAlpha.100"
+                  border="2px dashed"
+                  borderColor="whiteAlpha.300"
+                  borderRadius="xl"
+                  px={8}
+                  py={6}
+                  w="full"
+                  textAlign="center"
+                >
+                  <Text color="whiteAlpha.500" fontSize="xs" mb={1}>
+                    [ Boolavas Logo ]
+                  </Text>
+                  <Text fontWeight="bold" fontSize="3xl" letterSpacing="widest" color="white">
+                    BOOLAVAS
+                  </Text>
+                </Box>
+                <VStack spacing={3} w="full">
+                  <HStack justify="space-between" w="full" bg="whiteAlpha.100" p={4} borderRadius="lg">
+                    <HStack spacing={3}>
+                      <FaCubes />
+                      <Text fontSize="sm">Flagship Product</Text>
+                    </HStack>
+                    <Text fontWeight="bold" color="brand.lightBlue">MediBoo</Text>
+                  </HStack>
+                  <HStack justify="space-between" w="full" bg="whiteAlpha.100" p={4} borderRadius="lg">
+                    <HStack spacing={3}>
+                      <FaUserTie />
+                      <Text fontSize="sm">Founded & Built by</Text>
+                    </HStack>
+                    <Text fontWeight="bold" color="brand.lightBlue">1 Tech Lead</Text>
+                  </HStack>
+                </VStack>
               </VStack>
             </Box>
           </MotionBox>

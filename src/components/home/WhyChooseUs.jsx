@@ -22,33 +22,33 @@ const MotionBox = motion(Box)
 const features = [
   {
     icon: FaShieldAlt,
-    title: 'Enterprise-Grade Quality',
-    description: 'Production-ready code with best practices, security standards, and scalable architecture.',
-  },
-  {
-    icon: FaClock,
-    title: 'On-Time Delivery',
-    description: 'Agile development process with transparent timelines and regular progress updates.',
-  },
-  {
-    icon: FaUsers,
-    title: 'Dedicated Development Team',
-    description: 'Experienced engineers focused on your project success with direct communication.',
+    title: 'Production-Grade Engineering',
+    description: 'Every product is built to production standards — secure, scalable, and maintainable from day one, not as an afterthought.',
   },
   {
     icon: FaCode,
-    title: 'Modern Tech Stack',
-    description: 'Latest technologies and frameworks to ensure your product stays competitive and maintainable.',
+    title: 'Full-Stack Ownership',
+    description: 'One tech lead owns the entire stack — frontend, backend, database, deployment, and infrastructure. No gaps, no handoffs.',
   },
   {
     icon: FaChartLine,
-    title: 'Business-Focused Approach',
-    description: 'We understand your business goals and build solutions that deliver measurable ROI.',
+    title: 'Domain-Driven Design',
+    description: 'Products are built by deeply understanding the domain — not just technical requirements. MediBoo was built by studying real clinic workflows.',
   },
   {
     icon: FaHandshake,
-    title: 'White-Label Partnership',
-    description: 'Publish apps under your own brand name. We stay behind the scenes as your tech partner.',
+    title: 'White-Label Ready',
+    description: 'Every product is designed for white-labelling — custom domain, branding, logo, colors, and CSS per client, out of the box.',
+  },
+  {
+    icon: FaUsers,
+    title: 'Multi-Tenant Architecture',
+    description: 'SaaS products with proper tenant isolation, role-based access control, and data scoping — built right from the schema level.',
+  },
+  {
+    icon: FaClock,
+    title: 'Fast Iteration',
+    description: 'Solo founder advantage: no meetings overhead, no committee decisions. Features ship fast, feedback loops are tight.',
   },
 ]
 
@@ -58,10 +58,10 @@ const WhyChooseUs = () => {
       <Container maxW="7xl">
         <VStack spacing={4} textAlign="center" mb={16}>
           <Heading size="2xl" color="brand.navy">
-            Why Choose Boolavas?
+            Why Boolavas?
           </Heading>
           <Text fontSize="xl" color="gray.600" maxW="3xl">
-            We&apos;re not just developers—we&apos;re your strategic technology partner committed to your success
+            A solo tech lead who builds complete SaaS products end-to-end. No bloat, no layers — just focused, high-quality engineering.
           </Text>
         </VStack>
 
