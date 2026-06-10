@@ -8,14 +8,16 @@ import {
   HStack,
   Icon,
   Stack,
+  Link,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import SEO from '../components/common/SEO'
 import ContactForm from '../components/sections/ContactForm'
 import {
   FaEnvelope,
+  FaWhatsapp,
+  FaPhone,
   FaMapMarkerAlt,
-  FaClock,
   FaCheckCircle,
 } from 'react-icons/fa'
 
@@ -27,18 +29,21 @@ const contactMethods = [
     title: 'Email Us',
     detail: 'contact@boolavas.in',
     description: 'Get a response within 24 hours',
+    href: 'mailto:contact@boolavas.in',
   },
   {
-    icon: FaMapMarkerAlt,
-    title: 'Location',
-    detail: 'India',
-    description: 'Serving clients worldwide',
+    icon: FaWhatsapp,
+    title: 'WhatsApp',
+    detail: '+91 86674 30536',
+    description: 'Chat with us on WhatsApp',
+    href: 'https://wa.me/918667430536',
   },
   {
-    icon: FaClock,
-    title: 'Business Hours',
-    detail: 'Mon - Sat: 9 AM - 7 PM IST',
-    description: 'We respond to emails 24/7',
+    icon: FaPhone,
+    title: 'Call Us',
+    detail: '+91 86674 30536',
+    description: 'Mon – Sat: 9 AM – 7 PM IST',
+    href: 'tel:+918667430536',
   },
 ]
 
@@ -108,7 +113,14 @@ const Contact = () => {
                     <Heading size="md" color="brand.navy">
                       {method.title}
                     </Heading>
-                    <Text fontSize="lg" fontWeight="semibold" color="brand.blue">
+                    <Text
+                      as={method.href ? 'a' : 'span'}
+                      href={method.href}
+                      fontSize="lg"
+                      fontWeight="semibold"
+                      color="brand.blue"
+                      _hover={method.href ? { textDecoration: 'underline' } : {}}
+                    >
                       {method.detail}
                     </Text>
                     <Text color="gray.600" fontSize="sm">
@@ -166,19 +178,33 @@ const Contact = () => {
                 >
                   <VStack align="flex-start" spacing={3}>
                     <Heading size="sm" color="brand.navy">
-                      Prefer Email?
+                      Reach Us Directly
                     </Heading>
-                    <Text color="gray.700">
-                      You can directly email us at
-                    </Text>
-                    <Text
-                      fontSize="lg"
-                      fontWeight="bold"
-                      color="brand.blue"
-                      as="a"
-                      href="mailto:contact@boolavas.in"
-                    >
-                      contact@boolavas.in
+                    <HStack>
+                      <Icon as={FaEnvelope} color="brand.blue" />
+                      <Link
+                        href="mailto:contact@boolavas.in"
+                        fontSize="md"
+                        fontWeight="bold"
+                        color="brand.blue"
+                      >
+                        contact@boolavas.in
+                      </Link>
+                    </HStack>
+                    <HStack>
+                      <Icon as={FaWhatsapp} color="green.500" />
+                      <Link
+                        href="https://wa.me/918667430536"
+                        isExternal
+                        fontSize="md"
+                        fontWeight="bold"
+                        color="green.500"
+                      >
+                        +91 86674 30536 (WhatsApp)
+                      </Link>
+                    </HStack>
+                    <Text fontSize="sm" color="gray.500" pt={1}>
+                      Madurai, Tamil Nadu, India
                     </Text>
                   </VStack>
                 </Box>

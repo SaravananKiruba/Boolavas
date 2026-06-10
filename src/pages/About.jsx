@@ -8,17 +8,18 @@ import {
   HStack,
   Icon,
   Stack,
+  Image,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import SEO from '../components/common/SEO'
 import CTASection from '../components/sections/CTASection'
 import {
-  FaRocket,
   FaCode,
   FaHandshake,
   FaLightbulb,
   FaShieldAlt,
 } from 'react-icons/fa'
+import boolavasLogo from '../assets/boolavas logo.png'
 
 const MotionBox = motion(Box)
 
@@ -56,9 +57,9 @@ const About = () => {
   return (
     <Box>
       <SEO
-        title="About Us - Professional Software Development Company India | Boolavas"
-        description="Boolavas is a premium software development company in India. We build custom software, mobile apps, and websites for startups, SMEs, and enterprises. Your trusted technology partner."
-        keywords="about boolavas, software development company india, technology partner, custom software developers, app development company"
+        title="About Us - Solutions Company Madurai, Tamil Nadu | Boolavas"
+        description="Boolavas is a solutions company based in Madurai, Tamil Nadu, India — building powerful SaaS products and custom digital solutions for businesses worldwide."
+        keywords="about boolavas, solutions company madurai, software solutions india, technology partner, SaaS products, custom software developers"
         canonical="https://boolavas.in/about"
       />
 
@@ -66,11 +67,19 @@ const About = () => {
       <Box bg="brand.navy" pt={32} pb={20}>
         <Container maxW="7xl">
           <VStack spacing={6} textAlign="center">
+            <Box bg="white" borderRadius="2xl" p={4} display="inline-flex" boxShadow="lg">
+              <Image
+                src={boolavasLogo}
+                alt="Boolavas"
+                h={{ base: '72px', md: '96px' }}
+                objectFit="contain"
+              />
+            </Box>
             <Heading size="3xl" color="white" lineHeight="shorter">
               About Boolavas
             </Heading>
             <Text fontSize="xl" color="gray.300" maxW="3xl">
-              Your Strategic Technology Partner for Digital Transformation
+              A Solutions Company from Madurai, Tamil Nadu, India
             </Text>
           </VStack>
         </Container>
@@ -89,25 +98,32 @@ const About = () => {
                 Who We Are
               </Heading>
               <Text fontSize="lg" color="gray.700" lineHeight="tall">
-                Boolavas is a premium software development company based in India, specializing in building custom software solutions for businesses across the globe. We&apos;re not just developers—we&apos;re your strategic technology partner committed to your success.
+                Boolavas is a solutions company based in Madurai, Tamil Nadu, India — we design and build powerful software products and custom digital solutions for businesses worldwide. We&apos;re a fully remote team with no physical office, keeping us lean, agile, and focused entirely on delivering value.
               </Text>
               <Text fontSize="lg" color="gray.700" lineHeight="tall">
-                From startups launching their first mobile app to enterprises modernizing legacy systems, we bring technical expertise, business acumen, and a commitment to excellence that sets us apart.
+                Our flagship product is <strong>MediBoo</strong> — a multi-tenant SaaS clinic management system already live in production, serving homeopathic and general medical practices across India.
               </Text>
               <Text fontSize="lg" color="gray.700" lineHeight="tall">
-                Our unique value proposition includes helping businesses publish mobile apps under their own brand name on Play Store and App Store, offering complete white-label development services where we work as your behind-the-scenes technology team.
+                Whether you need a custom business solution, a white-label SaaS product, or a digital transformation — Boolavas is your technology partner.
               </Text>
             </VStack>
 
             <Box flex={1}>
               <Box
-                bg="linear-gradient(135deg, #2563EB 0%, #38BDF8 100%)"
+                bg="linear-gradient(135deg, #1a0000 0%, #ff3131 100%)"
                 borderRadius="2xl"
                 p={12}
                 boxShadow="2xl"
               >
                 <VStack spacing={6} color="white">
-                  <Icon as={FaRocket} boxSize={20} />
+                  <Box bg="white" borderRadius="2xl" p={5} display="inline-flex">
+                    <Image
+                      src={boolavasLogo}
+                      alt="Boolavas"
+                      h="100px"
+                      objectFit="contain"
+                    />
+                  </Box>
                   <Heading size="lg" textAlign="center">
                     Our Mission
                   </Heading>

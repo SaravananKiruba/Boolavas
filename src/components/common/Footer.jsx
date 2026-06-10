@@ -1,4 +1,4 @@
-import {
+﻿import {
   Box,
   Container,
   Stack,
@@ -10,37 +10,27 @@ import {
   VStack,
   Divider,
   Icon,
+  Image,
 } from '@chakra-ui/react'
 import { Link as RouterLink } from 'react-router-dom'
 import {
   FaEnvelope,
-  FaLinkedin,
-  FaTwitter,
-  FaGithub,
   FaMapMarkerAlt,
+  FaWhatsapp,
+  FaPhone,
 } from 'react-icons/fa'
+import boolavasLogo from '../../assets/boolavas logo.png'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
-  const services = [
-    { name: 'Software Development', path: '/software-development' },
-    { name: 'Website Development', path: '/website-development' },
-    { name: 'Mobile App Development', path: '/mobile-app-development' },
-    { name: 'SaaS Development', path: '/services' },
-    { name: 'Enterprise Solutions', path: '/services' },
-  ]
-
   const company = [
+    { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
-    { name: 'Services', path: '/services' },
-    { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' },
   ]
 
   const resources = [
-    { name: 'Case Studies', path: '/blog' },
-    { name: 'Technology Stack', path: '/services' },
     { name: 'FAQ', path: '/#faq' },
     { name: 'Privacy Policy', path: '/privacy' },
   ]
@@ -51,11 +41,16 @@ const Footer = () => {
         <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={12}>
           {/* Company Info */}
           <VStack align="flex-start" spacing={4}>
-            <Heading size="lg" color="white">
-              Boolavas
-            </Heading>
+            <Box bg="white" borderRadius="xl" p={2} display="inline-flex">
+              <Image
+                src={boolavasLogo}
+                alt="Boolavas"
+                h="52px"
+                objectFit="contain"
+              />
+            </Box>
             <Text color="gray.400" fontSize="sm">
-              Premium software development company delivering custom solutions for businesses across India.
+              A solutions company based in Madurai, Tamil Nadu, India — building powerful software products and custom digital solutions for businesses worldwide.
             </Text>
             <VStack align="flex-start" spacing={2} pt={4}>
               <HStack>
@@ -65,31 +60,34 @@ const Footer = () => {
                 </Link>
               </HStack>
               <HStack>
+                <Icon as={FaPhone} color="brand.lightBlue" />
+                <Link href="tel:+918667430536" fontSize="sm" _hover={{ color: 'brand.lightBlue' }}>
+                  +91 86674 30536
+                </Link>
+              </HStack>
+              <HStack>
+                <Icon as={FaWhatsapp} color="brand.lightBlue" />
+                <Link href="https://wa.me/918667430536" isExternal fontSize="sm" _hover={{ color: 'brand.lightBlue' }}>
+                  WhatsApp Us
+                </Link>
+              </HStack>
+              <HStack>
                 <Icon as={FaMapMarkerAlt} color="brand.lightBlue" />
-                <Text fontSize="sm" color="gray.400">India</Text>
+                <Text fontSize="sm" color="gray.400">Madurai, Tamil Nadu, India</Text>
               </HStack>
             </VStack>
           </VStack>
 
-          {/* Services */}
+          {/* Products */}
           <VStack align="flex-start" spacing={4}>
             <Heading size="sm" color="white">
-              Services
+              Our Product
             </Heading>
             <Stack spacing={2}>
-              {services.map((service) => (
-                <Link
-                  key={service.path}
-                  as={RouterLink}
-                  to={service.path}
-                  fontSize="sm"
-                  color="gray.400"
-                  _hover={{ color: 'brand.lightBlue', textDecoration: 'none' }}
-                  transition="color 0.2s"
-                >
-                  {service.name}
-                </Link>
-              ))}
+              <Text fontSize="sm" color="gray.400" fontWeight="semibold">Boola Vas</Text>
+              <Text fontSize="xs" color="gray.500" lineHeight="tall">
+                Our flagship SaaS platform powering business solutions across industries.
+              </Text>
             </Stack>
           </VStack>
 
@@ -150,34 +148,9 @@ const Footer = () => {
           <Text fontSize="sm" color="gray.500">
             © {currentYear} Boolavas. All rights reserved.
           </Text>
-
-          {/* Social Links */}
-          <HStack spacing={4}>
-            <Link
-              href="https://linkedin.com/company/boolavas"
-              isExternal
-              _hover={{ color: 'brand.lightBlue' }}
-              transition="color 0.2s"
-            >
-              <Icon as={FaLinkedin} boxSize={5} />
-            </Link>
-            <Link
-              href="https://twitter.com/boolavas"
-              isExternal
-              _hover={{ color: 'brand.lightBlue' }}
-              transition="color 0.2s"
-            >
-              <Icon as={FaTwitter} boxSize={5} />
-            </Link>
-            <Link
-              href="https://github.com/boolavas"
-              isExternal
-              _hover={{ color: 'brand.lightBlue' }}
-              transition="color 0.2s"
-            >
-              <Icon as={FaGithub} boxSize={5} />
-            </Link>
-          </HStack>
+          <Text fontSize="sm" color="gray.500">
+            Madurai, Tamil Nadu, India
+          </Text>
         </Stack>
       </Container>
     </Box>

@@ -1,4 +1,4 @@
-import {
+﻿import {
   Box,
   Container,
   Heading,
@@ -11,6 +11,7 @@ import {
   Divider,
   Image,
   Flex,
+  Button,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import {
@@ -22,6 +23,8 @@ import {
   FaPalette,
   FaFlask,
   FaBuilding,
+  FaEnvelope,
+  FaWhatsapp,
 } from 'react-icons/fa'
 import agaramLogo from '../../assets/agaram logo new.jpg'
 import medibooLogo from '../../assets/MediBoo Logo.png'
@@ -32,42 +35,42 @@ const medibooFeatures = [
   {
     icon: FaUserMd,
     title: 'Patient Management',
-    description: 'Complete patient profiles with medical history, chief complaints, investigations, and demographic data — all in one place.',
+    description: 'Complete patient profiles with medical history, chief complaints, investigations, and demographic data.',
   },
   {
     icon: FaCalendarAlt,
     title: 'Appointments & Follow-ups',
-    description: 'Day-agenda view, follow-up queue with overdue tracking, and auto-sync of next appointment dates across the system.',
+    description: 'Day-agenda view, follow-up queue with overdue tracking, and auto-sync of next appointment dates.',
   },
   {
     icon: FaTicketAlt,
     title: 'Queue / Token System',
-    description: 'Kanban-style queue board with priority tokens (Urgent / Senior / Normal), wait-time indicators, and live updates.',
+    description: 'Kanban-style queue board with priority tokens (Urgent / Senior / Normal) and live updates.',
   },
   {
     icon: FaFlask,
     title: 'Clinical Investigations',
-    description: 'Record, track and manage clinical investigations with follow-up resolution workflows and file attachments.',
+    description: 'Record, track, and manage clinical investigations with follow-up resolution workflows.',
   },
   {
     icon: FaChartBar,
     title: 'Reports & Analytics',
-    description: 'Real-time analytics with patient demographics, appointment completion rates, and investigation summaries — exportable to CSV.',
+    description: 'Real-time analytics with demographics, appointment rates, and investigation summaries — exportable to CSV.',
   },
   {
     icon: FaLock,
     title: 'Role-Based Access Control',
-    description: 'Doctor, Receptionist, Branch Admin, Clinic Admin, and Super Admin roles — each with scoped data access and permissions.',
+    description: 'Doctor, Receptionist, Branch Admin, Clinic Admin, and Super Admin roles with scoped access.',
   },
   {
     icon: FaPalette,
     title: 'White-Label Branding',
-    description: 'Each clinic gets its own logo, colors, favicon, custom CSS, and domain — fully white-labelled SaaS experience.',
+    description: 'Each clinic gets its own logo, colors, favicon, and custom domain — fully white-labelled experience.',
   },
   {
     icon: FaBuilding,
     title: 'Multi-Branch Multi-Tenant',
-    description: 'One platform hosts multiple independent clinics, each with multiple branches — isolated data, unified management.',
+    description: 'Multiple independent clinics, each with multiple branches — isolated data, unified management.',
   },
 ]
 
@@ -78,7 +81,8 @@ const Products = () => {
         {/* Section Header */}
         <VStack spacing={4} textAlign="center" mb={16}>
           <Badge
-            colorScheme="blue"
+            bg="brand.blue"
+            color="white"
             fontSize="sm"
             px={4}
             py={1}
@@ -86,14 +90,14 @@ const Products = () => {
             textTransform="uppercase"
             letterSpacing="wider"
           >
-            Our Products
+            Our Product
           </Badge>
           <Heading size="2xl" color="brand.navy">
-            Real Products. Real Impact.
+            MediBoo — Clinic Management, Reimagined
           </Heading>
           <Text fontSize="xl" color="gray.600" maxW="3xl">
-            We don&apos;t just write code — we build complete SaaS products that solve real problems
-            for real businesses. Here&apos;s our flagship product already live in the field.
+            A full-featured, multi-tenant SaaS clinic management system by Boolavas — built for
+            homeopathic and general medical practices, live in production.
           </Text>
         </VStack>
 
@@ -113,50 +117,62 @@ const Products = () => {
           >
             {/* Product Header */}
             <Box
-              bg="linear-gradient(135deg, #1e3a5f 0%, #2563EB 100%)"
+              bg="linear-gradient(135deg, #1a0000 0%, #2d0000 40%, #ff3131 100%)"
               p={{ base: 8, md: 12 }}
             >
               <Flex
                 direction={{ base: 'column', md: 'row' }}
-                align={{ base: 'flex-start', md: 'center' }}
+                align={{ base: 'center', md: 'center' }}
                 justify="space-between"
-                gap={6}
+                gap={8}
               >
-                <VStack align="flex-start" spacing={3}>
-                  {/* MediBoo Logo */}
-                  <HStack spacing={3} align="center">
+                {/* MediBoo logo — large and prominent */}
+                <HStack spacing={6} align="center">
+                  <Box
+                    bg="white"
+                    borderRadius="2xl"
+                    p={4}
+                    boxShadow="0 0 40px rgba(255,49,49,0.5), 0 10px 30px rgba(0,0,0,0.4)"
+                    display="inline-flex"
+                  >
                     <Image
                       src={medibooLogo}
                       alt="MediBoo"
-                      h="56px"
-                      w="56px"
+                      h="100px"
+                      w="100px"
                       objectFit="cover"
                       borderRadius="xl"
                     />
+                  </Box>
+                  <VStack align="flex-start" spacing={2}>
                     <Text
                       color="white"
-                      fontWeight="bold"
-                      fontSize="2xl"
+                      fontWeight="extrabold"
+                      fontSize={{ base: '3xl', md: '4xl' }}
                       letterSpacing="tight"
+                      lineHeight="1"
                     >
                       MediBoo
                     </Text>
-                  </HStack>
-                  <Badge
-                    bg="green.400"
-                    color="white"
-                    fontSize="xs"
-                    px={3}
-                    py={1}
-                    borderRadius="full"
-                  >
-                    ✓ Live in Production
-                  </Badge>
-                </VStack>
+                    <Text color="red.200" fontSize="md" fontWeight="medium">
+                      by Boolavas
+                    </Text>
+                    <Badge
+                      bg="green.400"
+                      color="white"
+                      fontSize="xs"
+                      px={3}
+                      py={1}
+                      borderRadius="full"
+                    >
+                      ✓ Live in Production
+                    </Badge>
+                  </VStack>
+                </HStack>
 
-                <VStack align={{ base: 'flex-start', md: 'flex-end' }} spacing={2}>
-                  <HStack spacing={2} flexWrap="wrap">
-                    <Badge colorScheme="cyan" variant="subtle">SaaS</Badge>
+                <VStack align={{ base: 'center', md: 'flex-end' }} spacing={4}>
+                  <HStack spacing={2} flexWrap="wrap" justify={{ base: 'center', md: 'flex-end' }}>
+                    <Badge colorScheme="red" variant="subtle">SaaS</Badge>
                     <Badge colorScheme="purple" variant="subtle">Multi-Tenant</Badge>
                     <Badge colorScheme="orange" variant="subtle">White-Label</Badge>
                     <Badge colorScheme="green" variant="subtle">Healthcare</Badge>
@@ -164,6 +180,38 @@ const Products = () => {
                   <Text color="gray.300" fontSize="sm">
                     Next.js · MySQL · Prisma · Chakra UI
                   </Text>
+                  {/* Demo CTAs */}
+                  <HStack spacing={3} flexWrap="wrap" justify={{ base: 'center', md: 'flex-end' }}>
+                    <Button
+                      as="a"
+                      href="mailto:contact@boolavas.in?subject=MediBoo Demo Request"
+                      leftIcon={<FaEnvelope />}
+                      size="md"
+                      bg="white"
+                      color="brand.navy"
+                      fontWeight="bold"
+                      _hover={{ bg: 'gray.100', transform: 'translateY(-2px)' }}
+                      transition="all 0.3s"
+                      borderRadius="xl"
+                    >
+                      Request Demo
+                    </Button>
+                    <Button
+                      as="a"
+                      href="https://wa.me/918667430536?text=Hi%2C%20I%20want%20a%20demo%20of%20MediBoo"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      leftIcon={<FaWhatsapp />}
+                      size="md"
+                      bg="green.500"
+                      color="white"
+                      _hover={{ bg: 'green.400', transform: 'translateY(-2px)' }}
+                      transition="all 0.3s"
+                      borderRadius="xl"
+                    >
+                      WhatsApp
+                    </Button>
+                  </HStack>
                 </VStack>
               </Flex>
             </Box>
@@ -171,12 +219,12 @@ const Products = () => {
             {/* Product Description */}
             <Box px={{ base: 8, md: 12 }} py={8} bg="rgba(255,255,255,0.04)">
               <Text color="gray.200" fontSize="lg" lineHeight="tall" maxW="4xl">
-                MediBoo is a full-featured, multi-tenant SaaS clinic management system built for
-                homeopathic and general medical practices. A single platform hosts multiple
-                independent clinics — each with their own branches, doctors, receptionists, and
-                fully white-labelled branding. From patient registration and clinical investigations
-                to appointment scheduling, token queues, and real-time analytics — MediBoo covers
-                the complete clinic workflow end-to-end.
+                MediBoo is Boolavas&apos;s flagship SaaS product — a multi-tenant clinic management
+                system for homeopathic and general medical practices. A single platform hosts multiple
+                independent clinics, each with their own branches, doctors, receptionists, and fully
+                white-labelled branding. From patient registration and clinical investigations to
+                appointment scheduling, token queues, and real-time analytics — MediBoo covers the
+                complete clinic workflow end-to-end.
               </Text>
             </Box>
 
@@ -203,11 +251,7 @@ const Products = () => {
                       _hover={{ bg: 'whiteAlpha.150', borderColor: 'brand.lightBlue' }}
                       transition="all 0.2s"
                     >
-                      <Box
-                        bg="brand.blue"
-                        p={2}
-                        borderRadius="lg"
-                      >
+                      <Box bg="brand.blue" p={2} borderRadius="lg">
                         <Icon as={feature.icon} boxSize={5} color="white" />
                       </Box>
                       <Text color="white" fontWeight="semibold" fontSize="sm">
@@ -265,7 +309,6 @@ const Products = () => {
                 align="center"
                 gap={8}
               >
-                {/* Client Logo */}
                 <Box
                   borderRadius="xl"
                   overflow="hidden"
@@ -287,7 +330,6 @@ const Products = () => {
                   />
                 </Box>
 
-                {/* Client Info */}
                 <VStack align="flex-start" spacing={3} flex={1}>
                   <HStack spacing={3} flexWrap="wrap">
                     <Heading size="md" color="brand.navy">
