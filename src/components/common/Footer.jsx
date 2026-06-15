@@ -16,7 +16,6 @@ import { Link as RouterLink } from 'react-router-dom'
 import {
   FaEnvelope,
   FaMapMarkerAlt,
-  FaWhatsapp,
   FaPhone,
 } from 'react-icons/fa'
 import boolavasLogo from '../../assets/boolavas logo.png'
@@ -63,12 +62,6 @@ const Footer = () => {
                 <Icon as={FaPhone} color="brand.lightBlue" />
                 <Link href="tel:+918667430536" fontSize="sm" _hover={{ color: 'brand.lightBlue' }}>
                   +91 86674 30536
-                </Link>
-              </HStack>
-              <HStack>
-                <Icon as={FaWhatsapp} color="brand.lightBlue" />
-                <Link href="https://wa.me/918667430536" isExternal fontSize="sm" _hover={{ color: 'brand.lightBlue' }}>
-                  WhatsApp Us
                 </Link>
               </HStack>
               <HStack>

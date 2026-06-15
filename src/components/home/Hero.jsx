@@ -11,9 +11,7 @@
   Button,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import { FaWhatsapp, FaEnvelope, FaCheckCircle } from 'react-icons/fa'
-import { Link as RouterLink } from 'react-router-dom'
-import boolavasLogo from '../../assets/boolavas logo.png'
+import { FaCheckCircle, FaHeadset } from 'react-icons/fa'
 import medibooLogo from '../../assets/MediBoo Logo.png'
 
 const MotionBox = motion(Box)
@@ -26,8 +24,8 @@ const Hero = () => {
       bg="brand.navy"
       position="relative"
       overflow="hidden"
-      pt={{ base: 20, md: 32 }}
-      pb={{ base: 20, md: 32 }}
+      pt={{ base: 12, md: 24 }}
+      pb={{ base: 12, md: 24 }}
     >
       {/* Background gradient effect */}
       <Box
@@ -43,97 +41,111 @@ const Hero = () => {
       <Container maxW="7xl" position="relative" zIndex={1}>
         <Stack
           direction={{ base: 'column', lg: 'row' }}
-          spacing={12}
+          spacing={{ base: 8, lg: 12 }}
           align="center"
           justify="space-between"
         >
           {/* Left: Text content */}
           <VStack
             align={{ base: 'center', lg: 'flex-start' }}
-            spacing={8}
+            spacing={{ base: 5, md: 6 }}
             flex={1}
             textAlign={{ base: 'center', lg: 'left' }}
           >
-            {/* Boolavas logo */}
-            <Box bg="white" borderRadius="2xl" px={5} py={3} display="inline-flex" boxShadow="lg">
-              <Image
-                src={boolavasLogo}
-                alt="Boolavas"
-                h="52px"
-                objectFit="contain"
-              />
-            </Box>
+            {/* Badge */}
+            <Badge
+              bg="brand.blue"
+              color="white"
+              fontSize="xs"
+              px={3}
+              py={1}
+              borderRadius="full"
+              textTransform="uppercase"
+              letterSpacing="wider"
+            >
+              Healthcare SaaS Platform
+            </Badge>
 
             <MotionHeading
               as="h1"
-              size="3xl"
+              fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
               color="white"
               lineHeight="shorter"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              Powering Clinics with{' '}
-              <Text as="span" color="brand.blue">MediBoo</Text>
+              Modern Clinic Management Software{' '}
+              <Text as="span" color="brand.blue" display="block">
+                for Homeopathy & Medical Clinics
+              </Text>
             </MotionHeading>
 
             <MotionText
-              fontSize="xl"
+              fontSize={{ base: 'lg', md: 'xl' }}
               color="gray.300"
               maxW="xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              MediBoo is Boolavas&apos;s flagship SaaS product — a multi-tenant clinic management
-              system with white-label branding, queue management, appointments, and real-time
-              analytics. Already live in production.
+              Streamline patient management, appointments, prescriptions, billing, 
+              investigations, and follow-ups — all in one powerful platform.
             </MotionText>
 
-            <VStack align={{ base: 'center', lg: 'flex-start' }} spacing={3}>
-              <HStack spacing={3}>
-                <FaCheckCircle color="#ff3131" />
-                <Text color="gray.300">Multi-Tenant · Multi-Branch · White-Label</Text>
+            <VStack align={{ base: 'center', lg: 'flex-start' }} spacing={2} pt={2}>
+              <HStack spacing={2}>
+                <FaCheckCircle color="#ff3131" size={16} />
+                <Text color="gray.300" fontSize="sm">90-Day Free Trial · No Credit Card Required</Text>
               </HStack>
-              <HStack spacing={3}>
-                <FaCheckCircle color="#ff3131" />
-                <Text color="gray.300">Appointments, Queue & Patient Management</Text>
+              <HStack spacing={2}>
+                <FaCheckCircle color="#ff3131" size={16} />
+                <Text color="gray.300" fontSize="sm">Multi-Branch Support · White-Label Ready</Text>
               </HStack>
-              <HStack spacing={3}>
-                <FaCheckCircle color="#ff3131" />
-                <Text color="gray.300">Live in Production — Trusted by Clinics</Text>
+              <HStack spacing={2}>
+                <FaCheckCircle color="#ff3131" size={16} />
+                <Text color="gray.300" fontSize="sm">Trusted by Clinics · Live in Production</Text>
               </HStack>
             </VStack>
 
             {/* Primary CTAs */}
-            <Stack direction={{ base: 'column', sm: 'row' }} spacing={4} pt={2} w={{ base: 'full', sm: 'auto' }}>
+            <Stack 
+              direction={{ base: 'column', sm: 'row' }} 
+              spacing={4} 
+              pt={4} 
+              w={{ base: 'full', sm: 'auto' }}
+            >
               <Button
                 as="a"
-                href="mailto:contact@boolavas.in?subject=MediBoo Demo Request"
-                leftIcon={<FaEnvelope />}
-                size="lg"
+                href="https://mediboo-platform.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                size={{ base: 'lg', md: 'lg' }}
                 bg="brand.blue"
                 color="white"
-                _hover={{ bg: 'brand.600', transform: 'translateY(-2px)', boxShadow: 'lg' }}
+                _hover={{ bg: 'brand.600', transform: 'translateY(-2px)', boxShadow: 'xl' }}
                 transition="all 0.3s"
                 borderRadius="xl"
+                px={8}
+                fontWeight="bold"
               >
-                Request a Demo
+                Start 90-Day Free Trial
               </Button>
               <Button
                 as="a"
-                href="https://wa.me/918667430536?text=Hi%2C%20I%20want%20a%20demo%20of%20MediBoo"
-                target="_blank"
-                rel="noopener noreferrer"
-                leftIcon={<FaWhatsapp />}
-                size="lg"
-                bg="green.500"
+                href="/contact"
+                leftIcon={<FaHeadset />}
+                size={{ base: 'lg', md: 'lg' }}
+                bg="whiteAlpha.200"
                 color="white"
-                _hover={{ bg: 'green.600', transform: 'translateY(-2px)', boxShadow: 'lg' }}
+                borderWidth="1px"
+                borderColor="whiteAlpha.300"
+                _hover={{ bg: 'whiteAlpha.300', transform: 'translateY(-2px)', boxShadow: 'lg' }}
                 transition="all 0.3s"
                 borderRadius="xl"
+                px={8}
               >
-                WhatsApp Us
+                Contact Support
               </Button>
             </Stack>
           </VStack>
@@ -141,6 +153,7 @@ const Hero = () => {
           {/* Right side — MediBoo showcase */}
           <MotionBox
             flex={1}
+            display={{ base: 'none', lg: 'block' }}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -148,14 +161,14 @@ const Hero = () => {
             <Box
               bg="linear-gradient(135deg, #1a0000 0%, #3d0000 50%, #ff3131 100%)"
               borderRadius="2xl"
-              p={10}
+              p={8}
               boxShadow="0 0 60px rgba(255, 49, 49, 0.3), 0 25px 50px rgba(0,0,0,0.5)"
               position="relative"
               border="1px solid"
               borderColor="rgba(255,49,49,0.3)"
               overflow="hidden"
             >
-              {/* Glow top right */}
+              {/* Glow effect */}
               <Box
                 position="absolute"
                 top="-30%"
@@ -165,27 +178,27 @@ const Hero = () => {
                 bg="radial-gradient(circle, rgba(255,49,49,0.25) 0%, transparent 70%)"
                 pointerEvents="none"
               />
-              <VStack spacing={8} position="relative">
-                {/* MediBoo Logo — big and centred */}
-                <VStack spacing={4}>
+              <VStack spacing={6} position="relative">
+                {/* MediBoo Logo */}
+                <VStack spacing={3}>
                   <Box
                     bg="white"
                     borderRadius="2xl"
-                    p={5}
+                    p={4}
                     boxShadow="0 0 30px rgba(255,49,49,0.5)"
                     display="inline-flex"
                   >
                     <Image
                       src={medibooLogo}
                       alt="MediBoo"
-                      h="100px"
-                      w="100px"
+                      h="80px"
+                      w="80px"
                       objectFit="cover"
                       borderRadius="xl"
                     />
                   </Box>
                   <VStack spacing={1}>
-                    <Text color="white" fontWeight="extrabold" fontSize="3xl" letterSpacing="tight">
+                    <Text color="white" fontWeight="extrabold" fontSize="2xl" letterSpacing="tight">
                       MediBoo
                     </Text>
                     <Badge bg="green.400" color="white" px={3} py={1} borderRadius="full" fontSize="xs">
@@ -194,26 +207,12 @@ const Hero = () => {
                   </VStack>
                 </VStack>
 
-                {/* Stats row */}
-                <HStack spacing={6} justify="center" w="full">
-                  {[
-                    { label: 'Multi-Tenant', val: 'SaaS' },
-                    { label: 'White-Label', val: 'Ready' },
-                    { label: 'Healthcare', val: 'Focused' },
-                  ].map((s) => (
-                    <VStack key={s.label} spacing={1} textAlign="center">
-                      <Text color="brand.lightBlue" fontWeight="bold" fontSize="md">{s.val}</Text>
-                      <Text color="gray.400" fontSize="xs">{s.label}</Text>
-                    </VStack>
-                  ))}
-                </HStack>
-
                 {/* Divider */}
                 <Box w="full" h="1px" bg="rgba(255,49,49,0.3)" />
 
-                {/* Quick feature tags */}
+                {/* Feature tags */}
                 <HStack flexWrap="wrap" justify="center" spacing={2}>
-                  {['Patient Mgmt', 'Appointments', 'Queue System', 'Analytics', 'RBAC', 'Multi-Branch'].map((tag) => (
+                  {['Patients', 'Appointments', 'Prescriptions', 'Billing', 'Reports'].map((tag) => (
                     <Badge
                       key={tag}
                       bg="rgba(255,49,49,0.15)"

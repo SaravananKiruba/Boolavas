@@ -46,13 +46,6 @@ const values = [
   },
 ]
 
-const stats = [
-  { number: '50+', label: 'Projects Delivered' },
-  { number: '30+', label: 'Happy Clients' },
-  { number: '5+', label: 'Years Experience' },
-  { number: '100%', label: 'Client Satisfaction' },
-]
-
 const About = () => {
   return (
     <Box>
@@ -134,32 +127,6 @@ const About = () => {
               </Box>
             </Box>
           </Stack>
-        </Container>
-      </Box>
-
-      {/* Stats */}
-      <Box py={20} bg="brand.navy">
-        <Container maxW="7xl">
-          <SimpleGrid columns={{ base: 2, md: 4 }} spacing={8}>
-            {stats.map((stat, index) => (
-              <MotionBox
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <VStack spacing={2}>
-                  <Heading size="2xl" color="brand.lightBlue">
-                    {stat.number}
-                  </Heading>
-                  <Text color="gray.300" fontSize="lg" fontWeight="semibold">
-                    {stat.label}
-                  </Text>
-                </VStack>
-              </MotionBox>
-            ))}
-          </SimpleGrid>
         </Container>
       </Box>
 

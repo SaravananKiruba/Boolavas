@@ -15,7 +15,6 @@ import SEO from '../components/common/SEO'
 import ContactForm from '../components/sections/ContactForm'
 import {
   FaEnvelope,
-  FaWhatsapp,
   FaPhone,
   FaMapMarkerAlt,
   FaCheckCircle,
@@ -30,13 +29,6 @@ const contactMethods = [
     detail: 'contact@boolavas.in',
     description: 'Get a response within 24 hours',
     href: 'mailto:contact@boolavas.in',
-  },
-  {
-    icon: FaWhatsapp,
-    title: 'WhatsApp',
-    detail: '+91 86674 30536',
-    description: 'Chat with us on WhatsApp',
-    href: 'https://wa.me/918667430536',
   },
   {
     icon: FaPhone,
@@ -83,7 +75,7 @@ const Contact = () => {
       {/* Contact Info Cards */}
       <Box py={20} bg="white">
         <Container maxW="7xl">
-          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} mb={16}>
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} mb={16}>
             {contactMethods.map((method, index) => (
               <MotionBox
                 key={index}
@@ -192,15 +184,14 @@ const Contact = () => {
                       </Link>
                     </HStack>
                     <HStack>
-                      <Icon as={FaWhatsapp} color="green.500" />
+                      <Icon as={FaPhone} color="brand.blue" />
                       <Link
-                        href="https://wa.me/918667430536"
-                        isExternal
+                        href="tel:+918667430536"
                         fontSize="md"
                         fontWeight="bold"
-                        color="green.500"
+                        color="brand.blue"
                       >
-                        +91 86674 30536 (WhatsApp)
+                        +91 86674 30536
                       </Link>
                     </HStack>
                     <Text fontSize="sm" color="gray.500" pt={1}>
