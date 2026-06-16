@@ -11,54 +11,64 @@ import {
   AccordionIcon,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
+import FAQSchema from '../schemas/FAQSchema'
 
 const MotionBox = motion(Box)
 
 const faqs = [
   {
-    question: 'What is MediBoo?',
-    answer: 'MediBoo is a multi-tenant SaaS clinic management system built for homeopathic and general medical practices. It covers everything from patient registration and medical history to appointment scheduling, clinical investigations, queue/token management, and real-time analytics — all in a single white-labelled platform.',
+    question: 'What is the best clinic management software for homeopathy clinics?',
+    answer: 'MediBoo by Boolavas is clinic management software built specifically for Homeopathy clinics. It includes patient management, appointment scheduling, prescription generation, billing, and follow-up tracking designed for homeopathic practitioners.',
+  },
+  {
+    question: 'Does MediBoo support Siddha and Ayurveda clinics?',
+    answer: 'Yes. MediBoo is designed for traditional medicine practices including Siddha, Ayurveda, and Homeopathy clinics. The platform supports custom prescription templates, treatment protocols, and medicine catalogs specific to each practice.',
+  },
+  {
+    question: 'Is MediBoo suitable for dental clinics?',
+    answer: 'Absolutely. MediBoo works for Dental clinics and supports procedures tracking, treatment plans, dental charts, and specialized billing. Dental practitioners in Chennai, Coimbatore, and Madurai are already using MediBoo.',
+  },
+  {
+    question: 'Can I manage appointments and billing with MediBoo?',
+    answer: 'Yes. MediBoo provides complete appointment management with automated SMS/email reminders, calendar scheduling, and integrated billing with invoice generation, payment tracking, and GST support.',
+  },
+  {
+    question: 'Is MediBoo useful for acupuncture clinics?',
+    answer: 'Yes. MediBoo supports Acupuncture clinics with patient history tracking, treatment session logging, and appointment management. The platform is flexible enough to adapt to various alternative medicine practices.',
+  },
+  {
+    question: 'Does MediBoo work for small clinics?',
+    answer: 'Yes. MediBoo is perfect for small clinics, solo practitioners, and multi-branch setups. You can start with a single doctor and scale to multiple branches as your practice grows. There\'s a 90-day free trial with no credit card required.',
+  },
+  {
+    question: 'Can doctors manage patient history in MediBoo?',
+    answer: 'Yes. MediBoo provides comprehensive patient history management including chief complaints, medical history, treatment records, investigation results, prescriptions, and follow-up notes — all stored securely and accessible anytime.',
+  },
+  {
+    question: 'Is MediBoo available in India?',
+    answer: 'Yes. MediBoo is built for Indian clinics and supports clinics across Chennai, Coimbatore, Madurai, and all of Tamil Nadu. The platform supports Indian billing standards, GST compliance, and local payment methods.',
   },
   {
     question: 'Can MediBoo support multiple clinics and branches?',
-    answer: 'Yes. MediBoo is built on a proper multi-tenant architecture. A single deployment hosts multiple independent clinics, each with their own branches, doctors, receptionists, and fully isolated patient data. Each clinic can have its own branding, logo, colors, and custom domain.',
-  },
-  {
-    question: 'What roles are supported in MediBoo?',
-    answer: 'MediBoo supports Super Admin, Clinic Admin, Branch Admin, Doctor, and Receptionist roles — each with scoped data access and permissions. Receptionists can manage appointments and demographics but cannot access medical data. Doctors own and manage their patients. Branch and Clinic Admins have aggregated visibility across their hierarchy.',
+    answer: 'Yes. MediBoo is built on a multi-tenant architecture that supports multiple independent clinics, each with their own branches, doctors, receptionists, and fully isolated patient data. Each clinic can have custom branding and domain.',
   },
   {
     question: 'Is MediBoo white-label ready?',
-    answer: 'Yes. Each clinic on MediBoo gets its own logo, color scheme, favicon, custom CSS, and custom domain — delivering a fully white-labelled experience. Patients and staff only see the clinic\'s branding, never the underlying platform.',
-  },
-  {
-    question: 'What is the queue/token system in MediBoo?',
-    answer: 'MediBoo includes a Kanban-style queue board with token issuance, priority levels (Urgent, Senior, Normal), wait-time indicators, and token status transitions (Waiting → Called → Serving → Done). Tokens can be linked to registered patients or issued to walk-in visitors.',
-  },
-  {
-    question: 'What tech stack does MediBoo use?',
-    answer: 'MediBoo is built on Next.js (Pages Router) for the frontend and API layer, MySQL with Prisma ORM for the database, NextAuth.js for authentication, and Chakra UI for the interface. It is deployed on Vercel with Supabase Storage for file uploads.',
-  },
-  {
-    question: 'Who built Boolavas and its products?',
-    answer: 'Boolavas is a solo-founder product company. Every product — including MediBoo — is designed, engineered, and maintained by a single tech lead. This means tighter quality control, faster iteration, and no layers of overhead between idea and production.',
-  },
-  {
-    question: 'Can I use MediBoo for my clinic?',
-    answer: 'Yes. Get in touch through the contact page and we can discuss onboarding your clinic onto MediBoo. Whether you need a single branch or a multi-branch setup with custom branding, MediBoo can be configured to fit your workflow.',
+    answer: 'Yes. Each clinic on MediBoo gets its own logo, color scheme, favicon, custom CSS, and custom domain — delivering a fully white-labelled experience. Patients and staff only see the clinic\'s branding.',
   },
 ]
 
 const FAQ = () => {
   return (
-    <Box py={20} bg="white" id="faq">
+    <Box as="section" py={20} bg="white" id="faq">
+      <FAQSchema faqs={faqs} />
       <Container maxW="4xl">
         <VStack spacing={4} textAlign="center" mb={12}>
-          <Heading size="2xl" color="brand.navy">
+          <Heading as="h2" size="2xl" color="brand.navy">
             Frequently Asked Questions
           </Heading>
           <Text fontSize="xl" color="gray.600">
-            Everything you need to know about Boolavas and MediBoo
+            Common questions about MediBoo clinic management software
           </Text>
         </VStack>
 

@@ -44,7 +44,7 @@ const services = [
     icon: FaCloud,
     title: 'SaaS Product Development',
     description: 'Build scalable SaaS platforms with modern architecture, subscription management, and cloud infrastructure.',
-    link: '/services',
+    link: '/software-development',
   },
   {
     icon: FaBuilding,
@@ -56,13 +56,13 @@ const services = [
     icon: FaRobot,
     title: 'AI-Powered Automation',
     description: 'Intelligent automation and agentic systems to reduce manual work and increase efficiency.',
-    link: '/services',
+    link: '/software-development',
   },
 ]
 
 const Services = () => {
   return (
-    <Box py={20} bg="gray.50">
+    <Box as="section" py={20} bg="gray.50">
       <Container maxW="7xl">
         <VStack spacing={4} textAlign="center" mb={16}>
           <Heading size="2xl" color="brand.navy">

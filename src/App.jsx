@@ -1,29 +1,62 @@
 import { Routes, Route } from 'react-router-dom'
 import { Box } from '@chakra-ui/react'
+import { lazy, Suspense } from 'react'
 import Navbar from './components/common/Navbar'
 import Footer from './components/common/Footer'
-import Home from './pages/Home'
-import MobileAppDevelopment from './pages/MobileAppDevelopment'
-import WebsiteDevelopment from './pages/WebsiteDevelopment'
-import SoftwareDevelopment from './pages/SoftwareDevelopment'
-import About from './pages/About'
-import Contact from './pages/Contact'
 import ScrollToTop from './components/common/ScrollToTop'
+import OrganizationSchema from './components/schemas/OrganizationSchema'
+import LocalBusinessSchema from './components/schemas/LocalBusinessSchema'
+
+// Lazy load page components
+const Home = lazy(() => import('./pages/Home'))
+const About = lazy(() => import('./pages/About'))
+const Contact = lazy(() => import('./pages/Contact'))
+const NotFound = lazy(() => import('./pages/NotFound'))
+
+// Loading fallback component
+const PageLoader = () => (
+  <Box 
+    minH="60vh" 
+    display="flex" 
+    alignItems="center" 
+    justifyContent="center"
+    bg="brand.navy"
+  >
+    <Box
+      as="div"
+      w="50px"
+      h="50px"
+      border="4px solid"
+      borderColor="brand.lightBlue"
+      borderTopColor="transparent"
+      borderRadius="50%"
+      animation="spin 1s linear infinite"
+      sx={{
+        '@keyframes spin': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+      }}
+    />
+  </Box>
+)
 
 function App() {
   return (
     <Box minH="100vh" display="flex" flexDirection="column">
       <ScrollToTop />
+      <OrganizationSchema />
+      <LocalBusinessSchema />
       <Navbar />
-      <Box flex={1}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/mobile-app-development" element={<MobileAppDevelopment />} />
-          <Route path="/website-development" element={<WebsiteDevelopment />} />
-          <Route path="/software-development" element={<SoftwareDevelopment />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+      <Box as="main" flex={1}>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </Box>
       <Footer />
     </Box>

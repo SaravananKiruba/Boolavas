@@ -53,11 +53,11 @@ const HowItWorks = () => {
     <Box py={20} bg="white">
       <Container maxW="7xl">
         <VStack spacing={4} textAlign="center" mb={16}>
-          <Heading size="2xl" color="brand.navy">
-            How It Works
+          <Heading as="h2" size="2xl" color="brand.navy">
+            How MediBoo Works
           </Heading>
           <Text fontSize="xl" color="gray.600" maxW="3xl">
-            Get started with MediBoo in 5 simple steps
+            Start managing your clinic in 5 simple steps
           </Text>
         </VStack>
 

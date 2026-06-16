@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import SEO from '../components/common/SEO'
+import BreadcrumbSchema from '../components/schemas/BreadcrumbSchema'
 import ContactForm from '../components/sections/ContactForm'
 import {
   FaEnvelope,
@@ -40,33 +41,41 @@ const contactMethods = [
 ]
 
 const reasons = [
-  'Free initial consultation and project estimation',
-  'Dedicated project manager for your account',
-  'Transparent pricing with no hidden costs',
-  'Agile development with regular updates',
-  'Post-launch support and maintenance',
-  'NDA and confidentiality guaranteed',
+  'Start your 90-day free trial with no credit card',
+  'Get personalized onboarding and training',
+  'Dedicated support via email and chat',
+  'Custom branding and white-label setup',
+  'Multi-branch and multi-doctor configuration',
+  'Secure, HIPAA-compliant data storage',
 ]
 
 const Contact = () => {
   return (
     <Box>
       <SEO
-        title="Contact Us - Get in Touch for Software Development | Boolavas"
-        description="Contact Boolavas for custom software development, mobile apps, and website development. Get a free consultation and project quote. Email: contact@boolavas.in"
-        keywords="contact software development company, hire developers india, software development inquiry, get quote mobile app development"
+        title="Contact MediBoo - Clinic Management Software Support | Boolavas"
+        description="Contact Boolavas for MediBoo clinic management software inquiries and support. Get help with setup, features, or start your 90-day free trial. Email: contact@boolavas.in"
+        keywords="contact mediboo, clinic software support, mediboo help, boolavas contact, clinic management software inquiry"
         canonical="https://boolavas.in/contact"
       />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: 'https://boolavas.in' },
+          { name: 'Contact Us', url: 'https://boolavas.in/contact' }
+        ]}
+      />
+
+      {/* Hero Section */}
 
       {/* Hero Section */}
       <Box bg="brand.navy" pt={32} pb={20}>
         <Container maxW="7xl">
           <VStack spacing={6} textAlign="center">
-            <Heading size="3xl" color="white" lineHeight="shorter">
-              Let&apos;s Build Something Great Together
+            <Heading as="h1" size="3xl" color="white" lineHeight="shorter">
+              Get in Touch with MediBoo
             </Heading>
             <Text fontSize="xl" color="gray.300" maxW="3xl">
-              Share your project requirements and we&apos;ll get back to you within 24 hours with a detailed proposal
+              Have questions about MediBoo clinic management software? We&apos;re here to help.
             </Text>
           </VStack>
         </Container>

@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import SEO from '../components/common/SEO'
+import BreadcrumbSchema from '../components/schemas/BreadcrumbSchema'
 import CTASection from '../components/sections/CTASection'
 import {
   FaCode,
@@ -50,10 +51,16 @@ const About = () => {
   return (
     <Box>
       <SEO
-        title="About Us - Solutions Company Madurai, Tamil Nadu | Boolavas"
-        description="Boolavas is a solutions company based in Madurai, Tamil Nadu, India — building powerful SaaS products and custom digital solutions for businesses worldwide."
-        keywords="about boolavas, solutions company madurai, software solutions india, technology partner, SaaS products, custom software developers"
+        title="About Boolavas - Creator of MediBoo Clinic Management Software"
+        description="Boolavas is the creator of MediBoo, a clinic management software for Homeopathy, Siddha, Dental, and Acupuncture clinics across India. Built in Madurai, Tamil Nadu."
+        keywords="about boolavas, mediboo creator, clinic software developer, boolavas india, madurai software company, tamil nadu clinic software"
         canonical="https://boolavas.in/about"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: 'https://boolavas.in' },
+          { name: 'About Us', url: 'https://boolavas.in/about' }
+        ]}
       />
 
       {/* Hero Section */}
@@ -68,11 +75,11 @@ const About = () => {
                 objectFit="contain"
               />
             </Box>
-            <Heading size="3xl" color="white" lineHeight="shorter">
+            <Heading as="h1" size="3xl" color="white" lineHeight="shorter">
               About Boolavas
             </Heading>
             <Text fontSize="xl" color="gray.300" maxW="3xl">
-              A Solutions Company from Madurai, Tamil Nadu, India
+              Creator of MediBoo Clinic Management Software
             </Text>
           </VStack>
         </Container>
@@ -87,17 +94,17 @@ const About = () => {
             align="center"
           >
             <VStack align="flex-start" spacing={6} flex={1}>
-              <Heading size="2xl" color="brand.navy">
+              <Heading as="h2" size="2xl" color="brand.navy">
                 Who We Are
               </Heading>
               <Text fontSize="lg" color="gray.700" lineHeight="tall">
-                Boolavas is a solutions company based in Madurai, Tamil Nadu, India — we design and build powerful software products and custom digital solutions for businesses worldwide. We&apos;re a fully remote team with no physical office, keeping us lean, agile, and focused entirely on delivering value.
+                Boolavas is the company behind <strong>MediBoo</strong>, a clinic management software built for Homeopathy, Siddha, Dental, and Acupuncture clinics across India. Based in Madurai, Tamil Nadu, we focus on building healthcare software that solves real problems for Indian clinics.
               </Text>
               <Text fontSize="lg" color="gray.700" lineHeight="tall">
-                Our flagship product is <strong>MediBoo</strong> — a multi-tenant SaaS clinic management system already live in production, serving homeopathic and general medical practices across India.
+                MediBoo is our flagship product — a multi-tenant SaaS platform already live in production, helping clinics in Chennai, Coimbatore, Madurai, and beyond manage their patients, appointments, prescriptions, billing, and follow-ups efficiently.
               </Text>
               <Text fontSize="lg" color="gray.700" lineHeight="tall">
-                Whether you need a custom business solution, a white-label SaaS product, or a digital transformation — Boolavas is your technology partner.
+                We understand the unique needs of Indian healthcare practices and build software that fits seamlessly into their workflows.
               </Text>
             </VStack>
 
@@ -121,7 +128,7 @@ const About = () => {
                     Our Mission
                   </Heading>
                   <Text textAlign="center" fontSize="lg">
-                    To empower businesses with world-class software solutions that drive growth, efficiency, and competitive advantage.
+                    To empower Indian clinics with modern, affordable clinic management software that simplifies operations and improves patient care.
                   </Text>
                 </VStack>
               </Box>
@@ -134,7 +141,7 @@ const About = () => {
       <Box py={20} bg="gray.50">
         <Container maxW="7xl">
           <VStack spacing={4} textAlign="center" mb={12}>
-            <Heading size="2xl" color="brand.navy">
+            <Heading as="h2" size="2xl" color="brand.navy">
               Our Core Values
             </Heading>
             <Text fontSize="xl" color="gray.600" maxW="3xl">
@@ -189,11 +196,11 @@ const About = () => {
       <Box py={20} bg="white">
         <Container maxW="7xl">
           <VStack spacing={4} textAlign="center" mb={12}>
-            <Heading size="2xl" color="brand.navy">
-              Why Businesses Choose Boolavas
+            <Heading as="h2" size="2xl" color="brand.navy">
+              Why Clinics Choose MediBoo
             </Heading>
             <Text fontSize="xl" color="gray.600" maxW="3xl">
-              What makes us different from other software companies
+              What makes MediBoo the right choice for your clinic
             </Text>
           </VStack>
 
@@ -201,10 +208,10 @@ const About = () => {
             <Box p={6} bg="gray.50" borderRadius="xl">
               <VStack align="flex-start" spacing={3}>
                 <Heading size="sm" color="brand.navy">
-                  Enterprise-Grade Quality
+                  Built for Indian Clinics
                 </Heading>
                 <Text color="gray.600">
-                  We deliver production-ready code that meets enterprise standards, ensuring your software is secure, scalable, and maintainable.
+                  MediBoo is designed specifically for Indian healthcare practices with features tailored to local needs, billing standards, and workflows.
                 </Text>
               </VStack>
             </Box>
@@ -212,10 +219,10 @@ const About = () => {
             <Box p={6} bg="gray.50" borderRadius="xl">
               <VStack align="flex-start" spacing={3}>
                 <Heading size="sm" color="brand.navy">
-                  Business Understanding
+                  Multi-Specialty Support
                 </Heading>
                 <Text color="gray.600">
-                  We don&apos;t just code—we understand your business goals and build solutions that deliver measurable ROI.
+                  Whether you run a Homeopathy, Siddha, Dental, or Acupuncture clinic, MediBoo adapts to your specialty with customizable templates and workflows.
                 </Text>
               </VStack>
             </Box>
@@ -223,10 +230,10 @@ const About = () => {
             <Box p={6} bg="gray.50" borderRadius="xl">
               <VStack align="flex-start" spacing={3}>
                 <Heading size="sm" color="brand.navy">
-                  Long-Term Partnership
+                  90-Day Free Trial
                 </Heading>
                 <Text color="gray.600">
-                  We&apos;re here for the long haul, providing ongoing support, updates, and strategic guidance as your business grows.
+                  Try MediBoo risk-free for 90 days with full access to all features. No credit card required, no strings attached.
                 </Text>
               </VStack>
             </Box>
@@ -235,8 +242,10 @@ const About = () => {
       </Box>
 
       <CTASection
-        title="Ready to Work Together?"
-        description="Let's discuss how we can help transform your business with technology."
+        title="Ready to Transform Your Clinic?"
+        description="Join clinics already using MediBoo to streamline their operations and improve patient care."
+        primaryCTA="Start 90-Day Free Trial"
+        secondaryCTA="Contact Support"
       />
     </Box>
   )

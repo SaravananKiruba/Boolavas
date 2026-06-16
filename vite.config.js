@@ -14,8 +14,12 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          // Bundle all vendor dependencies together to avoid React instance conflicts
-          vendor: ['react', 'react-dom', 'react-router-dom', '@chakra-ui/react', '@emotion/react', '@emotion/styled', 'framer-motion', 'react-helmet-async', 'react-icons']
+          // Split vendor dependencies for better caching and parallel loading
+          reactCore: ['react', 'react-dom'],
+          router: ['react-router-dom'],
+          chakra: ['@chakra-ui/react', '@emotion/react', '@emotion/styled'],
+          motion: ['framer-motion'],
+          utils: ['react-helmet-async', 'react-icons']
         }
       }
     }

@@ -88,8 +88,8 @@ const Pricing = () => {
           >
             Pricing
           </Badge>
-          <Heading size="2xl" color="brand.navy">
-            Simple, Transparent Pricing
+          <Heading as="h2" size="2xl" color="brand.navy">
+            Trusted by Clinics Across Chennai, Coimbatore & Madurai
           </Heading>
           <Text fontSize="xl" color="gray.600" maxW="3xl">
             Start with a 90-day free trial. No credit card required.

@@ -67,7 +67,7 @@ const medibooFeatures = [
 
 const Products = () => {
   return (
-    <Box py={20} bg="white" id="products">
+    <Box as="section" py={20} bg="white" id="products">
       <Container maxW="7xl">
         {/* Section Header */}
         <VStack spacing={4} textAlign="center" mb={16}>
@@ -81,13 +81,13 @@ const Products = () => {
             textTransform="uppercase"
             letterSpacing="wider"
           >
-            Features
+            MediBoo Features
           </Badge>
-          <Heading size="2xl" color="brand.navy">
-            Everything You Need to Run Your Clinic
+          <Heading as="h2" size="2xl" color="brand.navy">
+            Built for Homeopathy, Siddha, Dental & Acupuncture Clinics
           </Heading>
           <Text fontSize="xl" color="gray.600" maxW="3xl">
-            From patient registration to billing — MediBoo handles your complete clinic workflow.
+            MediBoo handles your complete clinic workflow — from patient registration to billing and follow-ups.
           </Text>
         </VStack>
 

@@ -19,7 +19,7 @@ const CTASection = ({
   bg = "brand.navy"
 }) => {
   return (
-    <Box bg={bg} py={20} position="relative" overflow="hidden">
+    <Box as="section" bg={bg} py={20} position="relative" overflow="hidden">
       {/* Background decoration */}
       <Box
         position="absolute"

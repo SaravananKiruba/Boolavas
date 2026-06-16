@@ -21,6 +21,7 @@ const MotionText = motion(Text)
 const Hero = () => {
   return (
     <Box
+      as="section"
       bg="brand.navy"
       position="relative"
       overflow="hidden"
@@ -75,9 +76,9 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              Modern Clinic Management Software{' '}
+              Clinic Management Software for{' '}
               <Text as="span" color="brand.blue" display="block">
-                for Homeopathy & Medical Clinics
+                Homeopathy, Siddha & Dental Clinics
               </Text>
             </MotionHeading>
 
@@ -89,8 +90,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Streamline patient management, appointments, prescriptions, billing, 
-              investigations, and follow-ups — all in one powerful platform.
+              MediBoo by Boolavas helps Homeopathy, Siddha, Dental & Acupuncture clinics in Chennai, Coimbatore & Madurai manage appointments, patients, billing, and prescriptions.
             </MotionText>
 
             <VStack align={{ base: 'center', lg: 'flex-start' }} spacing={2} pt={2}>

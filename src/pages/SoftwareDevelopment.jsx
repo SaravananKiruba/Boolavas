@@ -10,6 +10,8 @@ import {
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import SEO from '../components/common/SEO'
+import ServiceSchema from '../components/schemas/ServiceSchema'
+import BreadcrumbSchema from '../components/schemas/BreadcrumbSchema'
 import CTASection from '../components/sections/CTASection'
 import ContactForm from '../components/sections/ContactForm'
 import {
@@ -102,12 +104,23 @@ const SoftwareDevelopment = () => {
         keywords="custom software development india, ERP development company, CRM software development, business software development, enterprise application development india, SaaS development company india"
         canonical="https://boolavas.in/software-development"
       />
+      <ServiceSchema
+        serviceName="Custom Software Development"
+        description="Leading custom software development company in India. Build ERP, CRM, billing systems, inventory management, SaaS products, and enterprise applications."
+        url="https://boolavas.in/software-development"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: 'https://boolavas.in' },
+          { name: 'Software Development', url: 'https://boolavas.in/software-development' }
+        ]}
+      />
 
       {/* Hero Section */}
       <Box bg="brand.navy" pt={32} pb={20}>
         <Container maxW="7xl">
           <VStack spacing={6} textAlign="center">
-            <Heading size="3xl" color="white" lineHeight="shorter">
+            <Heading as="h1" size="3xl" color="white" lineHeight="shorter">
               Custom Software Development in India
             </Heading>
             <Text fontSize="xl" color="gray.300" maxW="3xl">
@@ -121,7 +134,7 @@ const SoftwareDevelopment = () => {
       <Box py={20} bg="white">
         <Container maxW="7xl">
           <VStack spacing={4} textAlign="center" mb={12}>
-            <Heading size="2xl" color="brand.navy">
+            <Heading as="h2" size="2xl" color="brand.navy">
               Software Solutions We Build
             </Heading>
             <Text fontSize="xl" color="gray.600" maxW="3xl">
@@ -166,7 +179,7 @@ const SoftwareDevelopment = () => {
       <Box py={20} bg="gray.50">
         <Container maxW="7xl">
           <VStack spacing={4} textAlign="center" mb={12}>
-            <Heading size="2xl" color="brand.navy">
+            <Heading as="h2" size="2xl" color="brand.navy">
               Why Choose Custom Software?
             </Heading>
             <Text fontSize="xl" color="gray.600" maxW="3xl">
@@ -206,7 +219,7 @@ const SoftwareDevelopment = () => {
       <Box py={20} bg="white">
         <Container maxW="7xl">
           <VStack spacing={4} textAlign="center" mb={12}>
-            <Heading size="2xl" color="brand.navy">
+            <Heading as="h2" size="2xl" color="brand.navy">
               Features We Build Into Your Software
             </Heading>
             <Text fontSize="xl" color="gray.600" maxW="3xl">
@@ -245,7 +258,7 @@ const SoftwareDevelopment = () => {
       <Box py={20} bg="brand.blue" position="relative" overflow="hidden">
         <Container maxW="5xl" position="relative" zIndex={1}>
           <VStack spacing={6} textAlign="center">
-            <Heading size="2xl" color="white">
+            <Heading as="h2" size="2xl" color="white">
               Industries We Serve
             </Heading>
             <Text fontSize="xl" color="gray.100" maxW="3xl">
@@ -285,7 +298,7 @@ const SoftwareDevelopment = () => {
       <Box py={20} bg="gray.50">
         <Container maxW="7xl">
           <VStack spacing={4} textAlign="center" mb={12}>
-            <Heading size="2xl" color="brand.navy">
+            <Heading as="h2" size="2xl" color="brand.navy">
               Our Development Approach
             </Heading>
             <Text fontSize="xl" color="gray.600" maxW="3xl">
@@ -322,7 +335,7 @@ const SoftwareDevelopment = () => {
       <Box py={20} bg="white">
         <Container maxW="5xl">
           <VStack spacing={6} mb={12} textAlign="center">
-            <Heading size="2xl" color="brand.navy">
+            <Heading as="h2" size="2xl" color="brand.navy">
               Let&apos;s Build Your Custom Software
             </Heading>
             <Text fontSize="xl" color="gray.600" maxW="3xl">

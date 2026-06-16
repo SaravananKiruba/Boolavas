@@ -54,14 +54,14 @@ const features = [
 
 const WhyChooseUs = () => {
   return (
-    <Box py={20} bg="white">
+    <Box as="section" py={20} bg="white">
       <Container maxW="7xl">
         <VStack spacing={4} textAlign="center" mb={16}>
-          <Heading size="2xl" color="brand.navy">
-            Why Boolavas?
+          <Heading as="h2" size="2xl" color="brand.navy">
+            Why Clinics Choose MediBoo by Boolavas
           </Heading>
           <Text fontSize="xl" color="gray.600" maxW="3xl">
-            A solo tech lead who builds complete SaaS products end-to-end. No bloat, no layers — just focused, high-quality engineering.
+            Built specifically for Indian clinics by understanding real Homeopathy, Siddha, Dental, and Acupuncture clinic workflows.
           </Text>
         </VStack>
 

@@ -41,7 +41,7 @@ const technologies = [
 
 const Technologies = () => {
   return (
-    <Box py={20} bg="white">
+    <Box as="section" py={20} bg="white">
       <Container maxW="7xl">
         <VStack spacing={4} textAlign="center" mb={16}>
           <Heading size="2xl" color="brand.navy">

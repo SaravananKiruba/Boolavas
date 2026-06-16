@@ -13,6 +13,8 @@ import {
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import SEO from '../components/common/SEO'
+import ServiceSchema from '../components/schemas/ServiceSchema'
+import BreadcrumbSchema from '../components/schemas/BreadcrumbSchema'
 import CTASection from '../components/sections/CTASection'
 import ContactForm from '../components/sections/ContactForm'
 import {
@@ -91,12 +93,23 @@ const WebsiteDevelopment = () => {
         keywords="website development company india, web development services india, ecommerce website development, SEO website development, responsive website design, web application development india"
         canonical="https://boolavas.in/website-development"
       />
+      <ServiceSchema
+        serviceName="Website Development"
+        description="Professional website development services including corporate websites, e-commerce platforms, and custom web applications. SEO optimized and mobile responsive."
+        url="https://boolavas.in/website-development"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: 'https://boolavas.in' },
+          { name: 'Website Development', url: 'https://boolavas.in/website-development' }
+        ]}
+      />
 
       {/* Hero Section */}
       <Box bg="brand.navy" pt={32} pb={20}>
         <Container maxW="7xl">
           <VStack spacing={6} textAlign="center">
-            <Heading size="3xl" color="white" lineHeight="shorter">
+            <Heading as="h1" size="3xl" color="white" lineHeight="shorter">
               Website Development Company in India
             </Heading>
             <Text fontSize="xl" color="gray.300" maxW="3xl">
@@ -126,7 +139,7 @@ const WebsiteDevelopment = () => {
       <Box py={20} bg="white">
         <Container maxW="7xl">
           <VStack spacing={4} textAlign="center" mb={12}>
-            <Heading size="2xl" color="brand.navy">
+            <Heading as="h2" size="2xl" color="brand.navy">
               Types of Websites We Build
             </Heading>
             <Text fontSize="xl" color="gray.600" maxW="3xl">
@@ -171,7 +184,7 @@ const WebsiteDevelopment = () => {
       <Box py={20} bg="gray.50">
         <Container maxW="7xl">
           <VStack spacing={4} textAlign="center" mb={12}>
-            <Heading size="2xl" color="brand.navy">
+            <Heading as="h2" size="2xl" color="brand.navy">
               Why Our Websites Stand Out
             </Heading>
             <Text fontSize="xl" color="gray.600" maxW="3xl">
@@ -216,7 +229,7 @@ const WebsiteDevelopment = () => {
       <Box py={20} bg="white">
         <Container maxW="7xl">
           <VStack spacing={4} textAlign="center" mb={12}>
-            <Heading size="2xl" color="brand.navy">
+            <Heading as="h2" size="2xl" color="brand.navy">
               Our Website Development Services
             </Heading>
             <Text fontSize="xl" color="gray.600" maxW="3xl">
@@ -256,7 +269,7 @@ const WebsiteDevelopment = () => {
         <Container maxW="5xl" position="relative" zIndex={1}>
           <VStack spacing={6} textAlign="center">
             <Icon as={FaSearch} boxSize={20} color="white" />
-            <Heading size="2xl" color="white">
+            <Heading as="h2" size="2xl" color="white">
               SEO-Optimized for Google Rankings
             </Heading>
             <Text fontSize="xl" color="gray.100" maxW="3xl">
@@ -296,7 +309,7 @@ const WebsiteDevelopment = () => {
       <Box py={20} bg="gray.50">
         <Container maxW="7xl">
           <VStack spacing={4} textAlign="center" mb={12}>
-            <Heading size="2xl" color="brand.navy">
+            <Heading as="h2" size="2xl" color="brand.navy">
               Technologies We Use
             </Heading>
             <Text fontSize="xl" color="gray.600" maxW="3xl">
@@ -336,7 +349,7 @@ const WebsiteDevelopment = () => {
       <Box py={20} bg="white">
         <Container maxW="5xl">
           <VStack spacing={6} mb={12} textAlign="center">
-            <Heading size="2xl" color="brand.navy">
+            <Heading as="h2" size="2xl" color="brand.navy">
               Get Your Website Built Today
             </Heading>
             <Text fontSize="xl" color="gray.600" maxW="3xl">

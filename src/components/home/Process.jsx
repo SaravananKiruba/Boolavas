@@ -54,7 +54,7 @@ const steps = [
 
 const Process = () => {
   return (
-    <Box py={20} bg="gray.50">
+    <Box as="section" py={20} bg="gray.50">
       <Container maxW="7xl">
         <VStack spacing={4} textAlign="center" mb={16}>
           <Heading size="2xl" color="brand.navy">

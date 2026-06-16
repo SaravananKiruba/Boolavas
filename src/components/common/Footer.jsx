@@ -29,13 +29,19 @@ const Footer = () => {
     { name: 'Contact', path: '/contact' },
   ]
 
+  const products = [
+    { name: 'MediBoo', path: '/#products' },
+    { name: 'Features', path: '/#features' },
+    { name: 'Pricing', path: '/#pricing' },
+  ]
+
   const resources = [
     { name: 'FAQ', path: '/#faq' },
     { name: 'Privacy Policy', path: '/privacy' },
   ]
 
   return (
-    <Box bg="brand.navy" color="white">
+    <Box as="footer" bg="brand.navy" color="white">
       <Container maxW="7xl" py={16}>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={12}>
           {/* Company Info */}
@@ -49,38 +55,49 @@ const Footer = () => {
               />
             </Box>
             <Text color="gray.400" fontSize="sm">
-              A solutions company based in Madurai, Tamil Nadu, India — building powerful software products and custom digital solutions for businesses worldwide.
+              Boolavas is the creator of MediBoo, a clinic management software built for Homeopathy, Siddha, Dental, and Acupuncture clinics across India.
             </Text>
-            <VStack align="flex-start" spacing={2} pt={4}>
-              <HStack>
-                <Icon as={FaEnvelope} color="brand.lightBlue" />
-                <Link href="mailto:contact@boolavas.in" fontSize="sm" _hover={{ color: 'brand.lightBlue' }}>
-                  contact@boolavas.in
-                </Link>
-              </HStack>
-              <HStack>
-                <Icon as={FaPhone} color="brand.lightBlue" />
-                <Link href="tel:+918667430536" fontSize="sm" _hover={{ color: 'brand.lightBlue' }}>
-                  +91 86674 30536
-                </Link>
-              </HStack>
-              <HStack>
-                <Icon as={FaMapMarkerAlt} color="brand.lightBlue" />
-                <Text fontSize="sm" color="gray.400">Madurai, Tamil Nadu, India</Text>
-              </HStack>
-            </VStack>
+            <Box as="address" fontStyle="normal">
+              <VStack align="flex-start" spacing={2} pt={4}>
+                <HStack>
+                  <Icon as={FaEnvelope} color="brand.lightBlue" />
+                  <Link href="mailto:contact@boolavas.in" fontSize="sm" _hover={{ color: 'brand.lightBlue' }}>
+                    contact@boolavas.in
+                  </Link>
+                </HStack>
+                <HStack>
+                  <Icon as={FaPhone} color="brand.lightBlue" />
+                  <Link href="tel:+918667430536" fontSize="sm" _hover={{ color: 'brand.lightBlue' }}>
+                    +91 86674 30536
+                  </Link>
+                </HStack>
+                <HStack>
+                  <Icon as={FaMapMarkerAlt} color="brand.lightBlue" />
+                  <Text fontSize="sm" color="gray.400">Madurai, Tamil Nadu, India</Text>
+                </HStack>
+              </VStack>
+            </Box>
           </VStack>
 
           {/* Products */}
           <VStack align="flex-start" spacing={4}>
             <Heading size="sm" color="white">
-              Our Product
+              Products
             </Heading>
             <Stack spacing={2}>
-              <Text fontSize="sm" color="gray.400" fontWeight="semibold">Boola Vas</Text>
-              <Text fontSize="xs" color="gray.500" lineHeight="tall">
-                Our flagship SaaS platform powering business solutions across industries.
-              </Text>
+              {products.map((item) => (
+                <Link
+                  key={item.path}
+                  as={RouterLink}
+                  to={item.path}
+                  fontSize="sm"
+                  color="gray.400"
+                  _hover={{ color: 'brand.lightBlue', textDecoration: 'none' }}
+                  transition="color 0.2s"
+                >
+                  {item.name}
+                </Link>
+              ))}
             </Stack>
           </VStack>
 
