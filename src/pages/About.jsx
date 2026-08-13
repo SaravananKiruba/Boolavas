@@ -51,9 +51,9 @@ const About = () => {
   return (
     <Box>
       <SEO
-        title="About Boolavas - Creator of MediBoo Clinic Management Software"
-        description="Boolavas is the creator of MediBoo, a clinic management software for Homeopathy, Siddha, Dental, and Acupuncture clinics across India. Built in Madurai, Tamil Nadu."
-        keywords="about boolavas, mediboo creator, clinic software developer, boolavas india, madurai software company, tamil nadu clinic software"
+        title="About Boolavas — Software Development Company Creating Innovative Solutions"
+        description="Boolavas is a software development company in India building custom software, mobile apps, websites, and healthcare SaaS solutions. Creator of MediBoo clinic management software. Based in Madurai, Tamil Nadu."
+        keywords="about boolavas, software development company india, custom software development, mediboo creator, boolavas team, madurai software company, tamil nadu tech company"
         canonical="https://boolavas.in/about"
       />
       <BreadcrumbSchema
@@ -70,13 +70,13 @@ const About = () => {
             <Box bg="white" borderRadius="2xl" p={4} display="inline-flex" boxShadow="lg">
               <Image
                 src={boolavasLogo}
-                alt="Boolavas"
+                alt="Boolavas Software Development Company"
                 h={{ base: '72px', md: '96px' }}
                 objectFit="contain"
               />
             </Box>
             <Heading as="h1" size="3xl" color="white" lineHeight="shorter">
-              About Boolavas
+              About Boolavas — Building Software That Matters
             </Heading>
             <Text fontSize="xl" color="gray.300" maxW="3xl">
               Creator of MediBoo Clinic Management Software

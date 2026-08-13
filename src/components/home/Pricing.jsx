@@ -19,52 +19,104 @@ const MotionBox = motion(Box)
 
 const plans = [
   {
-    name: 'Free Trial',
-    price: 'Free',
-    period: '90 days',
-    description: 'Try all features with no commitment',
+    name: 'Free',
+    price: '₹0',
+    period: 'forever',
+    description: 'Perfect for single-doctor clinics getting started',
     features: [
-      'Full access to all features',
-      'Unlimited patients',
-      'Multi-branch support',
-      'White-label branding',
-      'Automated patient notifications',
-      'Email & chat support',
+      '1 Doctor',
+      '1 Branch',
+      '100 Patients',
+      'Core features only',
+      'Basic billing & invoicing',
+      'Appointments & prescriptions',
+      'Email support',
     ],
-    cta: 'Start Free Trial',
+    limits: {
+      doctors: 1,
+      branches: 1,
+      patients: 100,
+    },
+    cta: 'Start Free',
+    ctaLink: 'https://mediboo-platform.vercel.app/',
+    featured: false,
+  },
+  {
+    name: 'Starter',
+    price: '₹2,999',
+    period: 'per month',
+    description: 'For growing clinics with 2-3 doctors',
+    features: [
+      '3 Doctors',
+      '2 Branches',
+      'Unlimited Patients',
+      'All core features',
+      'Billing plugin included',
+      'WhatsApp integration',
+      '1,000 invoices/month',
+      'Priority email support',
+    ],
+    limits: {
+      doctors: 3,
+      branches: 2,
+      patients: -1,
+      invoices: 1000,
+    },
+    cta: 'Start 90-Day Free Trial',
+    ctaLink: 'https://mediboo-platform.vercel.app/',
+    featured: false,
+  },
+  {
+    name: 'Professional',
+    price: '₹5,999',
+    period: 'per month',
+    description: 'For multi-doctor clinics with advanced needs',
+    features: [
+      '10 Doctors',
+      '5 Branches',
+      'Unlimited Patients',
+      'All features unlocked',
+      'Billing + Expense management',
+      'WhatsApp + Queue system',
+      'Disease intelligence',
+      'Unlimited invoices & expenses',
+      'Phone + email support',
+    ],
+    limits: {
+      doctors: 10,
+      branches: 5,
+      patients: -1,
+      invoices: -1,
+      expenses: -1,
+    },
+    cta: 'Start 90-Day Free Trial',
     ctaLink: 'https://mediboo-platform.vercel.app/',
     featured: true,
   },
   {
-    name: 'Monthly Plan',
-    price: '₹5,000',
+    name: 'Enterprise',
+    price: 'Custom',
     period: 'per month',
-    description: 'Flexible monthly billing',
+    description: 'For large clinics and multi-location hospitals',
     features: [
-      'Full access to all features',
-      'Unlimited patients',
-      'Multi-branch support',
+      'Unlimited Doctors',
+      'Unlimited Branches',
+      'Unlimited Patients',
+      'All advanced modules',
       'White-label branding',
-      'Automated patient notifications',
-      'Priority support',
+      'Custom domain support',
+      'Telemedicine integration',
+      'Dedicated account manager',
+      'On-premise deployment option',
+      '24/7 phone support',
     ],
-    cta: 'Contact Sales',
-    ctaLink: '/contact',
-    featured: false,
-  },
-  {
-    name: 'Annual Plan',
-    price: '₹48,000',
-    period: 'per year',
-    description: 'Save 20% with annual billing',
-    features: [
-      'Full access to all features',
-      'Unlimited patients',
-      'Multi-branch support',
-      'White-label branding',
-      'Automated patient notifications',
-      'Premium support',
-    ],
+    limits: {
+      doctors: -1,
+      branches: -1,
+      patients: -1,
+      invoices: -1,
+      expenses: -1,
+    },
     cta: 'Contact Sales',
     ctaLink: '/contact',
     featured: false,
@@ -86,17 +138,17 @@ const Pricing = () => {
             textTransform="uppercase"
             letterSpacing="wider"
           >
-            Pricing
+            Flexible Pricing
           </Badge>
           <Heading as="h2" size="2xl" color="brand.navy">
-            Trusted by Clinics Across Chennai, Coimbatore & Madurai
+            Choose the Right Plan for Your Clinic
           </Heading>
           <Text fontSize="xl" color="gray.600" maxW="3xl">
-            Start with a 90-day free trial. No credit card required.
+            Start with a 90-day free trial on any paid plan. No credit card required. Cancel anytime.
           </Text>
         </VStack>
 
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={8}>
           {plans.map((plan, index) => (
             <MotionBox
               key={index}
@@ -108,7 +160,7 @@ const Pricing = () => {
             >
               <Box
                 bg="white"
-                p={8}
+                p={6}
                 borderRadius="xl"
                 boxShadow={plan.featured ? 'xl' : 'md'}
                 border="2px solid"
@@ -136,7 +188,7 @@ const Pricing = () => {
                   </Badge>
                 )}
 
-                <VStack align="flex-start" spacing={6}>
+                <VStack align="flex-start" spacing={4}>
                   {/* Plan name */}
                   <Heading size="md" color="brand.navy">
                     {plan.name}
@@ -148,17 +200,19 @@ const Pricing = () => {
                       <Heading size="2xl" color="brand.blue">
                         {plan.price}
                       </Heading>
-                      <Text color="gray.600" fontSize="md">
-                        {plan.period}
-                      </Text>
+                      {plan.period && (
+                        <Text color="gray.600" fontSize="sm">
+                          {plan.period}
+                        </Text>
+                      )}
                     </HStack>
-                    <Text color="gray.600" fontSize="sm">
+                    <Text color="gray.600" fontSize="xs" mt={1}>
                       {plan.description}
                     </Text>
                   </VStack>
 
                   {/* Features */}
-                  <List spacing={3} width="100%">
+                  <List spacing={2} width="100%" flex="1">
                     {plan.features.map((feature, idx) => (
                       <ListItem key={idx} display="flex" alignItems="flex-start">
                         <ListIcon
@@ -166,8 +220,9 @@ const Pricing = () => {
                           color="brand.blue"
                           mt={1}
                           fontSize="sm"
+                          flexShrink={0}
                         />
-                        <Text color="gray.700" fontSize="sm">
+                        <Text color="gray.700" fontSize="xs">
                           {feature}
                         </Text>
                       </ListItem>
@@ -178,7 +233,7 @@ const Pricing = () => {
                   <CTAButton
                     href={plan.ctaLink}
                     width="100%"
-                    size="lg"
+                    size="md"
                     variant={plan.featured ? 'primary' : 'secondary'}
                   >
                     {plan.cta}
@@ -190,12 +245,18 @@ const Pricing = () => {
         </SimpleGrid>
 
         {/* Additional info */}
-        <VStack spacing={2} textAlign="center" mt={12}>
-          <Text fontSize="sm" color="gray.600" fontWeight="semibold">
-            All plans include the same features — only billing frequency differs
+        <VStack spacing={3} textAlign="center" mt={12}>
+          <Text fontSize="md" color="brand.navy" fontWeight="bold">
+            All paid plans include a 90-day free trial period
+          </Text>
+          <Text fontSize="sm" color="gray.600">
+            Need a custom plan for multiple locations or special requirements?
           </Text>
           <Text fontSize="sm" color="gray.500">
-            Need a custom plan for multiple clinics? <Text as="span" color="brand.blue" fontWeight="semibold" cursor="pointer">Contact us</Text>
+            <Text as="a" href="/contact" color="brand.blue" fontWeight="semibold" textDecoration="underline">
+              Contact our sales team
+            </Text>{' '}
+            for enterprise pricing and volume discounts
           </Text>
         </VStack>
       </Container>

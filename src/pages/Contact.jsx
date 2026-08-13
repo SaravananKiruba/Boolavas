@@ -53,9 +53,9 @@ const Contact = () => {
   return (
     <Box>
       <SEO
-        title="Contact MediBoo - Clinic Management Software Support | Boolavas"
-        description="Contact Boolavas for MediBoo clinic management software inquiries and support. Get help with setup, features, or start your 90-day free trial. Email: contact@boolavas.in"
-        keywords="contact mediboo, clinic software support, mediboo help, boolavas contact, clinic management software inquiry"
+        title="Contact Boolavas — Software Development Company | Get a Quote"
+        description="Contact Boolavas for custom software development, mobile apps, websites, and SaaS solutions. Start your project today or inquire about MediBoo clinic management software. Email: contact@boolavas.in"
+        keywords="contact boolavas, software development inquiry, mobile app development quote, web development contact, mediboo clinic software contact"
         canonical="https://boolavas.in/contact"
       />
       <BreadcrumbSchema
@@ -72,7 +72,7 @@ const Contact = () => {
         <Container maxW="7xl">
           <VStack spacing={6} textAlign="center">
             <Heading as="h1" size="3xl" color="white" lineHeight="shorter">
-              Get in Touch with MediBoo
+              Get in Touch
             </Heading>
             <Text fontSize="xl" color="gray.300" maxW="3xl">
               Have questions about MediBoo clinic management software? We&apos;re here to help.
