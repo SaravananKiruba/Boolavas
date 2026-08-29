@@ -8,16 +8,29 @@ import {
   Icon,
   Stack,
   Link,
+  Badge,
 } from '@chakra-ui/react'
 import SEO from '../components/common/SEO'
 import BreadcrumbSchema from '../components/schemas/BreadcrumbSchema'
 import ContactForm from '../components/sections/ContactForm'
-import { FaEnvelope, FaCheckCircle } from 'react-icons/fa'
+import { FaEnvelope, FaCheckCircle, FaHeartbeat, FaDatabase, FaCogs } from 'react-icons/fa'
 
-const reasons = [
-  'Ask about MediBoo, MigraSafe or ConfigSafe',
-  'Discuss a software requirement or project',
-  'Get a response by email',
+const productTopics = [
+  {
+    icon: FaHeartbeat,
+    name: 'MediBoo',
+    topics: ['Demo request', 'Purchase & pricing', 'Enterprise plan'],
+  },
+  {
+    icon: FaDatabase,
+    name: 'MigraSafe',
+    topics: ['Feature discussion', 'Premium / enterprise', 'Pricing'],
+  },
+  {
+    icon: FaCogs,
+    name: 'ConfigSafe',
+    topics: ['Feature discussion', 'Premium / enterprise', 'Pricing'],
+  },
 ]
 
 const Contact = () => {
@@ -61,7 +74,7 @@ const Contact = () => {
       </Box>
 
       {/* Form + details */}
-      <Box as="section" py={{ base: 12, md: 20 }} bg="#111111">
+      <Box as="section" py={{ base: 12, md: 20 }} bg="brand.mid">
         <Container maxW="6xl">
           <Stack direction={{ base: 'column', lg: 'row' }} spacing={12} align="flex-start">
             {/* Form */}
@@ -81,14 +94,43 @@ const Contact = () => {
             <Box flex={1} w="full">
               <VStack align="flex-start" spacing={6} position={{ lg: 'sticky' }} top={24}>
                 <Heading size="md" color="white">
-                  What to expect
+                  What can we discuss?
                 </Heading>
-                <VStack align="flex-start" spacing={4}>
-                  {reasons.map((reason) => (
-                    <HStack key={reason} align="flex-start" spacing={3}>
-                      <Icon as={FaCheckCircle} color="brand.blue" boxSize={5} mt={1} />
-                      <Text color="gray.300">{reason}</Text>
-                    </HStack>
+
+                <VStack align="flex-start" spacing={5} w="full">
+                  {productTopics.map((product) => (
+                    <Box
+                      key={product.name}
+                      bg="rgba(255,255,255,0.03)"
+                      border="1px solid"
+                      borderColor="whiteAlpha.200"
+                      borderRadius="xl"
+                      p={5}
+                      w="full"
+                    >
+                      <HStack spacing={3} mb={3}>
+                        <Icon as={product.icon} color="brand.blue" boxSize={4} />
+                        <Text color="white" fontWeight="bold" fontSize="sm">
+                          {product.name}
+                        </Text>
+                      </HStack>
+                      <HStack flexWrap="wrap" spacing={2}>
+                        {product.topics.map((t) => (
+                          <Badge
+                            key={t}
+                            bg="rgba(255,49,49,0.12)"
+                            color="brand.lightBlue"
+                            fontSize="xs"
+                            px={2}
+                            py={1}
+                            borderRadius="full"
+                            textTransform="none"
+                          >
+                            {t}
+                          </Badge>
+                        ))}
+                      </HStack>
+                    </Box>
                   ))}
                 </VStack>
 
@@ -96,27 +138,31 @@ const Contact = () => {
                   bg="rgba(255,255,255,0.03)"
                   border="1px solid"
                   borderColor="whiteAlpha.200"
-                  p={6}
+                  p={5}
                   borderRadius="xl"
-                  mt={4}
                   w="full"
                 >
-                  <VStack align="flex-start" spacing={3}>
-                    <Heading size="sm" color="white">
-                      Email us directly
-                    </Heading>
-                    <HStack>
-                      <Icon as={FaEnvelope} color="brand.blue" />
-                      <Link
-                        href="mailto:contact@boolavas.in"
-                        fontSize="md"
-                        fontWeight="bold"
-                        color="brand.lightBlue"
-                      >
-                        contact@boolavas.in
-                      </Link>
-                    </HStack>
-                  </VStack>
+                  <HStack spacing={3} mb={1}>
+                    <Icon as={FaCheckCircle} color="brand.blue" boxSize={4} />
+                    <Text color="white" fontWeight="bold" fontSize="sm">We reply by email</Text>
+                  </HStack>
+                  <Text color="gray.400" fontSize="sm" pl={7}>Usually within 24 hours.</Text>
+                </Box>
+
+                <Box w="full">
+                  <Text color="gray.500" fontSize="xs" mb={1}>Email us directly</Text>
+                  <HStack>
+                    <Icon as={FaEnvelope} color="brand.blue" boxSize={4} />
+                    <Link
+                      href="mailto:contact@boolavas.in"
+                      fontSize="sm"
+                      fontWeight="bold"
+                      color="brand.lightBlue"
+                      _hover={{ color: 'white' }}
+                    >
+                      contact@boolavas.in
+                    </Link>
+                  </HStack>
                 </Box>
               </VStack>
             </Box>

@@ -52,7 +52,7 @@ const Navbar = () => {
     <MotionBox
       as="nav"
       aria-label="Primary"
-      bg={scrolled ? 'rgba(10, 10, 10, 0.95)' : 'brand.navy'}
+      bg={scrolled ? 'rgba(99, 9, 25, 0.95)' : 'brand.navy'}
       backdropFilter={scrolled ? 'blur(10px)' : 'none'}
       position="sticky"
       top={0}

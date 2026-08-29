@@ -116,7 +116,7 @@ const ProductPageLayout = ({ product }) => {
       </Box>
 
       {/* Problem */}
-      <Box as="section" py={{ base: 12, md: 20 }} bg="#111111">
+      <Box as="section" py={{ base: 12, md: 20 }} bg="brand.mid">
         <Container maxW="4xl">
           <VStack spacing={4} align="flex-start">
             <Heading as="h2" size="xl" color="white">
@@ -164,7 +164,7 @@ const ProductPageLayout = ({ product }) => {
       </Box>
 
       {/* Capabilities */}
-      <Box as="section" py={{ base: 12, md: 20 }} bg="#111111">
+      <Box as="section" py={{ base: 12, md: 20 }} bg="brand.mid">
         <Container maxW="6xl">
           <VStack spacing={4} textAlign="center" mb={{ base: 10, md: 14 }}>
             <Heading as="h2" size="xl" color="white">
@@ -278,7 +278,7 @@ const ProductPageLayout = ({ product }) => {
       </Box>
 
       {/* Back link */}
-      <Box bg="#111111" py={6}>
+      <Box bg="brand.mid" py={6}>
         <Container maxW="6xl">
           <HStack
             as={RouterLink}

@@ -33,7 +33,7 @@ const reasons = [
 
 const WhyBoolavas = () => {
   return (
-    <Box as="section" py={{ base: 16, md: 24 }} bg="#111111">
+    <Box as="section" py={{ base: 16, md: 24 }} bg="brand.mid">
       <Container maxW="7xl">
         <VStack spacing={4} textAlign="center" mb={{ base: 12, md: 16 }}>
           <Heading as="h2" size="2xl" color="white">

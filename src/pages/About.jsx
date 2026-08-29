@@ -110,7 +110,7 @@ const About = () => {
       </Box>
 
       {/* What we do */}
-      <Box as="section" py={{ base: 12, md: 20 }} bg="#111111">
+      <Box as="section" py={{ base: 12, md: 20 }} bg="brand.mid">
         <Container maxW="4xl">
           <VStack align="flex-start" spacing={6}>
             <Heading as="h2" size="xl" color="white">
@@ -175,7 +175,7 @@ const About = () => {
       </Box>
 
       {/* Product philosophy */}
-      <Box as="section" py={{ base: 12, md: 20 }} bg="#111111">
+      <Box as="section" py={{ base: 12, md: 20 }} bg="brand.mid">
         <Container maxW="7xl">
           <VStack spacing={4} textAlign="center" mb={{ base: 10, md: 14 }}>
             <Heading as="h2" size="xl" color="white">

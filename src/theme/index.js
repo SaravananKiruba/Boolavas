@@ -3,19 +3,22 @@ import { extendTheme } from '@chakra-ui/react'
 const theme = extendTheme({
   colors: {
     brand: {
-      navy: '#0a0a0a',
-      blue: '#ff3131',
-      lightBlue: '#ff6b6b',
-      50: '#FFF5F5',
-      100: '#FED7D7',
-      200: '#FEB2B2',
-      300: '#FC8181',
-      400: '#F56565',
-      500: '#ff3131',
-      600: '#E53E3E',
-      700: '#C53030',
-      800: '#9B2C2C',
-      900: '#000000',
+      navy:      '#630919',   // primary dark background — deep maroon
+      mid:       '#500816',   // alternating section background
+      blue:      '#ff3131',   // primary red
+      lightBlue: '#ff5252',   // lighter red for hovers/badges
+      light:     '#f6f6f6',   // off-white text / light surfaces
+      amber:     '#e68815',   // secondary accent — amber
+      50:  '#fff0f0',
+      100: '#ffd4d4',
+      200: '#ffaaaa',
+      300: '#ff7777',
+      400: '#ff5252',
+      500: '#ff3131',         // = brand.blue
+      600: '#801d1d',         // hover darken
+      700: '#630919',         // = brand.navy
+      800: '#3d0808',
+      900: '#1a0306',
     },
   },
   fonts: {
@@ -72,6 +75,19 @@ const theme = extendTheme({
           },
           _active: {
             bg: 'brand.700',
+          },
+          transition: 'all 0.3s ease',
+        },
+        amber: {
+          bg: 'brand.amber',
+          color: 'white',
+          _hover: {
+            bg: '#c97510',
+            transform: 'translateY(-2px)',
+            boxShadow: 'lg',
+          },
+          _active: {
+            bg: '#a85e0d',
           },
           transition: 'all 0.3s ease',
         },

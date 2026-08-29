@@ -50,7 +50,7 @@ const FAQ = ({
   withSchema = true,
 }) => {
   return (
-    <Box as="section" py={{ base: 16, md: 24 }} bg="#111111" id={id}>
+    <Box as="section" py={{ base: 16, md: 24 }} bg="brand.mid" id={id}>
       {withSchema && <FAQSchema faqs={faqs} />}
       <Container maxW="4xl">
         <VStack spacing={4} textAlign="center" mb={12}>
@@ -74,7 +74,7 @@ const FAQ = ({
                 <AccordionButton
                   bg="rgba(255,255,255,0.03)"
                   _hover={{ bg: 'whiteAlpha.100' }}
-                  _expanded={{ bg: 'whiteAlpha.100', borderColor: 'brand.blue' }}
+                  _expanded={{ bg: 'whiteAlpha.100', borderColor: 'brand.amber' }}
                   borderRadius="lg"
                   p={6}
                   border="1px solid"
@@ -82,11 +82,11 @@ const FAQ = ({
                   transition="all 0.3s"
                 >
                   <Box flex="1" textAlign="left">
-                    <Text fontWeight="semibold" fontSize="lg" color="white">
+                    <Text fontWeight="semibold" fontSize="lg" color="brand.light">
                       {faq.question}
                     </Text>
                   </Box>
-                  <AccordionIcon color="brand.blue" />
+                  <AccordionIcon color="brand.amber" />
                 </AccordionButton>
                 <AccordionPanel pb={4} pt={4} px={6}>
                   <Text color="gray.400" lineHeight="tall">
