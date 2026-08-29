@@ -5,10 +5,13 @@ import Navbar from './components/common/Navbar'
 import Footer from './components/common/Footer'
 import ScrollToTop from './components/common/ScrollToTop'
 import OrganizationSchema from './components/schemas/OrganizationSchema'
-import LocalBusinessSchema from './components/schemas/LocalBusinessSchema'
 
 // Lazy load page components
 const Home = lazy(() => import('./pages/Home'))
+const Products = lazy(() => import('./pages/Products'))
+const MediBoo = lazy(() => import('./pages/MediBoo'))
+const MigraSafe = lazy(() => import('./pages/MigraSafe'))
+const ConfigSafe = lazy(() => import('./pages/ConfigSafe'))
 const About = lazy(() => import('./pages/About'))
 const Contact = lazy(() => import('./pages/Contact'))
 const NotFound = lazy(() => import('./pages/NotFound'))
@@ -46,12 +49,15 @@ function App() {
     <Box minH="100vh" display="flex" flexDirection="column">
       <ScrollToTop />
       <OrganizationSchema />
-      <LocalBusinessSchema />
       <Navbar />
       <Box as="main" flex={1}>
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/mediboo" element={<MediBoo />} />
+            <Route path="/products/migrasafe" element={<MigraSafe />} />
+            <Route path="/products/configsafe" element={<ConfigSafe />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />

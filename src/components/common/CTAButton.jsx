@@ -1,11 +1,11 @@
-import { Button, Link } from '@chakra-ui/react'
+import { Button, Link, HStack } from '@chakra-ui/react'
 import { Link as RouterLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 const MotionButton = motion(Button)
 const MotionLink = motion(Link)
 
-const CTAButton = ({ children, variant = "primary", size = "lg", href, onClick, ...props }) => {
+const CTAButton = ({ children, variant = "primary", size = "lg", href, onClick, leftIcon, rightIcon, ...props }) => {
   // Handle hash links (smooth scroll)
   const handleHashClick = (e) => {
     if (href?.startsWith('#')) {
@@ -16,6 +16,14 @@ const CTAButton = ({ children, variant = "primary", size = "lg", href, onClick, 
     if (onClick) onClick(e)
   }
 
+  const linkContent = (leftIcon || rightIcon) ? (
+    <HStack as="span" spacing={2}>
+      {leftIcon}
+      <span>{children}</span>
+      {rightIcon}
+    </HStack>
+  ) : children
+
   // External link (crawlable <a> tag)
   if (href?.startsWith('http')) {
     return (
@@ -23,7 +31,7 @@ const CTAButton = ({ children, variant = "primary", size = "lg", href, onClick, 
         as="a"
         href={href}
         target="_blank"
-        rel="noopener noreferrer nofollow"
+        rel="noopener noreferrer"
         variant={variant}
         size={size}
         display="inline-flex"
@@ -46,7 +54,7 @@ const CTAButton = ({ children, variant = "primary", size = "lg", href, onClick, 
         whileTap={{ scale: 0.95 }}
         {...props}
       >
-        {children}
+        {linkContent}
       </MotionLink>
     )
   }
@@ -80,7 +88,7 @@ const CTAButton = ({ children, variant = "primary", size = "lg", href, onClick, 
         onClick={onClick}
         {...props}
       >
-        {children}
+        {linkContent}
       </MotionLink>
     )
   }
@@ -90,6 +98,8 @@ const CTAButton = ({ children, variant = "primary", size = "lg", href, onClick, 
     <MotionButton
       variant={variant}
       size={size}
+      leftIcon={leftIcon}
+      rightIcon={rightIcon}
       onClick={href?.startsWith('#') ? handleHashClick : onClick}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}

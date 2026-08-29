@@ -7,12 +7,14 @@
   HStack,
   VStack,
   Badge,
-  Image,
-  Button,
+  Icon,
+  SimpleGrid,
 } from '@chakra-ui/react'
+import { Link as RouterLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { FaCheckCircle, FaHeadset } from 'react-icons/fa'
-import medibooLogo from '../../assets/MediBoo Logo.png'
+import { FaArrowRight, FaEnvelope } from 'react-icons/fa'
+import CTAButton from '../common/CTAButton'
+import { products } from '../../data/products'
 
 const MotionBox = motion(Box)
 const MotionHeading = motion(Heading)
@@ -25,213 +27,116 @@ const Hero = () => {
       bg="brand.navy"
       position="relative"
       overflow="hidden"
-      pt={{ base: 12, md: 24 }}
-      pb={{ base: 12, md: 24 }}
+      pt={{ base: 16, md: 28 }}
+      pb={{ base: 16, md: 24 }}
     >
       {/* Background gradient effect */}
       <Box
         position="absolute"
-        top="-50%"
-        right="-20%"
-        width="100%"
+        top="-40%"
+        right="-15%"
+        width="70%"
         height="100%"
         bg="radial-gradient(circle, rgba(255, 49, 49, 0.12) 0%, transparent 70%)"
         pointerEvents="none"
       />
 
       <Container maxW="7xl" position="relative" zIndex={1}>
-        <Stack
-          direction={{ base: 'column', lg: 'row' }}
-          spacing={{ base: 8, lg: 12 }}
-          align="center"
-          justify="space-between"
-        >
-          {/* Left: Text content */}
-          <VStack
-            align={{ base: 'center', lg: 'flex-start' }}
-            spacing={{ base: 5, md: 6 }}
-            flex={1}
-            textAlign={{ base: 'center', lg: 'left' }}
+        <VStack spacing={{ base: 8, md: 10 }} align="center" textAlign="center">
+          <Badge
+            bg="whiteAlpha.100"
+            color="brand.lightBlue"
+            fontSize="xs"
+            px={4}
+            py={1.5}
+            borderRadius="full"
+            textTransform="uppercase"
+            letterSpacing="wider"
           >
-            {/* Badge */}
-            <Badge
-              bg="brand.blue"
-              color="white"
-              fontSize="xs"
-              px={3}
-              py={1}
-              borderRadius="full"
-              textTransform="uppercase"
-              letterSpacing="wider"
-            >
-              Healthcare SaaS Platform
-            </Badge>
+            Boolavas
+          </Badge>
 
-            <MotionHeading
-              as="h1"
-              fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-              color="white"
-              lineHeight="shorter"
+          <MotionHeading
+            as="h1"
+            fontSize={{ base: '3xl', md: '5xl', lg: '6xl' }}
+            color="white"
+            lineHeight="1.1"
+            maxW="4xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Software products built for{' '}
+            <Text as="span" color="brand.blue">
+              real-world problems.
+            </Text>
+          </MotionHeading>
+
+          <MotionText
+            fontSize={{ base: 'lg', md: 'xl' }}
+            color="gray.300"
+            maxW="2xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+          >
+            Boolavas builds practical, modern software products that simplify complex business and
+            engineering workflows.
+          </MotionText>
+
+          <Stack
+            direction={{ base: 'column', sm: 'row' }}
+            spacing={4}
+            pt={2}
+            w={{ base: 'full', sm: 'auto' }}
+          >
+            <CTAButton href="/products" size="lg" rightIcon={<Icon as={FaArrowRight} boxSize={3} />}>
+              Explore Products
+            </CTAButton>
+            <CTAButton
+              href="/contact"
+              variant="ghost"
+              size="lg"
+              leftIcon={<Icon as={FaEnvelope} boxSize={4} />}
+            >
+              Contact Boolavas
+            </CTAButton>
+          </Stack>
+        </VStack>
+
+        {/* Product quick-glance strip */}
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={4} pt={{ base: 12, md: 16 }}>
+          {products.map((product, index) => (
+            <MotionBox
+              key={product.slug}
+              as={RouterLink}
+              to={product.route}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              Clinic Management Software for{' '}
-              <Text as="span" color="brand.blue" display="block">
-                Homeopathy, Siddha & Dental Clinics
-              </Text>
-            </MotionHeading>
-
-            <MotionText
-              fontSize={{ base: 'lg', md: 'xl' }}
-              color="gray.300"
-              maxW="xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              MediBoo by Boolavas helps Homeopathy, Siddha, Dental & Acupuncture clinics in Chennai, Coimbatore & Madurai manage appointments, patients, billing, and prescriptions.
-            </MotionText>
-
-            <VStack align={{ base: 'center', lg: 'flex-start' }} spacing={2} pt={2}>
-              <HStack spacing={2}>
-                <FaCheckCircle color="#ff3131" size={16} />
-                <Text color="gray.300" fontSize="sm">90-Day Free Trial · No Credit Card Required</Text>
-              </HStack>
-              <HStack spacing={2}>
-                <FaCheckCircle color="#ff3131" size={16} />
-                <Text color="gray.300" fontSize="sm">Multi-Branch Support · White-Label Ready</Text>
-              </HStack>
-              <HStack spacing={2}>
-                <FaCheckCircle color="#ff3131" size={16} />
-                <Text color="gray.300" fontSize="sm">Trusted by Clinics · Live in Production</Text>
-              </HStack>
-            </VStack>
-
-            {/* Primary CTAs */}
-            <Stack 
-              direction={{ base: 'column', sm: 'row' }} 
-              spacing={4} 
-              pt={4} 
-              w={{ base: 'full', sm: 'auto' }}
-            >
-              <Button
-                as="a"
-                href="https://mediboo-platform.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                size={{ base: 'lg', md: 'lg' }}
-                bg="brand.blue"
-                color="white"
-                _hover={{ bg: 'brand.600', transform: 'translateY(-2px)', boxShadow: 'xl' }}
-                transition="all 0.3s"
-                borderRadius="xl"
-                px={8}
-                fontWeight="bold"
-              >
-                Start 90-Day Free Trial
-              </Button>
-              <Button
-                as="a"
-                href="/contact"
-                leftIcon={<FaHeadset />}
-                size={{ base: 'lg', md: 'lg' }}
-                bg="whiteAlpha.200"
-                color="white"
-                borderWidth="1px"
-                borderColor="whiteAlpha.300"
-                _hover={{ bg: 'whiteAlpha.300', transform: 'translateY(-2px)', boxShadow: 'lg' }}
-                transition="all 0.3s"
-                borderRadius="xl"
-                px={8}
-              >
-                Contact Support
-              </Button>
-            </Stack>
-          </VStack>
-
-          {/* Right side — MediBoo showcase */}
-          <MotionBox
-            flex={1}
-            display={{ base: 'none', lg: 'block' }}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <Box
-              bg="linear-gradient(135deg, #1a0000 0%, #3d0000 50%, #ff3131 100%)"
-              borderRadius="2xl"
-              p={8}
-              boxShadow="0 0 60px rgba(255, 49, 49, 0.3), 0 25px 50px rgba(0,0,0,0.5)"
-              position="relative"
+              transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+              bg="rgba(255,255,255,0.03)"
               border="1px solid"
-              borderColor="rgba(255,49,49,0.3)"
-              overflow="hidden"
+              borderColor="whiteAlpha.200"
+              borderRadius="xl"
+              p={5}
+              role="group"
+              _hover={{ borderColor: 'brand.blue', bg: 'rgba(255,49,49,0.06)' }}
+              sx={{ transition: 'border-color 0.3s ease, background 0.3s ease' }}
             >
-              {/* Glow effect */}
-              <Box
-                position="absolute"
-                top="-30%"
-                right="-20%"
-                w="60%"
-                h="60%"
-                bg="radial-gradient(circle, rgba(255,49,49,0.25) 0%, transparent 70%)"
-                pointerEvents="none"
-              />
-              <VStack spacing={6} position="relative">
-                {/* MediBoo Logo */}
-                <VStack spacing={3}>
-                  <Box
-                    bg="white"
-                    borderRadius="2xl"
-                    p={4}
-                    boxShadow="0 0 30px rgba(255,49,49,0.5)"
-                    display="inline-flex"
-                  >
-                    <Image
-                      src={medibooLogo}
-                      alt="MediBoo"
-                      h="80px"
-                      w="80px"
-                      objectFit="cover"
-                      borderRadius="xl"
-                    />
-                  </Box>
-                  <VStack spacing={1}>
-                    <Text color="white" fontWeight="extrabold" fontSize="2xl" letterSpacing="tight">
-                      MediBoo
-                    </Text>
-                    <Badge bg="green.400" color="white" px={3} py={1} borderRadius="full" fontSize="xs">
-                      ✓ Live in Production
-                    </Badge>
-                  </VStack>
-                </VStack>
-
-                {/* Divider */}
-                <Box w="full" h="1px" bg="rgba(255,49,49,0.3)" />
-
-                {/* Feature tags */}
-                <HStack flexWrap="wrap" justify="center" spacing={2}>
-                  {['Patients', 'Appointments', 'Prescriptions', 'Billing', 'Reports'].map((tag) => (
-                    <Badge
-                      key={tag}
-                      bg="rgba(255,49,49,0.15)"
-                      color="red.200"
-                      border="1px solid"
-                      borderColor="rgba(255,49,49,0.3)"
-                      px={3}
-                      py={1}
-                      borderRadius="full"
-                      fontSize="xs"
-                    >
-                      {tag}
-                    </Badge>
-                  ))}
-                </HStack>
-              </VStack>
-            </Box>
-          </MotionBox>
-        </Stack>
+              <HStack spacing={4} align="center">
+                <Icon as={product.icon} boxSize={6} color="brand.blue" />
+                <Box textAlign="left">
+                  <Text color="white" fontWeight="bold">
+                    {product.name}
+                  </Text>
+                  <Text color="gray.400" fontSize="xs">
+                    {product.category}
+                  </Text>
+                </Box>
+              </HStack>
+            </MotionBox>
+          ))}
+        </SimpleGrid>
       </Container>
     </Box>
   )

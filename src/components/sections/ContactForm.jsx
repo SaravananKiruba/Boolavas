@@ -17,7 +17,6 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
     businessType: '',
     requirement: '',
     budget: '',
@@ -35,12 +34,12 @@ const ContactForm = () => {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
-    // In production, replace this with actual API call
+    // TODO: replace this simulated submission with a real backend/API call.
+    // `formData` holds the values to send.
     setTimeout(() => {
       toast({
         title: 'Message Sent Successfully!',
-        description: "We'll get back to you within 24 hours.",
+        description: "We'll get back to you by email.",
         status: 'success',
         duration: 5000,
         isClosable: true,
@@ -49,7 +48,6 @@ const ContactForm = () => {
       setFormData({
         name: '',
         email: '',
-        phone: '',
         businessType: '',
         requirement: '',
         budget: '',
@@ -88,19 +86,6 @@ const ContactForm = () => {
             value={formData.email}
             onChange={handleChange}
             placeholder="john@company.com"
-            size="lg"
-            focusBorderColor="brand.blue"
-          />
-        </FormControl>
-
-        <FormControl isRequired>
-          <FormLabel color="brand.navy" fontWeight="semibold">Phone Number</FormLabel>
-          <Input
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            placeholder="+91 98765 43210"
             size="lg"
             focusBorderColor="brand.blue"
           />

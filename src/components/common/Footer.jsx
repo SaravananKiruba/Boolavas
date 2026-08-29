@@ -13,31 +13,16 @@
   Image,
 } from '@chakra-ui/react'
 import { Link as RouterLink } from 'react-router-dom'
-import {
-  FaEnvelope,
-  FaMapMarkerAlt,
-  FaPhone,
-} from 'react-icons/fa'
+import { FaEnvelope } from 'react-icons/fa'
 import boolavasLogo from '../../assets/boolavas logo.png'
+import { products } from '../../data/products'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   const company = [
-    { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/about' },
+    { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
-  ]
-
-  const products = [
-    { name: 'MediBoo', path: '/#products' },
-    { name: 'Features', path: '/#features' },
-    { name: 'Pricing', path: '/#pricing' },
-  ]
-
-  const resources = [
-    { name: 'FAQ', path: '/#faq' },
-    { name: 'Privacy Policy', path: '/privacy' },
   ]
 
   return (
@@ -55,28 +40,9 @@ const Footer = () => {
               />
             </Box>
             <Text color="gray.400" fontSize="sm">
-              Boolavas is the creator of MediBoo, a clinic management software built for Homeopathy, Siddha, Dental, and Acupuncture clinics across India.
+              Software products built for real-world problems. Boolavas builds focused tools for
+              healthcare, database engineering and application configuration workflows.
             </Text>
-            <Box as="address" fontStyle="normal">
-              <VStack align="flex-start" spacing={2} pt={4}>
-                <HStack>
-                  <Icon as={FaEnvelope} color="brand.lightBlue" />
-                  <Link href="mailto:contact@boolavas.in" fontSize="sm" _hover={{ color: 'brand.lightBlue' }}>
-                    contact@boolavas.in
-                  </Link>
-                </HStack>
-                <HStack>
-                  <Icon as={FaPhone} color="brand.lightBlue" />
-                  <Link href="tel:+918667430536" fontSize="sm" _hover={{ color: 'brand.lightBlue' }}>
-                    +91 86674 30536
-                  </Link>
-                </HStack>
-                <HStack>
-                  <Icon as={FaMapMarkerAlt} color="brand.lightBlue" />
-                  <Text fontSize="sm" color="gray.400">Madurai, Tamil Nadu, India</Text>
-                </HStack>
-              </VStack>
-            </Box>
           </VStack>
 
           {/* Products */}
@@ -87,9 +53,9 @@ const Footer = () => {
             <Stack spacing={2}>
               {products.map((item) => (
                 <Link
-                  key={item.path}
+                  key={item.slug}
                   as={RouterLink}
-                  to={item.path}
+                  to={item.route}
                   fontSize="sm"
                   color="gray.400"
                   _hover={{ color: 'brand.lightBlue', textDecoration: 'none' }}
@@ -123,26 +89,22 @@ const Footer = () => {
             </Stack>
           </VStack>
 
-          {/* Resources */}
+          {/* Contact */}
           <VStack align="flex-start" spacing={4}>
             <Heading size="sm" color="white">
-              Resources
+              Contact
             </Heading>
-            <Stack spacing={2}>
-              {resources.map((item) => (
-                <Link
-                  key={item.path}
-                  as={RouterLink}
-                  to={item.path}
-                  fontSize="sm"
-                  color="gray.400"
-                  _hover={{ color: 'brand.lightBlue', textDecoration: 'none' }}
-                  transition="color 0.2s"
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </Stack>
+            <HStack>
+              <Icon as={FaEnvelope} color="brand.lightBlue" />
+              <Link
+                href="mailto:contact@boolavas.in"
+                fontSize="sm"
+                color="gray.400"
+                _hover={{ color: 'brand.lightBlue' }}
+              >
+                contact@boolavas.in
+              </Link>
+            </HStack>
           </VStack>
         </SimpleGrid>
 
@@ -157,9 +119,6 @@ const Footer = () => {
         >
           <Text fontSize="sm" color="gray.500">
             © {currentYear} Boolavas. All rights reserved.
-          </Text>
-          <Text fontSize="sm" color="gray.500">
-            Madurai, Tamil Nadu, India
           </Text>
         </Stack>
       </Container>

@@ -3,111 +3,52 @@ import { Helmet } from 'react-helmet-async'
 const OrganizationSchema = () => {
   const schema = {
     "@context": "https://schema.org",
-    "@type": ["Organization", "SoftwareCompany"],
+    "@type": "Organization",
     "name": "Boolavas",
-    "alternateName": "Boolavas Software Development",
     "url": "https://boolavas.in",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://boolavas.in/logo.png",
-      "width": "300",
-      "height": "100"
+      "url": "https://boolavas.in/logo.png"
     },
-    "description": "Boolavas is a software development company in India specializing in custom software development, mobile apps, websites, and healthcare SaaS solutions. Creator of MediBoo clinic management software.",
-    "slogan": "Building Software That Matters",
-    "foundingDate": "2020",
-    "founders": [{
-      "@type": "Person",
-      "name": "Boolavas Team"
-    }],
+    "description": "Boolavas is a software product company building focused software products including MediBoo, MigraSafe and ConfigSafe for healthcare, database and software engineering workflows.",
+    "email": "contact@boolavas.in",
     "contactPoint": [{
       "@type": "ContactPoint",
-      "telephone": "+91-8667430356",
-      "contactType": "Customer Service",
-      "areaServed": "IN",
-      "availableLanguage": ["English", "Tamil", "Hindi"],
-      "email": "contact@boolavas.in"
-    }, {
-      "@type": "ContactPoint",
-      "contactType": "Sales",
-      "areaServed": "IN",
-      "availableLanguage": ["English", "Tamil"],
+      "contactType": "Customer Support",
+      "email": "contact@boolavas.in",
       "url": "https://boolavas.in/contact"
     }],
-    "email": "contact@boolavas.in",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Madurai",
-      "addressRegion": "Tamil Nadu",
-      "addressCountry": "IN",
-      "postalCode": "625001"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "India"
-    },
     "knowsAbout": [
-      "Software Development",
-      "Mobile App Development",
-      "Web Development",
-      "Healthcare Software",
-      "SaaS Solutions",
-      "Clinic Management Systems",
-      "React Development",
-      "Next.js Development",
-      "Custom Software Solutions"
-    ],
-    "serviceType": [
-      "Custom Software Development",
-      "Mobile Application Development",
-      "Web Application Development",
-      "SaaS Product Development",
-      "Healthcare IT Solutions"
+      "Clinic Management Software",
+      "SQL Migration Risk Analysis",
+      "Database Migration Safety",
+      "Environment Configuration Risk",
+      "Configuration Drift Detection"
     ],
     "sameAs": [],
-    "makesOffer": [{
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Custom Software Development",
-        "description": "Tailored software solutions for businesses"
-      }
-    }, {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Mobile App Development",
-        "description": "Android and iOS mobile application development"
-      }
-    }, {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Website Development",
-        "description": "Modern, responsive website development"
-      }
-    }],
-    "hasProduct": [{
-      "@type": "SoftwareApplication",
-      "name": "MediBoo",
-      "applicationCategory": "BusinessApplication",
-      "applicationSubCategory": "Healthcare Management Software",
-      "operatingSystem": "Web Browser",
-      "description": "Comprehensive clinic management software for Homeopathy, Siddha, Dental and Acupuncture clinics in India.",
-      "url": "https://boolavas.in",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "INR",
-        "description": "90-day free trial",
-        "availability": "https://schema.org/InStock"
+    "hasProduct": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "MediBoo",
+        "applicationCategory": "BusinessApplication",
+        "description": "Clinic management software for managing patients, appointments, prescriptions and investigations.",
+        "url": "https://boolavas.in/products/mediboo"
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "ratingCount": "150"
+      {
+        "@type": "SoftwareApplication",
+        "name": "MigraSafe",
+        "applicationCategory": "DeveloperApplication",
+        "description": "SQL migration risk analyzer that identifies potentially dangerous database changes before production.",
+        "url": "https://boolavas.in/products/migrasafe"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "ConfigSafe",
+        "applicationCategory": "DeveloperApplication",
+        "description": "Environment configuration risk and drift checker for identifying configuration problems before production.",
+        "url": "https://boolavas.in/products/configsafe"
       }
-    }]
+    ]
   }
 
   return (

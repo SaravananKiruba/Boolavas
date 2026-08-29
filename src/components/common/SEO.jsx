@@ -1,9 +1,9 @@
 import { Helmet } from 'react-helmet-async'
 
 const SEO = ({ 
-  title = "Boolavas — Software Development Company India | Custom Software, Mobile Apps & SaaS Solutions",
-  description = "Boolavas is a leading software development company in India specializing in custom software, mobile apps, websites, and healthcare SaaS solutions. Creator of MediBoo clinic management software.",
-  keywords = "software development company india, custom software development, mobile app development india, web development company, saas development, healthcare software, clinic management software, mediboo, boolavas, software company chennai, software company madurai, software company coimbatore, software company tamil nadu",
+  title = "Boolavas | Modern Software Products for Real-World Problems",
+  description = "Boolavas builds focused software products including MediBoo, MigraSafe and ConfigSafe for healthcare, database and software engineering workflows.",
+  keywords = "boolavas, software product company, mediboo, migrasafe, configsafe, clinic management software, sql migration risk analyzer, environment configuration checker",
   canonical,
   ogImage = "https://boolavas.in/og-image.jpg",
   ogImageWidth = "1200",
@@ -63,15 +63,9 @@ const SEO = ({
 
       {/* Additional Meta Tags */}
       <meta name="language" content="English" />
-      <meta name="geo.region" content="IN-TN" />
-      <meta name="geo.placename" content="India" />
-      <meta name="geo.position" content="9.9252;78.1198" />
-      <meta name="ICBM" content="9.9252, 78.1198" />
       <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
       <meta name="author" content="Boolavas" />
       <meta name="publisher" content="Boolavas" />
-      <meta name="coverage" content="Worldwide" />
-      <meta name="distribution" content="Global" />
       <meta name="rating" content="General" />
       <meta name="revisit-after" content="7 days" />
 

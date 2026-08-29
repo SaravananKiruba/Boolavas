@@ -15,60 +15,50 @@ import FAQSchema from '../schemas/FAQSchema'
 
 const MotionBox = motion(Box)
 
-const faqs = [
+const companyFaqs = [
   {
-    question: 'What is the best clinic management software for homeopathy clinics?',
-    answer: 'MediBoo by Boolavas is clinic management software built specifically for Homeopathy clinics. It includes patient management, appointment scheduling, prescription generation, billing, and follow-up tracking designed for homeopathic practitioners.',
+    question: 'What is Boolavas?',
+    answer: 'Boolavas is a software product company building focused tools for healthcare, database engineering and application configuration workflows.',
   },
   {
-    question: 'Does MediBoo support Siddha and Ayurveda clinics?',
-    answer: 'Yes. MediBoo is designed for traditional medicine practices including Siddha, Ayurveda, and Homeopathy clinics. The platform supports custom prescription templates, treatment protocols, and medicine catalogs specific to each practice.',
+    question: 'What products does Boolavas build?',
+    answer: 'Boolavas currently builds MediBoo, MigraSafe and ConfigSafe.',
   },
   {
-    question: 'Is MediBoo suitable for dental clinics?',
-    answer: 'Absolutely. MediBoo works for Dental clinics and supports procedures tracking, treatment plans, dental charts, and specialized billing. Dental practitioners in Chennai, Coimbatore, and Madurai are already using MediBoo.',
+    question: 'What is MediBoo?',
+    answer: 'MediBoo is clinic management software designed for modern clinics and healthcare businesses.',
   },
   {
-    question: 'Can I manage appointments and billing with MediBoo?',
-    answer: 'Yes. MediBoo provides complete appointment management with automated SMS/email reminders, calendar scheduling, and integrated billing with invoice generation, payment tracking, and GST support.',
+    question: 'What is MigraSafe?',
+    answer: 'MigraSafe is an SQL migration risk analyzer that helps identify potentially dangerous database migration changes before production.',
   },
   {
-    question: 'Is MediBoo useful for acupuncture clinics?',
-    answer: 'Yes. MediBoo supports Acupuncture clinics with patient history tracking, treatment session logging, and appointment management. The platform is flexible enough to adapt to various alternative medicine practices.',
+    question: 'What is ConfigSafe?',
+    answer: 'ConfigSafe is an environment configuration risk and drift checker designed to identify configuration problems before they become production issues.',
   },
   {
-    question: 'Does MediBoo work for small clinics?',
-    answer: 'Yes. MediBoo is perfect for small clinics, solo practitioners, and multi-branch setups. You can start with a single doctor and scale to multiple branches as your practice grows. There\'s a 90-day free trial with no credit card required.',
-  },
-  {
-    question: 'Can doctors manage patient history in MediBoo?',
-    answer: 'Yes. MediBoo provides comprehensive patient history management including chief complaints, medical history, treatment records, investigation results, prescriptions, and follow-up notes — all stored securely and accessible anytime.',
-  },
-  {
-    question: 'Is MediBoo available in India?',
-    answer: 'Yes. MediBoo is built for Indian clinics and supports clinics across Chennai, Coimbatore, Madurai, and all of Tamil Nadu. The platform supports Indian billing standards, GST compliance, and local payment methods.',
-  },
-  {
-    question: 'Can MediBoo support multiple clinics and branches?',
-    answer: 'Yes. MediBoo is built on a multi-tenant architecture that supports multiple independent clinics, each with their own branches, doctors, receptionists, and fully isolated patient data. Each clinic can have custom branding and domain.',
-  },
-  {
-    question: 'Is MediBoo white-label ready?',
-    answer: 'Yes. Each clinic on MediBoo gets its own logo, color scheme, favicon, custom CSS, and custom domain — delivering a fully white-labelled experience. Patients and staff only see the clinic\'s branding.',
+    question: 'How can I contact Boolavas?',
+    answer: 'Email Boolavas at contact@boolavas.in.',
   },
 ]
 
-const FAQ = () => {
+const FAQ = ({
+  faqs = companyFaqs,
+  title = 'Frequently asked questions',
+  description = 'Answers to common questions about Boolavas and its products.',
+  id = 'faq',
+  withSchema = true,
+}) => {
   return (
-    <Box as="section" py={20} bg="white" id="faq">
-      <FAQSchema faqs={faqs} />
+    <Box as="section" py={{ base: 16, md: 24 }} bg="#111111" id={id}>
+      {withSchema && <FAQSchema faqs={faqs} />}
       <Container maxW="4xl">
         <VStack spacing={4} textAlign="center" mb={12}>
-          <Heading as="h2" size="2xl" color="brand.navy">
-            Frequently Asked Questions
+          <Heading as="h2" size="2xl" color="white">
+            {title}
           </Heading>
-          <Text fontSize="xl" color="gray.600">
-            Common questions about MediBoo clinic management software
+          <Text fontSize="xl" color="gray.400">
+            {description}
           </Text>
         </VStack>
 
@@ -82,24 +72,24 @@ const FAQ = () => {
             {faqs.map((faq, index) => (
               <AccordionItem key={index} border="none" mb={4}>
                 <AccordionButton
-                  bg="gray.50"
-                  _hover={{ bg: 'brand.50' }}
-                  _expanded={{ bg: 'brand.50', borderColor: 'brand.blue' }}
+                  bg="rgba(255,255,255,0.03)"
+                  _hover={{ bg: 'whiteAlpha.100' }}
+                  _expanded={{ bg: 'whiteAlpha.100', borderColor: 'brand.blue' }}
                   borderRadius="lg"
                   p={6}
-                  border="2px solid"
-                  borderColor="gray.100"
+                  border="1px solid"
+                  borderColor="whiteAlpha.200"
                   transition="all 0.3s"
                 >
                   <Box flex="1" textAlign="left">
-                    <Text fontWeight="semibold" fontSize="lg" color="brand.navy">
+                    <Text fontWeight="semibold" fontSize="lg" color="white">
                       {faq.question}
                     </Text>
                   </Box>
                   <AccordionIcon color="brand.blue" />
                 </AccordionButton>
                 <AccordionPanel pb={4} pt={4} px={6}>
-                  <Text color="gray.700" lineHeight="tall">
+                  <Text color="gray.400" lineHeight="tall">
                     {faq.answer}
                   </Text>
                 </AccordionPanel>

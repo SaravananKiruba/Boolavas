@@ -11,11 +11,13 @@ import CTAButton from '../common/CTAButton'
 
 const MotionBox = motion(Box)
 
-const CTASection = ({ 
-  title = "Ready to Start Your Project?",
-  description = "Let's discuss your requirements and build something amazing together. Get in touch with our team today.",
-  primaryCTA = "Start Your Project",
-  secondaryCTA = "Book Free Consultation",
+const CTASection = ({
+  title = "Ready to explore Boolavas products?",
+  description = "Discover MediBoo, MigraSafe and ConfigSafe — focused software products built to solve real business and engineering problems.",
+  primaryCTA = "Explore Products",
+  primaryHref = "/products",
+  secondaryCTA = "Contact Boolavas",
+  secondaryHref = "/contact",
   bg = "brand.navy"
 }) => {
   return (
@@ -27,7 +29,7 @@ const CTASection = ({
         right="-10%"
         width="50%"
         height="50%"
-        bg="radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%)"
+        bg="radial-gradient(circle, rgba(255, 49, 49, 0.12) 0%, transparent 70%)"
         pointerEvents="none"
       />
 
@@ -46,10 +48,10 @@ const CTASection = ({
               {description}
             </Text>
             <HStack spacing={4} flexWrap="wrap" justify="center">
-              <CTAButton href="/contact" size="lg">
+              <CTAButton href={primaryHref} size="lg">
                 {primaryCTA}
               </CTAButton>
-              <CTAButton href="/contact" variant="secondary" size="lg">
+              <CTAButton href={secondaryHref} variant="outline" size="lg">
                 {secondaryCTA}
               </CTAButton>
             </HStack>
