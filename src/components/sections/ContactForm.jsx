@@ -37,9 +37,16 @@ const ContactForm = () => {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // TODO: replace this simulated submission with a real backend/API call.
-    // `formData` holds the values to send.
-    setTimeout(() => {
+    try {
+      const res = await fetch('/contact.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+      const json = await res.json()
+
+      if (!res.ok) throw new Error(json.error || 'Server error')
+
       toast({
         title: 'Message sent!',
         description: "We'll get back to you by email.",
@@ -49,8 +56,18 @@ const ContactForm = () => {
         position: 'top',
       })
       setFormData(EMPTY)
+    } catch {
+      toast({
+        title: 'Failed to send.',
+        description: 'Please try again or email us at appsupport@boolavas.in',
+        status: 'error',
+        duration: 6000,
+        isClosable: true,
+        position: 'top',
+      })
+    } finally {
       setIsSubmitting(false)
-    }, 1500)
+    }
   }
 
   const enquiryOptions = ENQUIRY_TYPES[formData.product] ?? []
