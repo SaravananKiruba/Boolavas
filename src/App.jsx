@@ -1,6 +1,7 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import { Box } from '@chakra-ui/react'
 import { lazy, Suspense } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import Navbar from './components/common/Navbar'
 import Footer from './components/common/Footer'
 import ScrollToTop from './components/common/ScrollToTop'
@@ -45,25 +46,38 @@ const PageLoader = () => (
 )
 
 function App() {
+  const location = useLocation()
+
   return (
     <Box minH="100vh" display="flex" flexDirection="column">
       <ScrollToTop />
       <OrganizationSchema />
       <Navbar />
-      <Box as="main" flex={1}>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/products/mediboo" element={<MediBoo />} />
-            <Route path="/products/migrasafe" element={<MigraSafe />} />
-            <Route path="/products/configsafe" element={<ConfigSafe />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-      </Box>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={location.pathname}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.22, ease: 'easeInOut' }}
+          style={{ flex: 1, display: 'flex', flexDirection: 'column' }}
+        >
+          <Box as="main" flex={1}>
+            <Suspense fallback={<PageLoader />}>
+              <Routes location={location}>
+                <Route path="/" element={<Home />} />
+                <Route path="/products" element={<Products />} />
+                <Route path="/products/mediboo" element={<MediBoo />} />
+                <Route path="/products/migrasafe" element={<MigraSafe />} />
+                <Route path="/products/configsafe" element={<ConfigSafe />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </Box>
+        </motion.div>
+      </AnimatePresence>
       <Footer />
     </Box>
   )

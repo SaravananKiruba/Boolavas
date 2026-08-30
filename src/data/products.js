@@ -17,11 +17,8 @@ import {
   FaWaveSquare,
 } from 'react-icons/fa'
 
-// Product application URLs are read from environment variables.
-// Vite statically replaces these literal references at build time.
-// They stay undefined until configured, so the "Open" CTAs only render when set.
-export const MIGRASAFE_APP_URL = import.meta.env.VITE_MIGRASAFE_APP_URL || ''
-export const CONFIGSAFE_APP_URL = import.meta.env.VITE_CONFIGSAFE_APP_URL || ''
+export const MIGRASAFE_APP_URL = 'https://migrasafe.vercel.app'
+export const CONFIGSAFE_APP_URL = 'https://configsafe.vercel.app'
 
 export const products = [
   {
