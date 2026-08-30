@@ -47,8 +47,8 @@ const reasons = [
 
 const WhyBoolavas = () => {
   return (
-    <Box as="section" py={{ base: 16, md: 24 }} bg="brand.mid" position="relative" overflow="hidden">
-      {/* Subtle radial glow */}
+    <Box as="section" py={{ base: 16, md: 24 }} bg="brand.cream" position="relative" overflow="hidden">
+      {/* Subtle red radial tint */}
       <Box
         position="absolute"
         top="50%"
@@ -56,7 +56,7 @@ const WhyBoolavas = () => {
         transform="translate(-50%, -50%)"
         w="80%"
         h="60%"
-        bg="radial-gradient(ellipse, rgba(255,49,49,0.07) 0%, transparent 70%)"
+        bg="radial-gradient(ellipse, rgba(255,49,49,0.06) 0%, transparent 70%)"
         pointerEvents="none"
       />
 
@@ -65,7 +65,7 @@ const WhyBoolavas = () => {
           <MotionHeading
             as="h2"
             size="2xl"
-            color="white"
+            color="brand.navy"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -75,7 +75,7 @@ const WhyBoolavas = () => {
           </MotionHeading>
           <MotionText
             fontSize="xl"
-            color="gray.400"
+            color="gray.600"
             maxW="3xl"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -100,35 +100,35 @@ const WhyBoolavas = () => {
                 variants={cardVariants}
                 whileHover={{
                   y: -8,
-                  borderColor: 'rgba(255,49,49,0.5)',
-                  boxShadow: '0 24px 60px rgba(255,49,49,0.14)',
+                  borderColor: 'rgba(255,49,49,0.4)',
+                  boxShadow: '0 24px 60px rgba(255,49,49,0.12)',
                   transition: springFast,
                 }}
-                bg="rgba(255,255,255,0.03)"
-                backdropFilter="blur(6px)"
+                bg="white"
                 border="1px solid"
-                borderColor="whiteAlpha.200"
+                borderColor="rgba(212,175,55,0.3)"
                 borderRadius="2xl"
                 p={7}
                 h="100%"
                 cursor="default"
+                boxShadow="0 4px 20px rgba(18,0,8,0.08)"
               >
                 <VStack align="flex-start" spacing={4}>
                   <MotionBox
                     display="flex"
                     justify="center"
                     align="center"
-                    bg="rgba(255,49,49,0.12)"
+                    bg="rgba(255,49,49,0.08)"
                     borderRadius="xl"
                     boxSize={12}
                     whileHover={{ scale: 1.15, rotate: 5, transition: springFast }}
                   >
                     <Icon as={reason.icon} boxSize={6} color="brand.blue" />
                   </MotionBox>
-                  <Heading as="h3" size="md" color="white">
+                  <Heading as="h3" size="md" color="brand.navy">
                     {reason.title}
                   </Heading>
-                  <Text color="gray.400" fontSize="sm" lineHeight="tall">
+                  <Text color="gray.600" fontSize="sm" lineHeight="tall">
                     {reason.description}
                   </Text>
                 </VStack>

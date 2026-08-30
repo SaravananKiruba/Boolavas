@@ -3,22 +3,39 @@ import { extendTheme } from '@chakra-ui/react'
 const theme = extendTheme({
   colors: {
     brand: {
-      navy:      '#630919',   // primary dark background — deep maroon
-      mid:       '#500816',   // alternating section background
-      blue:      '#ff3131',   // primary red
-      lightBlue: '#ff5252',   // lighter red for hovers/badges
-      light:     '#f6f6f6',   // off-white text / light surfaces
-      amber:     '#e68815',   // secondary accent — amber
+      navy:      '#120008',   // deep crimson-black page background
+      mid:       '#260010',   // dark crimson alternating section
+      surface:   '#3c0018',   // elevated card / modal surface
+      blue:      '#ff3131',   // primary red CTA
+      lightBlue: '#ff5c5c',   // hover / lighter red
+      gold:      '#D4AF37',   // primary gold accent
+      goldLight: '#f5d76e',   // light gold highlight
+      amber:     '#D4AF37',   // alias → gold
+      cream:     '#fff8f2',   // warm white for light sections
+      light:     '#ffffff',   // pure white text
       50:  '#fff0f0',
       100: '#ffd4d4',
       200: '#ffaaaa',
       300: '#ff7777',
       400: '#ff5252',
-      500: '#ff3131',         // = brand.blue
-      600: '#801d1d',         // hover darken
-      700: '#630919',         // = brand.navy
-      800: '#3d0808',
-      900: '#1a0306',
+      500: '#ff3131',
+      600: '#cc0000',
+      700: '#8c000a',
+      800: '#520010',
+      900: '#120008',
+    },
+    // Warm-tinted grays — every gray.* reference across the site gets a red warmth
+    gray: {
+      50:  '#fff5f5',
+      100: '#ffe8e8',
+      200: '#f0d0d0',
+      300: '#d9b0b0',
+      400: '#c49090',
+      500: '#a87070',
+      600: '#7a4848',
+      700: '#4e2424',
+      800: '#2e1010',
+      900: '#180808',
     },
   },
   fonts: {
@@ -79,15 +96,29 @@ const theme = extendTheme({
           transition: 'all 0.3s ease',
         },
         amber: {
-          bg: 'brand.amber',
-          color: 'white',
+          bg: 'brand.gold',
+          color: 'brand.navy',
           _hover: {
-            bg: '#c97510',
+            bg: 'brand.goldLight',
             transform: 'translateY(-2px)',
             boxShadow: 'lg',
           },
           _active: {
-            bg: '#a85e0d',
+            bg: 'brand.gold',
+          },
+          transition: 'all 0.3s ease',
+        },
+        gold: {
+          bg: 'brand.gold',
+          color: 'brand.navy',
+          fontWeight: 'bold',
+          _hover: {
+            bg: 'brand.goldLight',
+            transform: 'translateY(-2px)',
+            boxShadow: '0 8px 24px rgba(212,175,55,0.35)',
+          },
+          _active: {
+            bg: 'brand.gold',
           },
           transition: 'all 0.3s ease',
         },

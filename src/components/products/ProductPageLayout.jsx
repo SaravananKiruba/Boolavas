@@ -12,7 +12,9 @@ import {
   List,
   ListItem,
   ListIcon,
+  Image,
 } from '@chakra-ui/react'
+import { useState } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { FaArrowRight, FaCheckCircle, FaExternalLinkAlt } from 'react-icons/fa'
@@ -21,11 +23,14 @@ import CTAButton from '../common/CTAButton'
 import BreadcrumbSchema from '../schemas/BreadcrumbSchema'
 import SoftwareApplicationSchema from '../schemas/SoftwareApplicationSchema'
 import FAQ from '../home/FAQ'
+import LeadCaptureModal from '../common/LeadCaptureModal'
+import medibooLogo from '../../assets/MediBoo Logo.png'
 
 const MotionBox = motion(Box)
 
 const ProductPageLayout = ({ product }) => {
   const { name, category, icon, appUrl, seo, hero, problem, howItWorks, capabilities, audience, whyMatters, faqs } = product
+  const [leadModalOpen, setLeadModalOpen] = useState(false)
 
   const schemaCategory = product.slug === 'mediboo' ? 'BusinessApplication' : 'DeveloperApplication'
 
@@ -66,12 +71,34 @@ const ProductPageLayout = ({ product }) => {
         <Container maxW="6xl" position="relative" zIndex={1}>
           <VStack spacing={6} align="flex-start" maxW="3xl">
             <HStack spacing={3}>
-              <HStack justify="center" align="center" bg="rgba(255,49,49,0.12)" borderRadius="xl" boxSize={12}>
-                <Icon as={icon} boxSize={6} color="brand.blue" />
-              </HStack>
+              {product.slug === 'mediboo' ? (
+                <MotionBox
+                  initial={{ opacity: 0, scale: 0.88, filter: 'blur(12px)' }}
+                  animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+                  transition={{ duration: 0.9, ease: 'easeOut' }}
+                >
+                  <MotionBox
+                    animate={{ opacity: [0.82, 1, 0.82], scale: [1, 1.04, 1] }}
+                    transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+                    display="inline-flex"
+                  >
+                    <Image
+                      src={medibooLogo}
+                      h="44px"
+                      objectFit="contain"
+                      alt="MediBoo"
+                      style={{ filter: 'drop-shadow(0 0 20px rgba(212,175,55,0.65)) drop-shadow(0 0 50px rgba(255,49,49,0.25))' }}
+                    />
+                  </MotionBox>
+                </MotionBox>
+              ) : (
+                <HStack justify="center" align="center" bg="rgba(255,49,49,0.12)" borderRadius="xl" boxSize={12}>
+                  <Icon as={icon} boxSize={6} color="brand.blue" />
+                </HStack>
+              )}
               <Badge
                 bg="whiteAlpha.100"
-                color="brand.lightBlue"
+                color="brand.gold"
                 fontSize="xs"
                 px={3}
                 py={1}
@@ -100,7 +127,7 @@ const ProductPageLayout = ({ product }) => {
             <Stack direction={{ base: 'column', sm: 'row' }} spacing={4} pt={2} w={{ base: 'full', sm: 'auto' }}>
               {appUrl && (
                 <CTAButton
-                  href={appUrl}
+                  onClick={() => setLeadModalOpen(true)}
                   size="lg"
                   rightIcon={<Icon as={FaExternalLinkAlt} boxSize={3} />}
                 >
@@ -111,6 +138,15 @@ const ProductPageLayout = ({ product }) => {
                 Contact Boolavas
               </CTAButton>
             </Stack>
+
+            {appUrl && (
+              <LeadCaptureModal
+                isOpen={leadModalOpen}
+                onClose={() => setLeadModalOpen(false)}
+                productName={name}
+                appUrl={appUrl}
+              />
+            )}
           </VStack>
         </Container>
       </Box>

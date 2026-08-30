@@ -6,19 +6,20 @@
   Stack,
   HStack,
   VStack,
-  Badge,
   Icon,
   SimpleGrid,
+  Image,
 } from '@chakra-ui/react'
 import { Link as RouterLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { FaArrowRight, FaEnvelope } from 'react-icons/fa'
 import CTAButton from '../common/CTAButton'
 import { products } from '../../data/products'
+import boolavasLogo from '../../assets/boolavas logo.png'
+import medibooLogo from '../../assets/MediBoo Logo.png'
 
 const MotionBox = motion(Box)
 const MotionText = motion(Text)
-const MotionBadge = motion(Badge)
 
 const spring = { type: 'spring', stiffness: 110, damping: 20 }
 const springFast = { type: 'spring', stiffness: 320, damping: 28 }
@@ -92,23 +93,26 @@ const Hero = () => {
 
       <Container maxW="7xl" position="relative" zIndex={1}>
         <VStack spacing={{ base: 8, md: 10 }} align="center" textAlign="center">
-          <MotionBadge
-            bg="rgba(255,49,49,0.1)"
-            color="brand.lightBlue"
-            fontSize="xs"
-            px={4}
-            py={1.5}
-            borderRadius="full"
-            textTransform="uppercase"
-            letterSpacing="wider"
-            border="1px solid"
-            borderColor="rgba(255,82,82,0.22)"
-            initial={{ opacity: 0, scale: 0.75 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ ...springFast, delay: 0.05 }}
+          {/* Boolavas logo — fade-in with continuous soft glow pulse */}
+          <MotionBox
+            initial={{ opacity: 0, scale: 0.88, filter: 'blur(14px)' }}
+            animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+            transition={{ duration: 1, ease: 'easeOut' }}
           >
-            Boolavas
-          </MotionBadge>
+            <MotionBox
+              animate={{ opacity: [0.82, 1, 0.82], scale: [1, 1.03, 1] }}
+              transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+              display="inline-flex"
+            >
+              <Image
+                src={boolavasLogo}
+                h={{ base: '70px', md: '100px' }}
+                objectFit="contain"
+                alt="Boolavas"
+                style={{ filter: 'drop-shadow(0 0 28px rgba(212,175,55,0.7)) drop-shadow(0 0 60px rgba(255,49,49,0.35))' }}
+              />
+            </MotionBox>
+          </MotionBox>
 
           <Heading
             as="h1"
@@ -172,8 +176,8 @@ const Hero = () => {
               transition={{ ...spring, delay: 1.1 + index * 0.12 }}
               whileHover={{
                 y: -7,
-                boxShadow: '0 22px 60px rgba(255,49,49,0.18)',
-                borderColor: 'rgba(255,49,49,0.55)',
+                boxShadow: '0 22px 60px rgba(212,175,55,0.15)',
+                borderColor: 'rgba(212,175,55,0.45)',
                 transition: springFast,
               }}
               bg="rgba(255,255,255,0.03)"
@@ -185,15 +189,33 @@ const Hero = () => {
               role="group"
             >
               <HStack spacing={4} align="center">
-                <Box
-                  p={2.5}
-                  borderRadius="lg"
-                  bg="rgba(255,49,49,0.1)"
-                  transition="all 0.25s ease"
-                  _groupHover={{ bg: 'rgba(255,49,49,0.22)', transform: 'scale(1.12)' }}
-                >
-                  <Icon as={product.icon} boxSize={5} color="brand.blue" />
-                </Box>
+                {product.slug === 'mediboo' ? (
+                  <Box
+                    p={1.5}
+                    borderRadius="lg"
+                    transition="all 0.25s ease"
+                    _groupHover={{ transform: 'scale(1.1)' }}
+                    flexShrink={0}
+                  >
+                    <Image
+                      src={medibooLogo}
+                      boxSize="28px"
+                      objectFit="contain"
+                      alt="MediBoo"
+                      style={{ filter: 'drop-shadow(0 0 8px rgba(212,175,55,0.6))' }}
+                    />
+                  </Box>
+                ) : (
+                  <Box
+                    p={2.5}
+                    borderRadius="lg"
+                    bg="rgba(255,49,49,0.1)"
+                    transition="all 0.25s ease"
+                    _groupHover={{ bg: 'rgba(255,49,49,0.22)', transform: 'scale(1.12)' }}
+                  >
+                    <Icon as={product.icon} boxSize={5} color="brand.blue" />
+                  </Box>
+                )}
                 <Box textAlign="left">
                   <Text color="white" fontWeight="bold" fontSize="sm">
                     {product.name}

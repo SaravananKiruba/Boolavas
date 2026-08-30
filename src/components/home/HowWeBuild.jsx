@@ -77,21 +77,21 @@ const HowWeBuild = () => {
                 bg="rgba(255,255,255,0.03)"
                 backdropFilter="blur(6px)"
                 border="1px solid"
-                borderColor="whiteAlpha.100"
+                borderColor="rgba(212,175,55,0.15)"
                 borderRadius="xl"
                 p={6}
                 h="100%"
                 position="relative"
-                _hover={{ borderColor: 'rgba(255,49,49,0.3)' }}
-                sx={{ transition: 'border-color 0.3s ease' }}
+                _hover={{ borderColor: 'rgba(212,175,55,0.5)', boxShadow: '0 8px 32px rgba(212,175,55,0.08)' }}
+                sx={{ transition: 'border-color 0.3s ease, box-shadow 0.3s ease' }}
               >
-                {/* Gradient step number */}
+                {/* Gold gradient step number */}
                 <Text
                   fontSize="4xl"
                   fontWeight="extrabold"
                   mb={3}
                   sx={{
-                    background: 'linear-gradient(135deg, #ff3131 0%, #e68815 100%)',
+                    background: 'linear-gradient(135deg, #D4AF37 0%, #f5d76e 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     backgroundClip: 'text',

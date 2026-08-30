@@ -27,8 +27,7 @@ export const products = [
     category: 'Clinic Management Software',
     route: '/products/mediboo',
     icon: FaHeartbeat,
-    // MediBoo is informational only on this site — no application link.
-    appUrl: '',
+    appUrl: 'https://mediboo-platform.vercel.app/',
     summary:
       'A modern clinic management platform for managing patients, appointments, prescriptions, investigations and everyday clinic workflows.',
     seo: {

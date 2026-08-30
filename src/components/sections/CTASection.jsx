@@ -45,7 +45,7 @@ const CTASection = ({
     <Box as="section" bg={bg} py={24} position="relative" overflow="hidden">
       {/* Animated orbs */}
       <Orb size="500px" color="rgba(255,49,49,0.14)"  bottom="-25%" right="-12%" delay={0} duration={9} />
-      <Orb size="300px" color="rgba(230,136,21,0.1)"  top="-20%"   left="-8%"   delay={1.5} duration={7} />
+      <Orb size="350px" color="rgba(212,175,55,0.18)"  top="-20%"   left="-8%"   delay={1.5} duration={7} />
 
       {/* Dot-grid overlay */}
       <Box
@@ -68,14 +68,23 @@ const CTASection = ({
             bg="rgba(255,255,255,0.03)"
             backdropFilter="blur(10px)"
             border="1px solid"
-            borderColor="rgba(255,49,49,0.22)"
+            borderColor="rgba(212,175,55,0.35)"
             borderRadius="2xl"
             p={{ base: 10, md: 14 }}
             textAlign="center"
             className="glow-border"
           >
             <VStack spacing={8}>
-              <Heading size="2xl" color="white" lineHeight="1.2">
+              <Heading
+                size="2xl"
+                lineHeight="1.2"
+                sx={{
+                  background: 'linear-gradient(135deg, #ffffff 0%, #D4AF37 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
                 {title}
               </Heading>
               <Text fontSize="xl" color="gray.300" maxW="2xl">

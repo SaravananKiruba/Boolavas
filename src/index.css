@@ -1,11 +1,11 @@
 /* ── Custom scrollbar ── */
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #3d0808; }
-::-webkit-scrollbar-thumb { background: #ff3131; border-radius: 99px; }
-::-webkit-scrollbar-thumb:hover { background: #ff5252; }
+::-webkit-scrollbar-track { background: #200010; }
+::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #f5d76e; }
 
 /* ── Text selection ── */
-::selection { background: rgba(255, 49, 49, 0.28); color: #fff; }
+::selection { background: rgba(212, 175, 55, 0.30); color: #fff; }
 
 /* ── Smooth base ── */
 *, *::before, *::after { box-sizing: border-box; }
@@ -17,21 +17,37 @@ html { scroll-behavior: smooth; }
   background-size: 30px 30px;
 }
 
-/* ── Gradient text utility ── */
+/* ── Red→Gold gradient text ── */
 .gradient-text {
-  background: linear-gradient(135deg, #ff3131 0%, #ff8c42 100%);
+  background: linear-gradient(135deg, #ff3131 0%, #D4AF37 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* ── Animated glow border (keyframe) ── */
+/* ── Gold text utility ── */
+.gold-text {
+  background: linear-gradient(135deg, #D4AF37 0%, #f5d76e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Animated glow border (red + gold pulse) ── */
 @keyframes borderGlow {
-  0%, 100% { box-shadow: 0 0 20px rgba(255, 49, 49, 0.3); }
-  50%       { box-shadow: 0 0 40px rgba(255, 49, 49, 0.6), 0 0 80px rgba(255, 49, 49, 0.2); }
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 49, 49, 0.3), 0 0 40px rgba(212,175,55,0.1); }
+  50%       { box-shadow: 0 0 40px rgba(255, 49, 49, 0.5), 0 0 80px rgba(212,175,55,0.25); }
 }
 
 .glow-border { animation: borderGlow 3s ease-in-out infinite; }
+
+/* ── Gold card border glow ── */
+@keyframes goldGlow {
+  0%, 100% { box-shadow: 0 0 16px rgba(212,175,55,0.2); }
+  50%       { box-shadow: 0 0 32px rgba(212,175,55,0.45); }
+}
+
+.gold-glow { animation: goldGlow 3s ease-in-out infinite; }
 
 /* ── Subtle noise overlay for premium texture ── */
 body::after {

@@ -52,7 +52,7 @@ const Navbar = () => {
     <MotionBox
       as="nav"
       aria-label="Primary"
-      bg={scrolled ? 'rgba(99, 9, 25, 0.95)' : 'brand.navy'}
+      bg={scrolled ? 'rgba(18, 0, 8, 0.95)' : 'brand.navy'}
       backdropFilter={scrolled ? 'blur(10px)' : 'none'}
       position="sticky"
       top={0}
@@ -65,10 +65,6 @@ const Navbar = () => {
           {/* Logo */}
           <RouterLink to="/" aria-label="Boolavas home">
             <Box
-              bg="white"
-              borderRadius="xl"
-              px={3}
-              py={1}
               display="inline-flex"
               _hover={{ opacity: 0.85 }}
               transition="opacity 0.3s"
@@ -78,6 +74,7 @@ const Navbar = () => {
                 alt="Boolavas"
                 h="44px"
                 objectFit="contain"
+                style={{ filter: 'drop-shadow(0 0 10px rgba(212,175,55,0.5))' }}
               />
             </Box>
           </RouterLink>
@@ -90,9 +87,9 @@ const Navbar = () => {
                 as={Button}
                 variant="ghost"
                 rightIcon={<ChevronDownIcon />}
-                color={isActive('/products') ? 'brand.lightBlue' : 'white'}
+                color={isActive('/products') ? 'brand.gold' : 'white'}
                 fontWeight={isActive('/products') ? 'bold' : 'medium'}
-                _hover={{ color: 'brand.lightBlue', bg: 'whiteAlpha.100' }}
+                _hover={{ color: 'brand.gold', bg: 'whiteAlpha.100' }}
                 _active={{ bg: 'whiteAlpha.100' }}
               >
                 Products
@@ -110,7 +107,7 @@ const Navbar = () => {
                     py={3}
                   >
                     <HStack spacing={3} align="flex-start">
-                      <Icon as={product.icon} color="brand.lightBlue" boxSize={5} mt={1} />
+                      <Icon as={product.icon} color="brand.gold" boxSize={5} mt={1} />
                       <Box>
                         <Text color="white" fontWeight="semibold" fontSize="sm">
                           {product.name}
@@ -131,8 +128,8 @@ const Navbar = () => {
                 <RouterLink key={item.path} to={item.path}>
                   <Button
                     variant="ghost"
-                    color={isActive(item.path) ? 'brand.lightBlue' : 'white'}
-                    _hover={{ color: 'brand.lightBlue', bg: 'whiteAlpha.100' }}
+                    color={isActive(item.path) ? 'brand.gold' : 'white'}
+                    _hover={{ color: 'brand.gold', bg: 'whiteAlpha.100' }}
                     fontWeight={isActive(item.path) ? 'bold' : 'medium'}
                   >
                     {item.name}
@@ -174,7 +171,7 @@ const Navbar = () => {
               <Button
                 w="full"
                 variant="ghost"
-                color={isActive('/products') ? 'brand.lightBlue' : 'white'}
+                color={isActive('/products') ? 'brand.gold' : 'white'}
                 justifyContent="space-between"
                 rightIcon={
                   <ChevronDownIcon
