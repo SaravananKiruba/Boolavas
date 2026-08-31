@@ -23,7 +23,7 @@ const NotFound = () => {
         canonical="https://boolavas.in/404"
       />
 
-      <Box bg="brand.navy" minH="80vh" display="flex" alignItems="center" py={20}>
+      <Box bg="brand.surface" minH="80vh" display="flex" alignItems="center" py={20}>
         <Container maxW="5xl">
           <MotionBox
             initial={{ opacity: 0, y: 20 }}
@@ -37,6 +37,7 @@ const NotFound = () => {
                 fontWeight="bold"
                 color="brand.blue"
                 lineHeight="1"
+                letterSpacing="-0.03em"
               >
                 404
               </Heading>
@@ -44,27 +45,23 @@ const NotFound = () => {
               <Heading
                 as="h2"
                 size="2xl"
-                color="white"
+                color="brand.navy"
                 lineHeight="shorter"
               >
                 Page Not Found
               </Heading>
 
-              <Text fontSize="xl" color="gray.300" maxW="2xl">
+              <Text fontSize="xl" color="gray.600" maxW="2xl">
                 Sorry, the page you are looking for does not exist or has been moved.
               </Text>
 
-              <VStack spacing={4} pt={8}>
+              <VStack spacing={4} pt={4}>
                 <Button
                   as={RouterLink}
                   to="/"
                   size="lg"
-                  bg="brand.blue"
-                  color="white"
+                  variant="primary"
                   leftIcon={<Icon as={FaHome} />}
-                  _hover={{ bg: 'brand.lightBlue' }}
-                  px={8}
-                  py={6}
                 >
                   Go to Homepage
                 </Button>
@@ -74,18 +71,13 @@ const NotFound = () => {
                   to="/contact"
                   size="lg"
                   variant="outline"
-                  color="white"
-                  borderColor="white"
                   leftIcon={<Icon as={FaEnvelope} />}
-                  _hover={{ bg: 'whiteAlpha.200' }}
-                  px={8}
-                  py={6}
                 >
                   Contact Us
                 </Button>
               </VStack>
 
-              <Text fontSize="sm" color="gray.500" pt={8}>
+              <Text fontSize="sm" color="gray.500" pt={6}>
                 If you think this is a mistake, please{' '}
                 <Text
                   as={RouterLink}

@@ -62,7 +62,7 @@ const philosophy = [
 
 const About = () => {
   return (
-    <Box bg="brand.navy">
+    <Box bg="brand.surface">
       <SEO
         title="About Boolavas | Software Product Company"
         description="Boolavas builds focused software products designed to solve practical business and engineering problems."
@@ -77,30 +77,30 @@ const About = () => {
       />
 
       {/* Hero */}
-      <Box as="section" position="relative" overflow="hidden" pt={{ base: 24, md: 32 }} pb={{ base: 16, md: 20 }}>
+      <Box as="section" position="relative" overflow="hidden" pt={{ base: 20, md: 28 }} pb={{ base: 16, md: 20 }}>
         <Box
           position="absolute"
           top="-40%"
           right="-15%"
           width="60%"
           height="100%"
-          bg="radial-gradient(circle, rgba(255, 49, 49, 0.12) 0%, transparent 70%)"
+          bg="radial-gradient(circle, rgba(255, 49, 49, 0.08) 0%, transparent 70%)"
           pointerEvents="none"
         />
         <Container maxW="6xl" position="relative" zIndex={1}>
           <VStack spacing={6} align="flex-start" maxW="3xl">
-            <Box bg="white" borderRadius="2xl" p={3} display="inline-flex" boxShadow="lg">
+            <Box display="inline-flex">
               <Image
                 src={boolavasLogo}
                 alt="Boolavas"
-                h={{ base: '48px', md: '60px' }}
+                h={{ base: '44px', md: '56px' }}
                 objectFit="contain"
               />
             </Box>
-            <Heading as="h1" fontSize={{ base: '3xl', md: '5xl' }} color="white" lineHeight="1.1">
+            <Heading as="h1" fontSize={{ base: '3xl', md: '5xl' }} color="brand.navy" lineHeight="1.1" letterSpacing="-0.02em">
               We build focused software products.
             </Heading>
-            <Text fontSize={{ base: 'lg', md: 'xl' }} color="gray.300">
+            <Text fontSize={{ base: 'lg', md: 'xl' }} color="gray.600">
               Boolavas is a software product company. We build practical, modern software products —
               MediBoo, MigraSafe and ConfigSafe — designed around real problems in healthcare,
               database engineering and application configuration.
@@ -110,20 +110,20 @@ const About = () => {
       </Box>
 
       {/* What we do */}
-      <Box as="section" py={{ base: 12, md: 20 }} bg="brand.mid">
+      <Box as="section" py={{ base: 12, md: 20 }} bg="brand.surfaceAlt">
         <Container maxW="4xl">
           <VStack align="flex-start" spacing={6}>
-            <Heading as="h2" size="xl" color="white">
+            <Heading as="h2" size="xl" color="brand.navy">
               What we do
             </Heading>
-            <Text fontSize="lg" color="gray.400" lineHeight="tall">
+            <Text fontSize="lg" color="gray.600" lineHeight="tall">
               Boolavas builds focused software products designed around real problems. Rather than
               spreading thin across everything, each product does one thing well: MediBoo helps
               clinics run everyday healthcare workflows, MigraSafe helps engineers catch risky SQL
               migrations before production, and ConfigSafe helps teams find configuration problems
               before they cause incidents.
             </Text>
-            <Text fontSize="lg" color="gray.400" lineHeight="tall">
+            <Text fontSize="lg" color="gray.600" lineHeight="tall">
               We keep our products practical and our infrastructure simple, so they stay easy to use
               and easy to maintain.
             </Text>
@@ -132,13 +132,13 @@ const About = () => {
       </Box>
 
       {/* Principles */}
-      <Box as="section" py={{ base: 12, md: 20 }} bg="brand.navy">
+      <Box as="section" py={{ base: 12, md: 20 }} bg="brand.surface">
         <Container maxW="7xl">
           <VStack spacing={4} textAlign="center" mb={{ base: 10, md: 14 }}>
-            <Heading as="h2" size="xl" color="white">
+            <Heading as="h2" size="xl" color="brand.navy">
               Our principles
             </Heading>
-            <Text fontSize="lg" color="gray.400" maxW="2xl">
+            <Text fontSize="lg" color="gray.600" maxW="2xl">
               The principles that guide how we build.
             </Text>
           </VStack>
@@ -149,22 +149,25 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                bg="rgba(255,255,255,0.03)"
+                transition={{ duration: 0.5, delay: index * 0.06 }}
+                bg="white"
                 border="1px solid"
-                borderColor="whiteAlpha.200"
+                borderColor="brand.border"
                 borderRadius="2xl"
                 p={7}
                 h="100%"
+                boxShadow="0 1px 3px rgba(15,23,42,0.05)"
+                _hover={{ borderColor: 'brand.blue', boxShadow: '0 20px 40px rgba(15,23,42,0.08)', transform: 'translateY(-3px)' }}
+                sx={{ transition: 'all 0.25s ease' }}
               >
                 <VStack align="flex-start" spacing={4}>
-                  <HStack justify="center" align="center" bg="rgba(255,49,49,0.12)" borderRadius="xl" boxSize={12}>
+                  <HStack justify="center" align="center" bg="brand.50" borderRadius="xl" boxSize={12}>
                     <Icon as={value.icon} boxSize={6} color="brand.blue" />
                   </HStack>
-                  <Heading as="h3" size="md" color="white">
+                  <Heading as="h3" size="md" color="brand.navy">
                     {value.title}
                   </Heading>
-                  <Text color="gray.400" fontSize="sm">
+                  <Text color="gray.600" fontSize="sm" lineHeight="tall">
                     {value.description}
                   </Text>
                 </VStack>
@@ -175,13 +178,13 @@ const About = () => {
       </Box>
 
       {/* Product philosophy */}
-      <Box as="section" py={{ base: 12, md: 20 }} bg="brand.mid">
+      <Box as="section" py={{ base: 12, md: 20 }} bg="brand.surfaceAlt">
         <Container maxW="7xl">
           <VStack spacing={4} textAlign="center" mb={{ base: 10, md: 14 }}>
-            <Heading as="h2" size="xl" color="white">
+            <Heading as="h2" size="xl" color="brand.navy">
               Our product philosophy
             </Heading>
-            <Text fontSize="lg" color="gray.400" maxW="2xl">
+            <Text fontSize="lg" color="gray.600" maxW="2xl">
               How a Boolavas product comes to life.
             </Text>
           </VStack>
@@ -192,16 +195,16 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
+                transition={{ duration: 0.5, delay: index * 0.06 }}
               >
                 <VStack align="flex-start" spacing={3} h="100%">
-                  <Text fontSize="2xl" fontWeight="extrabold" color="brand.blue">
+                  <Text fontSize="2xl" fontWeight="extrabold" color="brand.blue" letterSpacing="-0.02em">
                     {item.step}
                   </Text>
-                  <Heading as="h3" size="sm" color="white">
+                  <Heading as="h3" size="sm" color="brand.navy">
                     {item.title}
                   </Heading>
-                  <Text color="gray.400" fontSize="sm">
+                  <Text color="gray.600" fontSize="sm" lineHeight="tall">
                     {item.description}
                   </Text>
                 </VStack>

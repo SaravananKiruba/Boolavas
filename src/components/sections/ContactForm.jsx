@@ -73,31 +73,32 @@ const ContactForm = () => {
   const enquiryOptions = ENQUIRY_TYPES[formData.product] ?? []
 
   const inputStyles = {
-    bg: 'rgba(255,255,255,0.05)',
+    bg: 'white',
     border: '1px solid',
-    borderColor: 'whiteAlpha.300',
-    color: 'white',
-    _placeholder: { color: 'gray.500' },
-    _hover: { borderColor: 'brand.lightBlue' },
-    _focus: { borderColor: 'brand.blue', boxShadow: '0 0 0 1px #ff3131' },
+    borderColor: 'brand.border',
+    color: 'brand.ink',
+    _placeholder: { color: 'gray.400' },
+    _hover: { borderColor: 'gray.400' },
+    _focus: { borderColor: 'brand.blue', boxShadow: '0 0 0 3px rgba(255,49,49,0.15)' },
   }
 
-  const optStyle = { background: '#1a1a1a' }
+  const optStyle = { background: '#ffffff', color: '#0f172a' }
 
   return (
     <Box
       as="form"
       onSubmit={handleSubmit}
-      bg="rgba(255,255,255,0.03)"
+      bg="white"
       border="1px solid"
-      borderColor="whiteAlpha.200"
+      borderColor="brand.border"
       p={{ base: 8, md: 10 }}
       borderRadius="2xl"
+      boxShadow="0 1px 3px rgba(15,23,42,0.06), 0 4px 24px rgba(15,23,42,0.04)"
     >
       <VStack spacing={6}>
         {/* Name */}
         <FormControl isRequired>
-          <FormLabel color="gray.300" fontWeight="semibold" fontSize="sm">Full Name</FormLabel>
+          <FormLabel color="gray.700" fontWeight="semibold" fontSize="sm">Full Name</FormLabel>
           <Input
             name="name"
             value={formData.name}
@@ -110,7 +111,7 @@ const ContactForm = () => {
 
         {/* Email */}
         <FormControl isRequired>
-          <FormLabel color="gray.300" fontWeight="semibold" fontSize="sm">Email Address</FormLabel>
+          <FormLabel color="gray.700" fontWeight="semibold" fontSize="sm">Email Address</FormLabel>
           <Input
             type="email"
             name="email"
@@ -124,7 +125,7 @@ const ContactForm = () => {
 
         {/* Product */}
         <FormControl isRequired>
-          <FormLabel color="gray.300" fontWeight="semibold" fontSize="sm">
+          <FormLabel color="gray.700" fontWeight="semibold" fontSize="sm">
             Which product are you interested in?
           </FormLabel>
           <Select
@@ -145,7 +146,7 @@ const ContactForm = () => {
         {/* Enquiry type — shown only once a product is selected */}
         {formData.product && (
           <FormControl isRequired>
-            <FormLabel color="gray.300" fontWeight="semibold" fontSize="sm">What can we help you with?</FormLabel>
+            <FormLabel color="gray.700" fontWeight="semibold" fontSize="sm">What can we help you with?</FormLabel>
             <Select
               name="enquiryType"
               value={formData.enquiryType}
@@ -165,7 +166,7 @@ const ContactForm = () => {
 
         {/* Message */}
         <FormControl isRequired>
-          <FormLabel color="gray.300" fontWeight="semibold" fontSize="sm">Message</FormLabel>
+          <FormLabel color="gray.700" fontWeight="semibold" fontSize="sm">Message</FormLabel>
           <Textarea
             name="message"
             value={formData.message}

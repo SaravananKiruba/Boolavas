@@ -48,7 +48,7 @@ const AnimatedWords = ({ text, color }) => (
   </motion.span>
 )
 
-// Floating ambient orb
+// Floating ambient orb (very subtle on light bg)
 const Orb = ({ size, color, top, left, right, bottom, delay, duration = 7 }) => (
   <MotionBox
     position="absolute"
@@ -56,13 +56,13 @@ const Orb = ({ size, color, top, left, right, bottom, delay, duration = 7 }) => 
     h={size}
     borderRadius="full"
     bg={color}
-    filter="blur(90px)"
+    filter="blur(100px)"
     top={top}
     left={left}
     right={right}
     bottom={bottom}
     pointerEvents="none"
-    animate={{ y: [0, -38, 0], opacity: [0.35, 0.65, 0.35], scale: [1, 1.18, 1] }}
+    animate={{ y: [0, -28, 0], opacity: [0.5, 0.85, 0.5], scale: [1, 1.12, 1] }}
     transition={{ duration, delay, repeat: Infinity, ease: 'easeInOut' }}
   />
 )
@@ -71,81 +71,80 @@ const Hero = () => {
   return (
     <Box
       as="section"
-      bg="brand.navy"
+      bg="brand.surface"
       position="relative"
       overflow="hidden"
-      pt={{ base: 16, md: 28 }}
+      pt={{ base: 20, md: 32 }}
       pb={{ base: 16, md: 24 }}
     >
-      {/* Dot-grid overlay */}
+      {/* Subtle dot-grid overlay */}
       <Box
         position="absolute"
         inset={0}
-        backgroundImage="radial-gradient(rgba(255,255,255,0.055) 1px, transparent 1px)"
-        backgroundSize="32px 32px"
+        backgroundImage="radial-gradient(rgba(15,23,42,0.06) 1px, transparent 1px)"
+        backgroundSize="28px 28px"
         pointerEvents="none"
+        opacity={0.7}
+        maskImage="radial-gradient(ellipse at center, black 40%, transparent 75%)"
+        sx={{
+          WebkitMaskImage:
+            'radial-gradient(ellipse at center, black 40%, transparent 75%)',
+        }}
       />
 
-      {/* Floating orbs */}
-      <Orb size="520px" color="rgba(255,49,49,0.16)"  top="-25%" right="-12%" delay={0} duration={8} />
-      <Orb size="360px" color="rgba(230,136,21,0.11)" bottom="-12%" left="4%"  delay={2} duration={6} />
-      <Orb size="260px" color="rgba(255,49,49,0.09)"  top="42%"  left="18%"   delay={1} duration={9} />
+      {/* Soft ambient orbs (very subtle) */}
+      <Orb size="520px" color="rgba(255,49,49,0.10)"  top="-28%"   right="-14%" delay={0}   duration={9} />
+      <Orb size="360px" color="rgba(212,175,55,0.08)" bottom="-18%" left="-6%"  delay={2}   duration={7} />
 
       <Container maxW="7xl" position="relative" zIndex={1}>
         <VStack spacing={{ base: 8, md: 10 }} align="center" textAlign="center">
-          {/* Boolavas logo — fade-in with continuous soft glow pulse */}
+          {/* Boolavas logo */}
           <MotionBox
-            initial={{ opacity: 0, scale: 0.88, filter: 'blur(14px)' }}
-            animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-            transition={{ duration: 1, ease: 'easeOut' }}
+            initial={{ opacity: 0, scale: 0.92, y: 8 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
           >
-            <MotionBox
-              animate={{ opacity: [0.82, 1, 0.82], scale: [1, 1.03, 1] }}
-              transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
-              display="inline-flex"
-            >
-              <Image
-                src={boolavasLogo}
-                h={{ base: '70px', md: '100px' }}
-                objectFit="contain"
-                alt="Boolavas"
-                style={{ filter: 'drop-shadow(0 0 28px rgba(212,175,55,0.7)) drop-shadow(0 0 60px rgba(255,49,49,0.35))' }}
-              />
-            </MotionBox>
+            <Image
+              src={boolavasLogo}
+              h={{ base: '60px', md: '86px' }}
+              objectFit="contain"
+              alt="Boolavas"
+            />
           </MotionBox>
 
           <Heading
             as="h1"
             fontSize={{ base: '3xl', md: '5xl', lg: '6xl' }}
-            color="white"
-            lineHeight="1.15"
+            color="brand.navy"
+            lineHeight="1.1"
+            letterSpacing="-0.02em"
             maxW="4xl"
           >
-            <AnimatedWords text="Software products built for" color="white" />
+            <AnimatedWords text="Software products built for" color="#0f172a" />
             {' '}
             <AnimatedWords text="real-world problems." color="#ff3131" />
           </Heading>
 
           <MotionText
             fontSize={{ base: 'lg', md: 'xl' }}
-            color="gray.300"
+            color="gray.600"
             maxW="2xl"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ ...spring, delay: 0.75 }}
+            transition={{ ...spring, delay: 0.6 }}
           >
             Boolavas builds practical, modern software products that simplify complex business and
             engineering workflows.
           </MotionText>
 
           <MotionBox
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ ...spring, delay: 0.95 }}
+            transition={{ ...spring, delay: 0.75 }}
           >
             <Stack
               direction={{ base: 'column', sm: 'row' }}
-              spacing={4}
+              spacing={3}
               pt={2}
               w={{ base: 'full', sm: 'auto' }}
             >
@@ -154,7 +153,7 @@ const Hero = () => {
               </CTAButton>
               <CTAButton
                 href="/contact"
-                variant="ghost"
+                variant="outline"
                 size="lg"
                 leftIcon={<Icon as={FaEnvelope} boxSize={4} />}
               >
@@ -171,22 +170,26 @@ const Hero = () => {
               key={product.slug}
               as={RouterLink}
               to={product.route}
-              initial={{ opacity: 0, y: 28 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ ...spring, delay: 1.1 + index * 0.12 }}
+              transition={{ ...spring, delay: 0.9 + index * 0.1 }}
               whileHover={{
-                y: -7,
-                boxShadow: '0 22px 60px rgba(212,175,55,0.15)',
-                borderColor: 'rgba(212,175,55,0.45)',
+                y: -4,
                 transition: springFast,
               }}
-              bg="rgba(255,255,255,0.03)"
+              bg="white"
               backdropFilter="blur(8px)"
               border="1px solid"
-              borderColor="whiteAlpha.200"
-              borderRadius="xl"
+              borderColor="brand.border"
+              borderRadius="2xl"
               p={5}
               role="group"
+              boxShadow="0 1px 3px rgba(15,23,42,0.05)"
+              _hover={{
+                borderColor: 'brand.blue',
+                boxShadow: '0 12px 32px rgba(15,23,42,0.10)',
+              }}
+              sx={{ transition: 'border-color 0.2s ease, box-shadow 0.2s ease' }}
             >
               <HStack spacing={4} align="center">
                 {product.slug === 'mediboo' ? (
@@ -194,7 +197,7 @@ const Hero = () => {
                     p={1.5}
                     borderRadius="lg"
                     transition="all 0.25s ease"
-                    _groupHover={{ transform: 'scale(1.1)' }}
+                    _groupHover={{ transform: 'scale(1.08)' }}
                     flexShrink={0}
                   >
                     <Image
@@ -202,25 +205,24 @@ const Hero = () => {
                       boxSize="28px"
                       objectFit="contain"
                       alt="MediBoo"
-                      style={{ filter: 'drop-shadow(0 0 8px rgba(212,175,55,0.6))' }}
                     />
                   </Box>
                 ) : (
                   <Box
                     p={2.5}
                     borderRadius="lg"
-                    bg="rgba(255,49,49,0.1)"
+                    bg="brand.50"
                     transition="all 0.25s ease"
-                    _groupHover={{ bg: 'rgba(255,49,49,0.22)', transform: 'scale(1.12)' }}
+                    _groupHover={{ bg: 'brand.100', transform: 'scale(1.08)' }}
                   >
                     <Icon as={product.icon} boxSize={5} color="brand.blue" />
                   </Box>
                 )}
                 <Box textAlign="left">
-                  <Text color="white" fontWeight="bold" fontSize="sm">
+                  <Text color="brand.navy" fontWeight="semibold" fontSize="sm">
                     {product.name}
                   </Text>
-                  <Text color="gray.400" fontSize="xs">
+                  <Text color="gray.500" fontSize="xs">
                     {product.category}
                   </Text>
                 </Box>

@@ -47,19 +47,7 @@ const reasons = [
 
 const WhyBoolavas = () => {
   return (
-    <Box as="section" py={{ base: 16, md: 24 }} bg="brand.cream" position="relative" overflow="hidden">
-      {/* Subtle red radial tint */}
-      <Box
-        position="absolute"
-        top="50%"
-        left="50%"
-        transform="translate(-50%, -50%)"
-        w="80%"
-        h="60%"
-        bg="radial-gradient(ellipse, rgba(255,49,49,0.06) 0%, transparent 70%)"
-        pointerEvents="none"
-      />
-
+    <Box as="section" py={{ base: 16, md: 24 }} bg="brand.surface" position="relative" overflow="hidden">
       <Container maxW="7xl" position="relative" zIndex={1}>
         <VStack spacing={4} textAlign="center" mb={{ base: 12, md: 16 }}>
           <MotionHeading
@@ -99,29 +87,32 @@ const WhyBoolavas = () => {
                 key={reason.title}
                 variants={cardVariants}
                 whileHover={{
-                  y: -8,
-                  borderColor: 'rgba(255,49,49,0.4)',
-                  boxShadow: '0 24px 60px rgba(255,49,49,0.12)',
+                  y: -6,
                   transition: springFast,
                 }}
                 bg="white"
                 border="1px solid"
-                borderColor="rgba(212,175,55,0.3)"
+                borderColor="brand.border"
                 borderRadius="2xl"
                 p={7}
                 h="100%"
                 cursor="default"
-                boxShadow="0 4px 20px rgba(18,0,8,0.08)"
+                boxShadow="0 1px 3px rgba(15,23,42,0.05)"
+                _hover={{
+                  borderColor: 'brand.blue',
+                  boxShadow: '0 20px 40px rgba(15,23,42,0.08)',
+                }}
+                sx={{ transition: 'border-color 0.25s ease, box-shadow 0.25s ease' }}
               >
                 <VStack align="flex-start" spacing={4}>
                   <MotionBox
                     display="flex"
                     justify="center"
                     align="center"
-                    bg="rgba(255,49,49,0.08)"
+                    bg="brand.50"
                     borderRadius="xl"
                     boxSize={12}
-                    whileHover={{ scale: 1.15, rotate: 5, transition: springFast }}
+                    whileHover={{ scale: 1.1, rotate: 4, transition: springFast }}
                   >
                     <Icon as={reason.icon} boxSize={6} color="brand.blue" />
                   </MotionBox>

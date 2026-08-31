@@ -24,17 +24,17 @@ const PageLoader = () => (
     display="flex" 
     alignItems="center" 
     justifyContent="center"
-    bg="brand.navy"
+    bg="brand.surface"
   >
     <Box
       as="div"
-      w="50px"
-      h="50px"
-      border="4px solid"
-      borderColor="brand.lightBlue"
-      borderTopColor="transparent"
+      w="42px"
+      h="42px"
+      border="3px solid"
+      borderColor="gray.200"
+      borderTopColor="brand.blue"
       borderRadius="50%"
-      animation="spin 1s linear infinite"
+      animation="spin 0.9s linear infinite"
       sx={{
         '@keyframes spin': {
           '0%': { transform: 'rotate(0deg)' },

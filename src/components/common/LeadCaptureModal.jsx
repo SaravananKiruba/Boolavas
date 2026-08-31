@@ -53,22 +53,23 @@ const LeadCaptureModal = ({ isOpen, onClose, productName, appUrl }) => {
 
   return (
     <Modal isOpen={isOpen} onClose={handleClose} isCentered size="sm">
-      <ModalOverlay bg="blackAlpha.800" backdropFilter="blur(6px)" />
+      <ModalOverlay bg="rgba(15,23,42,0.55)" backdropFilter="blur(4px)" />
       <ModalContent
-        bg="gray.900"
+        bg="white"
         border="1px solid"
-        borderColor="whiteAlpha.200"
+        borderColor="brand.border"
         borderRadius="2xl"
+        boxShadow="xl"
         mx={4}
       >
-        <ModalCloseButton color="gray.400" _hover={{ color: 'white' }} />
+        <ModalCloseButton color="gray.500" _hover={{ color: 'brand.navy', bg: 'gray.100' }} borderRadius="full" />
         <ModalBody p={8}>
           <VStack spacing={6} align="stretch">
             <VStack spacing={2} align="flex-start">
-              <Heading size="md" color="white">
+              <Heading size="md" color="brand.navy">
                 Quick — before you go
               </Heading>
-              <Text color="gray.400" fontSize="sm">
+              <Text color="gray.600" fontSize="sm">
                 Share your details and we&apos;ll open {productName} for you right away.
               </Text>
             </VStack>
@@ -76,27 +77,27 @@ const LeadCaptureModal = ({ isOpen, onClose, productName, appUrl }) => {
             <Box as="form" onSubmit={handleSubmit}>
               <VStack spacing={4}>
                 <FormControl isRequired>
-                  <FormLabel color="gray.300" fontSize="sm" mb={1}>
+                  <FormLabel color="gray.700" fontSize="sm" mb={1}>
                     Your name
                   </FormLabel>
                   <Input
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Jane Smith"
-                    bg="whiteAlpha.50"
+                    bg="white"
                     border="1px solid"
-                    borderColor="whiteAlpha.200"
-                    color="white"
-                    _placeholder={{ color: 'gray.500' }}
-                    _focus={{ borderColor: 'brand.blue', boxShadow: 'none' }}
-                    _hover={{ borderColor: 'whiteAlpha.400' }}
+                    borderColor="brand.border"
+                    color="brand.ink"
+                    _placeholder={{ color: 'gray.400' }}
+                    _focus={{ borderColor: 'brand.blue', boxShadow: '0 0 0 3px rgba(255,49,49,0.15)' }}
+                    _hover={{ borderColor: 'gray.400' }}
                     borderRadius="lg"
                     autoFocus
                   />
                 </FormControl>
 
                 <FormControl isRequired>
-                  <FormLabel color="gray.300" fontSize="sm" mb={1}>
+                  <FormLabel color="gray.700" fontSize="sm" mb={1}>
                     Email address
                   </FormLabel>
                   <Input
@@ -104,13 +105,13 @@ const LeadCaptureModal = ({ isOpen, onClose, productName, appUrl }) => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="jane@example.com"
-                    bg="whiteAlpha.50"
+                    bg="white"
                     border="1px solid"
-                    borderColor="whiteAlpha.200"
-                    color="white"
-                    _placeholder={{ color: 'gray.500' }}
-                    _focus={{ borderColor: 'brand.blue', boxShadow: 'none' }}
-                    _hover={{ borderColor: 'whiteAlpha.400' }}
+                    borderColor="brand.border"
+                    color="brand.ink"
+                    _placeholder={{ color: 'gray.400' }}
+                    _focus={{ borderColor: 'brand.blue', boxShadow: '0 0 0 3px rgba(255,49,49,0.15)' }}
+                    _hover={{ borderColor: 'gray.400' }}
                     borderRadius="lg"
                   />
                 </FormControl>
@@ -120,10 +121,7 @@ const LeadCaptureModal = ({ isOpen, onClose, productName, appUrl }) => {
                   isLoading={isSubmitting}
                   loadingText="Opening…"
                   w="full"
-                  bg="brand.blue"
-                  color="white"
-                  _hover={{ bg: 'brand.lightBlue' }}
-                  borderRadius="lg"
+                  variant="primary"
                   size="md"
                   mt={1}
                   rightIcon={

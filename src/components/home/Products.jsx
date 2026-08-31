@@ -7,7 +7,7 @@ const MotionVStack = motion(VStack)
 
 const Products = () => {
   return (
-    <Box as="section" py={{ base: 16, md: 24 }} bg="brand.navy" id="products">
+    <Box as="section" py={{ base: 16, md: 24 }} bg="brand.surfaceAlt" id="products">
       <Container maxW="7xl">
         <MotionVStack
           spacing={4}
@@ -19,21 +19,22 @@ const Products = () => {
           transition={{ duration: 0.5 }}
         >
           <Badge
-            bg="whiteAlpha.100"
-            color="brand.lightBlue"
+            bg="brand.50"
+            color="brand.blue"
             fontSize="xs"
             px={4}
             py={1.5}
             borderRadius="full"
             textTransform="uppercase"
             letterSpacing="wider"
+            fontWeight="semibold"
           >
             Our Products
           </Badge>
-          <Heading as="h2" size="2xl" color="white">
+          <Heading as="h2" size="2xl" color="brand.navy">
             A focused portfolio of software products
           </Heading>
-          <Text fontSize="xl" color="gray.400" maxW="3xl">
+          <Text fontSize="xl" color="gray.600" maxW="3xl">
             A focused portfolio of software products designed to solve specific business and
             engineering problems.
           </Text>

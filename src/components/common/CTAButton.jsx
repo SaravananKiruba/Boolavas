@@ -5,8 +5,49 @@ import { motion } from 'framer-motion'
 const MotionButton = motion(Button)
 const MotionLink = motion(Link)
 
-const CTAButton = ({ children, variant = "primary", size = "lg", href, onClick, leftIcon, rightIcon, ...props }) => {
-  // Handle hash links (smooth scroll)
+/**
+ * Google-style pill CTA with three variants:
+ *   primary → filled red brand button
+ *   outline → hairline border, dark text, red hover
+ *   ghost   → transparent, dark text, subtle hover
+ */
+const styleFor = (variant) => {
+  if (variant === 'primary') {
+    return {
+      bg: 'brand.blue',
+      color: 'white',
+      border: 'none',
+      _hover: {
+        bg: 'brand.lightBlue',
+        textDecoration: 'none',
+        boxShadow: '0 8px 20px rgba(255,49,49,0.28)',
+      },
+    }
+  }
+  if (variant === 'outline') {
+    return {
+      bg: 'transparent',
+      color: 'brand.navy',
+      border: '1px solid',
+      borderColor: 'brand.border',
+      _hover: {
+        bg: 'brand.surfaceAlt',
+        borderColor: 'brand.blue',
+        color: 'brand.blue',
+        textDecoration: 'none',
+      },
+    }
+  }
+  // ghost
+  return {
+    bg: 'transparent',
+    color: 'brand.ink',
+    border: 'none',
+    _hover: { bg: 'gray.100', color: 'brand.navy', textDecoration: 'none' },
+  }
+}
+
+const CTAButton = ({ children, variant = 'primary', size = 'lg', href, onClick, leftIcon, rightIcon, ...props }) => {
   const handleHashClick = (e) => {
     if (href?.startsWith('#')) {
       e.preventDefault()
@@ -24,7 +65,20 @@ const CTAButton = ({ children, variant = "primary", size = "lg", href, onClick, 
     </HStack>
   ) : children
 
-  // External link (crawlable <a> tag)
+  const commonProps = {
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    px: size === 'lg' ? 7 : 5,
+    py: size === 'lg' ? '14px' : size === 'md' ? '10px' : '8px',
+    fontSize: size === 'lg' ? 'md' : size === 'md' ? 'sm' : 'sm',
+    fontWeight: 'semibold',
+    borderRadius: 'full',
+    transition: 'all 0.2s ease',
+    ...styleFor(variant),
+  }
+
+  // External link (crawlable <a>)
   if (href?.startsWith('http')) {
     return (
       <MotionLink
@@ -32,26 +86,9 @@ const CTAButton = ({ children, variant = "primary", size = "lg", href, onClick, 
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        variant={variant}
-        size={size}
-        display="inline-flex"
-        alignItems="center"
-        justifyContent="center"
-        px={8}
-        py={size === 'lg' ? 6 : size === 'md' ? 4 : 3}
-        fontSize={size === 'lg' ? 'lg' : size === 'md' ? 'md' : 'sm'}
-        fontWeight="semibold"
-        borderRadius="md"
-        bg={variant === 'primary' ? 'brand.blue' : variant === 'outline' ? 'transparent' : 'gray.700'}
-        color="white"
-        border={variant === 'outline' ? '2px solid' : 'none'}
-        borderColor={variant === 'outline' ? 'brand.blue' : 'transparent'}
-        _hover={{
-          bg: variant === 'primary' ? 'brand.lightBlue' : variant === 'outline' ? 'brand.blue' : 'gray.600',
-          textDecoration: 'none'
-        }}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
+        whileHover={{ y: -1 }}
+        whileTap={{ scale: 0.97 }}
+        {...commonProps}
         {...props}
       >
         {linkContent}
@@ -59,33 +96,16 @@ const CTAButton = ({ children, variant = "primary", size = "lg", href, onClick, 
     )
   }
 
-  // Internal link (crawlable RouterLink)
+  // Internal RouterLink
   if (href && !href.startsWith('#')) {
     return (
       <MotionLink
         as={RouterLink}
         to={href}
-        variant={variant}
-        size={size}
-        display="inline-flex"
-        alignItems="center"
-        justifyContent="center"
-        px={8}
-        py={size === 'lg' ? 6 : size === 'md' ? 4 : 3}
-        fontSize={size === 'lg' ? 'lg' : size === 'md' ? 'md' : 'sm'}
-        fontWeight="semibold"
-        borderRadius="md"
-        bg={variant === 'primary' ? 'brand.blue' : variant === 'outline' ? 'transparent' : 'gray.700'}
-        color="white"
-        border={variant === 'outline' ? '2px solid' : 'none'}
-        borderColor={variant === 'outline' ? 'brand.blue' : 'transparent'}
-        _hover={{
-          bg: variant === 'primary' ? 'brand.lightBlue' : variant === 'outline' ? 'brand.blue' : 'gray.600',
-          textDecoration: 'none'
-        }}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
+        whileHover={{ y: -1 }}
+        whileTap={{ scale: 0.97 }}
         onClick={onClick}
+        {...commonProps}
         {...props}
       >
         {linkContent}
@@ -93,7 +113,7 @@ const CTAButton = ({ children, variant = "primary", size = "lg", href, onClick, 
     )
   }
 
-  // Hash link or button (no href or #hash)
+  // Hash link or button
   return (
     <MotionButton
       variant={variant}
@@ -101,8 +121,8 @@ const CTAButton = ({ children, variant = "primary", size = "lg", href, onClick, 
       leftIcon={leftIcon}
       rightIcon={rightIcon}
       onClick={href?.startsWith('#') ? handleHashClick : onClick}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+      whileHover={{ y: -1 }}
+      whileTap={{ scale: 0.97 }}
       as={href?.startsWith('#') ? 'a' : 'button'}
       href={href?.startsWith('#') ? href : undefined}
       {...props}

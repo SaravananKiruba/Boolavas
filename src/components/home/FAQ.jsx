@@ -50,7 +50,7 @@ const FAQ = ({
   withSchema = true,
 }) => {
   return (
-    <Box as="section" py={{ base: 16, md: 24 }} bg="brand.cream" id={id}>
+    <Box as="section" py={{ base: 16, md: 24 }} bg="brand.surface" id={id}>
       {withSchema && <FAQSchema faqs={faqs} />}
       <Container maxW="4xl">
         <VStack spacing={4} textAlign="center" mb={12}>
@@ -70,24 +70,23 @@ const FAQ = ({
         >
           <Accordion allowToggle>
             {faqs.map((faq, index) => (
-              <AccordionItem key={index} border="none" mb={4}>
+              <AccordionItem key={index} border="none" mb={3}>
                 <AccordionButton
                   bg="white"
-                  _hover={{ bg: 'rgba(255,49,49,0.04)' }}
-                  _expanded={{ bg: 'rgba(255,49,49,0.06)', borderColor: 'brand.gold' }}
-                  borderRadius="lg"
+                  _hover={{ bg: 'brand.surfaceAlt' }}
+                  _expanded={{ bg: 'white', borderColor: 'brand.blue', boxShadow: '0 4px 20px rgba(15,23,42,0.08)' }}
+                  borderRadius="xl"
                   p={6}
                   border="1px solid"
-                  borderColor="rgba(212,175,55,0.3)"
-                  boxShadow="0 2px 8px rgba(18,0,8,0.06)"
-                  transition="all 0.3s"
+                  borderColor="brand.border"
+                  transition="all 0.25s"
                 >
                   <Box flex="1" textAlign="left">
                     <Text fontWeight="semibold" fontSize="lg" color="brand.navy">
                       {faq.question}
                     </Text>
                   </Box>
-                  <AccordionIcon color="brand.gold" />
+                  <AccordionIcon color="brand.blue" />
                 </AccordionButton>
                 <AccordionPanel pb={4} pt={4} px={6}>
                   <Text color="gray.600" lineHeight="tall">

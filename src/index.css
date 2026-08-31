@@ -1,20 +1,29 @@
-/* ── Custom scrollbar ── */
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #200010; }
-::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 99px; }
-::-webkit-scrollbar-thumb:hover { background: #f5d76e; }
+/* ── Scrollbar (Google-style neutral) ── */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: #dadce0;
+  border-radius: 99px;
+  border: 2px solid #ffffff;
+}
+::-webkit-scrollbar-thumb:hover { background: #bdc1c6; }
 
 /* ── Text selection ── */
-::selection { background: rgba(212, 175, 55, 0.30); color: #fff; }
+::selection { background: rgba(255, 49, 49, 0.18); color: #0f172a; }
 
-/* ── Smooth base ── */
+/* ── Base ── */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+body {
+  background: #ffffff;
+  color: #1f2937;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
 
-/* ── Dot-grid utility (applied inline via Chakra sx) ── */
+/* ── Dot-grid utility (subtle on light bg) ── */
 .dot-grid {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-  background-size: 30px 30px;
+  background-image: radial-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
 /* ── Red→Gold gradient text ── */
@@ -27,35 +36,24 @@ html { scroll-behavior: smooth; }
 
 /* ── Gold text utility ── */
 .gold-text {
-  background: linear-gradient(135deg, #D4AF37 0%, #f5d76e 100%);
+  background: linear-gradient(135deg, #D4AF37 0%, #b8892b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* ── Animated glow border (red + gold pulse) ── */
-@keyframes borderGlow {
-  0%, 100% { box-shadow: 0 0 20px rgba(255, 49, 49, 0.3), 0 0 40px rgba(212,175,55,0.1); }
-  50%       { box-shadow: 0 0 40px rgba(255, 49, 49, 0.5), 0 0 80px rgba(212,175,55,0.25); }
-}
+/* ── Card elevation utilities ── */
+.elevation-1 { box-shadow: 0 1px 3px rgba(15,23,42,0.06), 0 1px 2px rgba(15,23,42,0.04); }
+.elevation-2 { box-shadow: 0 1px 3px rgba(15,23,42,0.06), 0 4px 24px rgba(15,23,42,0.04); }
+.elevation-3 { box-shadow: 0 4px 12px rgba(15,23,42,0.08); }
 
-.glow-border { animation: borderGlow 3s ease-in-out infinite; }
+/* ── Legacy glow classes kept as gentle elevation ── */
+.glow-border { box-shadow: 0 1px 3px rgba(15,23,42,0.06), 0 12px 40px rgba(255,49,49,0.10); }
+.gold-glow   { box-shadow: 0 1px 3px rgba(15,23,42,0.06), 0 12px 40px rgba(212,175,55,0.12); }
 
-/* ── Gold card border glow ── */
-@keyframes goldGlow {
-  0%, 100% { box-shadow: 0 0 16px rgba(212,175,55,0.2); }
-  50%       { box-shadow: 0 0 32px rgba(212,175,55,0.45); }
-}
-
-.gold-glow { animation: goldGlow 3s ease-in-out infinite; }
-
-/* ── Subtle noise overlay for premium texture ── */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.028;
-  pointer-events: none;
-  z-index: 9999;
+/* ── Focus ring (accessibility) ── */
+:focus-visible {
+  outline: 2px solid #ff3131;
+  outline-offset: 2px;
+  border-radius: 6px;
 }

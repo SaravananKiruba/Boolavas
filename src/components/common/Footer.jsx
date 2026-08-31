@@ -26,7 +26,7 @@ const Footer = () => {
   ]
 
   return (
-    <Box as="footer" bg="brand.navy" color="white">
+    <Box as="footer" bg="brand.surfaceAlt" color="gray.700" borderTop="1px solid" borderColor="brand.border">
       <Container maxW="7xl" py={16}>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={12}>
           {/* Company Info */}
@@ -34,19 +34,18 @@ const Footer = () => {
             <Image
               src={boolavasLogo}
               alt="Boolavas"
-              h="52px"
+              h="44px"
               objectFit="contain"
-              style={{ filter: 'drop-shadow(0 0 12px rgba(212,175,55,0.5))' }}
             />
-            <Text color="gray.400" fontSize="sm">
-              Software products built for real-world problems. Boolavas builds focused tools for
-              healthcare, database engineering and application configuration workflows.
+            <Text color="gray.600" fontSize="sm" lineHeight="tall">
+              Software products built for real-world problems. Focused tools for healthcare,
+              database engineering and application configuration workflows.
             </Text>
           </VStack>
 
           {/* Products */}
           <VStack align="flex-start" spacing={4}>
-            <Heading size="sm" color="brand.gold">
+            <Heading size="xs" color="brand.navy" textTransform="uppercase" letterSpacing="wider">
               Products
             </Heading>
             <Stack spacing={2}>
@@ -56,8 +55,8 @@ const Footer = () => {
                   as={RouterLink}
                   to={item.route}
                   fontSize="sm"
-                  color="gray.400"
-                  _hover={{ color: 'brand.gold', textDecoration: 'none' }}
+                  color="gray.600"
+                  _hover={{ color: 'brand.blue', textDecoration: 'none' }}
                   transition="color 0.2s"
                 >
                   {item.name}
@@ -68,7 +67,7 @@ const Footer = () => {
 
           {/* Company */}
           <VStack align="flex-start" spacing={4}>
-            <Heading size="sm" color="brand.gold">
+            <Heading size="xs" color="brand.navy" textTransform="uppercase" letterSpacing="wider">
               Company
             </Heading>
             <Stack spacing={2}>
@@ -78,8 +77,8 @@ const Footer = () => {
                   as={RouterLink}
                   to={item.path}
                   fontSize="sm"
-                  color="gray.400"
-                  _hover={{ color: 'brand.gold', textDecoration: 'none' }}
+                  color="gray.600"
+                  _hover={{ color: 'brand.blue', textDecoration: 'none' }}
                   transition="color 0.2s"
                 >
                   {item.name}
@@ -90,16 +89,16 @@ const Footer = () => {
 
           {/* Contact */}
           <VStack align="flex-start" spacing={4}>
-            <Heading size="sm" color="brand.gold">
+            <Heading size="xs" color="brand.navy" textTransform="uppercase" letterSpacing="wider">
               Contact
             </Heading>
             <HStack>
-              <Icon as={FaEnvelope} color="brand.gold" />
+              <Icon as={FaEnvelope} color="brand.blue" />
               <Link
                 href="mailto:contact@boolavas.in"
                 fontSize="sm"
-                color="gray.400"
-                _hover={{ color: 'brand.gold' }}
+                color="gray.600"
+                _hover={{ color: 'brand.blue' }}
               >
                 contact@boolavas.in
               </Link>
@@ -107,7 +106,7 @@ const Footer = () => {
           </VStack>
         </SimpleGrid>
 
-        <Divider my={8} borderColor="rgba(212,175,55,0.25)" />
+        <Divider my={8} borderColor="brand.border" />
 
         {/* Bottom Section */}
         <Stack

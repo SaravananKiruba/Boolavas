@@ -39,58 +39,43 @@ const CTASection = ({
   primaryHref = "/products",
   secondaryCTA = "Contact Boolavas",
   secondaryHref = "/contact",
-  bg = "brand.navy"
+  bg = "brand.surfaceAlt"
 }) => {
   return (
     <Box as="section" bg={bg} py={24} position="relative" overflow="hidden">
-      {/* Animated orbs */}
-      <Orb size="500px" color="rgba(255,49,49,0.14)"  bottom="-25%" right="-12%" delay={0} duration={9} />
-      <Orb size="350px" color="rgba(212,175,55,0.18)"  top="-20%"   left="-8%"   delay={1.5} duration={7} />
-
-      {/* Dot-grid overlay */}
-      <Box
-        position="absolute"
-        inset={0}
-        backgroundImage="radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)"
-        backgroundSize="30px 30px"
-        pointerEvents="none"
-      />
+      {/* Very subtle ambient orbs */}
+      <Orb size="480px" color="rgba(255,49,49,0.08)"  bottom="-25%" right="-12%" delay={0}   duration={9} />
+      <Orb size="340px" color="rgba(212,175,55,0.10)" top="-20%"   left="-8%"   delay={1.5} duration={7} />
 
       <Container maxW="4xl" position="relative" zIndex={1}>
         <MotionBox
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={spring}
         >
-          {/* Glowing border card */}
           <Box
-            bg="rgba(255,255,255,0.03)"
-            backdropFilter="blur(10px)"
+            bg="white"
             border="1px solid"
-            borderColor="rgba(212,175,55,0.35)"
-            borderRadius="2xl"
-            p={{ base: 10, md: 14 }}
+            borderColor="brand.border"
+            borderRadius="3xl"
+            p={{ base: 10, md: 16 }}
             textAlign="center"
-            className="glow-border"
+            boxShadow="0 1px 3px rgba(15,23,42,0.06), 0 20px 48px rgba(15,23,42,0.06)"
           >
             <VStack spacing={8}>
               <Heading
                 size="2xl"
-                lineHeight="1.2"
-                sx={{
-                  background: 'linear-gradient(135deg, #ffffff 0%, #D4AF37 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
+                color="brand.navy"
+                lineHeight="1.15"
+                letterSpacing="-0.02em"
               >
                 {title}
               </Heading>
-              <Text fontSize="xl" color="gray.300" maxW="2xl">
+              <Text fontSize="xl" color="gray.600" maxW="2xl">
                 {description}
               </Text>
-              <HStack spacing={4} flexWrap="wrap" justify="center">
+              <HStack spacing={3} flexWrap="wrap" justify="center">
                 <CTAButton href={primaryHref} size="lg">
                   {primaryCTA}
                 </CTAButton>

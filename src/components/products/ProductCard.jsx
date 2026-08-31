@@ -11,31 +11,32 @@ const ProductCard = ({ product, index = 0 }) => {
       as={RouterLink}
       to={product.route}
       aria-label={`Explore ${product.name} — ${product.category}`}
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
       display="flex"
       flexDirection="column"
-      bg="rgba(255,255,255,0.03)"
+      bg="white"
       border="1px solid"
-      borderColor="whiteAlpha.200"
+      borderColor="brand.border"
       borderRadius="2xl"
       p={8}
       h="100%"
       role="group"
+      boxShadow="0 1px 3px rgba(15,23,42,0.05)"
       _hover={{
         borderColor: 'brand.blue',
         transform: 'translateY(-4px)',
-        boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
+        boxShadow: '0 20px 40px rgba(15,23,42,0.10)',
       }}
-      sx={{ transition: 'border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease' }}
+      sx={{ transition: 'border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease' }}
     >
       <VStack align="flex-start" spacing={5} h="100%">
         <HStack
           justify="center"
           align="center"
-          bg="rgba(255,49,49,0.12)"
+          bg="brand.50"
           borderRadius="xl"
           boxSize={14}
         >
@@ -43,12 +44,12 @@ const ProductCard = ({ product, index = 0 }) => {
         </HStack>
 
         <VStack align="flex-start" spacing={2}>
-          <Heading as="h3" size="lg" color="white">
+          <Heading as="h3" size="lg" color="brand.navy">
             {product.name}
           </Heading>
           <Badge
-            bg="whiteAlpha.100"
-            color="brand.lightBlue"
+            bg="gray.100"
+            color="gray.700"
             fontSize="xs"
             px={3}
             py={1}
@@ -60,15 +61,14 @@ const ProductCard = ({ product, index = 0 }) => {
           </Badge>
         </VStack>
 
-        <Text color="gray.400" fontSize="md" flex={1}>
+        <Text color="gray.600" fontSize="md" flex={1} lineHeight="tall">
           {product.summary}
         </Text>
 
         <HStack
-          color="brand.lightBlue"
+          color="brand.blue"
           fontWeight="semibold"
           fontSize="sm"
-          _groupHover={{ color: 'brand.blue' }}
           transition="color 0.2s"
         >
           <Text>Explore {product.name}</Text>

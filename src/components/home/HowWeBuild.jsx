@@ -26,14 +26,15 @@ const steps = [
 
 const HowWeBuild = () => {
   return (
-    <Box as="section" py={{ base: 16, md: 24 }} bg="brand.navy" position="relative" overflow="hidden">
-      {/* Dot-grid overlay */}
+    <Box as="section" py={{ base: 16, md: 24 }} bg="brand.surfaceAlt" position="relative" overflow="hidden">
+      {/* Subtle dot-grid overlay */}
       <Box
         position="absolute"
         inset={0}
-        backgroundImage="radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)"
+        backgroundImage="radial-gradient(rgba(15,23,42,0.05) 1px, transparent 1px)"
         backgroundSize="28px 28px"
         pointerEvents="none"
+        opacity={0.6}
       />
 
       <Container maxW="7xl" position="relative" zIndex={1}>
@@ -41,7 +42,7 @@ const HowWeBuild = () => {
           <MotionHeading
             as="h2"
             size="2xl"
-            color="white"
+            color="brand.navy"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -51,7 +52,7 @@ const HowWeBuild = () => {
           </MotionHeading>
           <MotionText
             fontSize="xl"
-            color="gray.400"
+            color="gray.600"
             maxW="3xl"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -73,36 +74,32 @@ const HowWeBuild = () => {
               <MotionBox
                 key={step.number}
                 variants={itemVariants}
-                whileHover={{ y: -5, transition: { type: 'spring', stiffness: 320, damping: 28 } }}
-                bg="rgba(255,255,255,0.03)"
-                backdropFilter="blur(6px)"
+                whileHover={{ y: -4, transition: { type: 'spring', stiffness: 320, damping: 28 } }}
+                bg="white"
                 border="1px solid"
-                borderColor="rgba(212,175,55,0.15)"
-                borderRadius="xl"
+                borderColor="brand.border"
+                borderRadius="2xl"
                 p={6}
                 h="100%"
                 position="relative"
-                _hover={{ borderColor: 'rgba(212,175,55,0.5)', boxShadow: '0 8px 32px rgba(212,175,55,0.08)' }}
-                sx={{ transition: 'border-color 0.3s ease, box-shadow 0.3s ease' }}
+                boxShadow="0 1px 3px rgba(15,23,42,0.05)"
+                _hover={{ borderColor: 'brand.blue', boxShadow: '0 12px 32px rgba(15,23,42,0.08)' }}
+                sx={{ transition: 'border-color 0.25s ease, box-shadow 0.25s ease' }}
               >
-                {/* Gold gradient step number */}
+                {/* Red step number */}
                 <Text
                   fontSize="4xl"
                   fontWeight="extrabold"
+                  color="brand.blue"
                   mb={3}
-                  sx={{
-                    background: 'linear-gradient(135deg, #D4AF37 0%, #f5d76e 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}
+                  letterSpacing="-0.02em"
                 >
                   {step.number}
                 </Text>
-                <Heading as="h3" size="sm" color="white" mb={2}>
+                <Heading as="h3" size="sm" color="brand.navy" mb={2}>
                   {step.title}
                 </Heading>
-                <Text color="gray.400" fontSize="sm" lineHeight="tall">
+                <Text color="gray.600" fontSize="sm" lineHeight="tall">
                   {step.description}
                 </Text>
               </MotionBox>
