@@ -27,6 +27,8 @@ export const products = [
     category: 'Clinic Management Software',
     route: '/products/mediboo',
     icon: FaHeartbeat,
+    accentGradient: 'linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%)',
+    accentColor: '#ec4899',
     appUrl: 'https://mediboo-platform.vercel.app/',
     summary:
       'A modern clinic management platform for managing patients, appointments, prescriptions, investigations and everyday clinic workflows.',
@@ -82,6 +84,8 @@ export const products = [
     category: 'SQL Migration Risk Analyzer',
     route: '/products/migrasafe',
     icon: FaDatabase,
+    accentGradient: 'linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%)',
+    accentColor: '#0ea5e9',
     appUrl: MIGRASAFE_APP_URL,
     summary:
       'Analyze SQL migration scripts and identify potentially dangerous database changes before they reach production.',
@@ -137,6 +141,8 @@ export const products = [
     category: 'Environment Configuration Risk & Drift Checker',
     route: '/products/configsafe',
     icon: FaCogs,
+    accentGradient: 'linear-gradient(135deg, #059669 0%, #10b981 100%)',
+    accentColor: '#059669',
     appUrl: CONFIGSAFE_APP_URL,
     summary:
       'Detect configuration risks, inconsistencies and environment drift before they become production problems.',

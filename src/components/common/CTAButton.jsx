@@ -14,26 +14,35 @@ const MotionLink = motion(Link)
 const styleFor = (variant) => {
   if (variant === 'primary') {
     return {
-      bg: 'brand.blue',
+      background: 'linear-gradient(135deg, #ff3131 0%, #d12020 100%)',
       color: 'white',
       border: 'none',
+      boxShadow: '0 1px 0 rgba(255,255,255,0.12) inset, 0 4px 14px rgba(209,32,32,0.32)',
       _hover: {
-        bg: 'brand.lightBlue',
+        background: 'linear-gradient(135deg, #ff5252 0%, #ff3131 100%)',
+        boxShadow: '0 1px 0 rgba(255,255,255,0.15) inset, 0 8px 24px rgba(255,49,49,0.42)',
         textDecoration: 'none',
-        boxShadow: '0 8px 20px rgba(255,49,49,0.28)',
+        transform: 'translateY(-1px)',
+      },
+      _active: {
+        background: 'linear-gradient(135deg, #d12020 0%, #b91c1c 100%)',
+        boxShadow: '0 1px 4px rgba(209,32,32,0.3)',
+        transform: 'translateY(0)',
       },
     }
   }
   if (variant === 'outline') {
     return {
-      bg: 'transparent',
+      bg: 'white',
       color: 'brand.navy',
-      border: '1px solid',
+      border: '1.5px solid',
       borderColor: 'brand.border',
+      boxShadow: '0 1px 3px rgba(15,23,42,0.06)',
       _hover: {
         bg: 'brand.surfaceAlt',
         borderColor: 'brand.blue',
         color: 'brand.blue',
+        boxShadow: '0 4px 12px rgba(15,23,42,0.08)',
         textDecoration: 'none',
       },
     }

@@ -2,10 +2,14 @@ import { Box, Heading, Text, VStack, HStack, Icon, Badge } from '@chakra-ui/reac
 import { Link as RouterLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { FaArrowRight } from 'react-icons/fa'
+import MediBooLogo from '../../assets/MediBooLogo'
 
 const MotionBox = motion(Box)
 
 const ProductCard = ({ product, index = 0 }) => {
+  const gradient = product.accentGradient || 'linear-gradient(135deg, #ff3131 0%, #e02424 100%)'
+  const accent = product.accentColor || '#ff3131'
+
   return (
     <MotionBox
       as={RouterLink}
@@ -18,38 +22,71 @@ const ProductCard = ({ product, index = 0 }) => {
       display="flex"
       flexDirection="column"
       bg="white"
-      border="1px solid"
+      border="1.5px solid"
       borderColor="brand.border"
       borderRadius="2xl"
       p={8}
       h="100%"
       role="group"
-      boxShadow="0 1px 3px rgba(15,23,42,0.05)"
+      position="relative"
+      overflow="hidden"
+      boxShadow="0 1px 4px rgba(15,23,42,0.05)"
       _hover={{
-        borderColor: 'brand.blue',
-        transform: 'translateY(-4px)',
-        boxShadow: '0 20px 40px rgba(15,23,42,0.10)',
+        borderColor: accent,
+        transform: 'translateY(-5px)',
+        boxShadow: `0 20px 48px rgba(15,23,42,0.10), 0 0 0 1px ${accent}22`,
       }}
-      sx={{ transition: 'border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease' }}
+      sx={{
+        transition: 'border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '3px',
+          background: gradient,
+          borderRadius: '16px 16px 0 0',
+          opacity: 0,
+          transition: 'opacity 0.25s ease',
+        },
+        '&:hover::before': { opacity: 1 },
+      }}
     >
       <VStack align="flex-start" spacing={5} h="100%">
-        <HStack
-          justify="center"
-          align="center"
-          bg="brand.50"
-          borderRadius="xl"
-          boxSize={14}
-        >
-          <Icon as={product.icon} boxSize={7} color="brand.blue" />
-        </HStack>
+        {/* Icon / Logo */}
+        {product.slug === 'mediboo' ? (
+          <Box
+            transition="transform 0.25s ease"
+            _groupHover={{ transform: 'scale(1.05)' }}
+          >
+            <MediBooLogo h="36px" />
+          </Box>
+        ) : (
+          <Box
+            display="inline-flex"
+            alignItems="center"
+            justifyContent="center"
+            borderRadius="xl"
+            boxSize={14}
+            background={gradient}
+            boxShadow={`0 4px 14px ${accent}33`}
+            transition="transform 0.25s ease, box-shadow 0.25s ease"
+            _groupHover={{ transform: 'scale(1.08)', boxShadow: `0 8px 20px ${accent}44` }}
+          >
+            <Icon as={product.icon} boxSize={7} color="white" />
+          </Box>
+        )}
 
         <VStack align="flex-start" spacing={2}>
-          <Heading as="h3" size="lg" color="brand.navy">
-            {product.name}
-          </Heading>
+          {product.slug !== 'mediboo' && (
+            <Heading as="h3" size="lg" color="brand.navy">
+              {product.name}
+            </Heading>
+          )}
           <Badge
             bg="gray.100"
-            color="gray.700"
+            color="gray.600"
             fontSize="xs"
             px={3}
             py={1}
@@ -66,10 +103,11 @@ const ProductCard = ({ product, index = 0 }) => {
         </Text>
 
         <HStack
-          color="brand.blue"
+          color={accent}
           fontWeight="semibold"
           fontSize="sm"
-          transition="color 0.2s"
+          transition="gap 0.2s"
+          _groupHover={{ gap: '10px' }}
         >
           <Text>Explore {product.name}</Text>
           <Icon

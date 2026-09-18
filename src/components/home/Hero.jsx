@@ -16,7 +16,7 @@ import { FaArrowRight, FaEnvelope } from 'react-icons/fa'
 import CTAButton from '../common/CTAButton'
 import { products } from '../../data/products'
 import boolavasLogo from '../../assets/boolavas logo.png'
-import medibooLogo from '../../assets/MediBoo Logo.png'
+import MediBooLogo from '../../assets/MediBooLogo'
 
 const MotionBox = motion(Box)
 const MotionText = motion(Text)
@@ -77,24 +77,26 @@ const Hero = () => {
       pt={{ base: 20, md: 32 }}
       pb={{ base: 16, md: 24 }}
     >
-      {/* Subtle dot-grid overlay */}
+      {/* Refined mesh-gradient background */}
       <Box
         position="absolute"
         inset={0}
-        backgroundImage="radial-gradient(rgba(15,23,42,0.06) 1px, transparent 1px)"
-        backgroundSize="28px 28px"
+        background="radial-gradient(ellipse 80% 60% at 60% -10%, rgba(124,58,237,0.06) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at -10% 80%, rgba(255,49,49,0.05) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 110% 50%, rgba(14,165,233,0.04) 0%, transparent 60%)"
         pointerEvents="none"
-        opacity={0.7}
-        maskImage="radial-gradient(ellipse at center, black 40%, transparent 75%)"
-        sx={{
-          WebkitMaskImage:
-            'radial-gradient(ellipse at center, black 40%, transparent 75%)',
-        }}
+      />
+      {/* Subtle grid */}
+      <Box
+        position="absolute"
+        inset={0}
+        backgroundImage="linear-gradient(rgba(15,23,42,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,0.03) 1px, transparent 1px)"
+        backgroundSize="48px 48px"
+        pointerEvents="none"
+        sx={{ maskImage: 'radial-gradient(ellipse 80% 70% at 50% 0%, black 30%, transparent 80%)', WebkitMaskImage: 'radial-gradient(ellipse 80% 70% at 50% 0%, black 30%, transparent 80%)' }}
       />
 
-      {/* Soft ambient orbs (very subtle) */}
-      <Orb size="520px" color="rgba(255,49,49,0.10)"  top="-28%"   right="-14%" delay={0}   duration={9} />
-      <Orb size="360px" color="rgba(212,175,55,0.08)" bottom="-18%" left="-6%"  delay={2}   duration={7} />
+      {/* Soft ambient orbs */}
+      <Orb size="500px" color="rgba(124,58,237,0.07)" top="-20%"  right="-10%" delay={0}   duration={10} />
+      <Orb size="380px" color="rgba(255,49,49,0.06)"  bottom="-15%" left="-8%"  delay={2}   duration={8} />
 
       <Container maxW="7xl" position="relative" zIndex={1}>
         <VStack spacing={{ base: 8, md: 10 }} align="center" textAlign="center">
@@ -194,34 +196,33 @@ const Hero = () => {
               <HStack spacing={4} align="center">
                 {product.slug === 'mediboo' ? (
                   <Box
-                    p={1.5}
-                    borderRadius="lg"
-                    transition="all 0.25s ease"
-                    _groupHover={{ transform: 'scale(1.08)' }}
                     flexShrink={0}
+                    transition="transform 0.25s ease"
+                    _groupHover={{ transform: 'scale(1.05)' }}
                   >
-                    <Image
-                      src={medibooLogo}
-                      boxSize="28px"
-                      objectFit="contain"
-                      alt="MediBoo"
-                    />
+                    <MediBooLogo h="28px" />
                   </Box>
-                ) : (
+              ) : (
                   <Box
-                    p={2.5}
+                    display="inline-flex"
+                    alignItems="center"
+                    justifyContent="center"
                     borderRadius="lg"
-                    bg="brand.50"
-                    transition="all 0.25s ease"
-                    _groupHover={{ bg: 'brand.100', transform: 'scale(1.08)' }}
+                    boxSize="30px"
+                    background={product.accentGradient || 'linear-gradient(135deg, #ff3131, #e02424)'}
+                    flexShrink={0}
+                    transition="transform 0.25s ease"
+                    _groupHover={{ transform: 'scale(1.1)' }}
                   >
-                    <Icon as={product.icon} boxSize={5} color="brand.blue" />
+                    <Icon as={product.icon} boxSize={4} color="white" />
                   </Box>
                 )}
                 <Box textAlign="left">
-                  <Text color="brand.navy" fontWeight="semibold" fontSize="sm">
-                    {product.name}
-                  </Text>
+                  {product.slug !== 'mediboo' && (
+                    <Text color="brand.navy" fontWeight="semibold" fontSize="sm">
+                      {product.name}
+                    </Text>
+                  )}
                   <Text color="gray.500" fontSize="xs">
                     {product.category}
                   </Text>

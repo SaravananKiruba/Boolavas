@@ -19,15 +19,18 @@ const Products = () => {
           transition={{ duration: 0.5 }}
         >
           <Badge
-            bg="brand.50"
-            color="brand.blue"
+            display="inline-flex"
+            alignItems="center"
+            bg="brand.navy"
+            color="white"
             fontSize="xs"
             px={4}
             py={1.5}
             borderRadius="full"
             textTransform="uppercase"
-            letterSpacing="wider"
+            letterSpacing="widest"
             fontWeight="semibold"
+            boxShadow="0 2px 8px rgba(15,23,42,0.15)"
           >
             Our Products
           </Badge>

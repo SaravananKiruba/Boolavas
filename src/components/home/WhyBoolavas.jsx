@@ -22,24 +22,32 @@ const reasons = [
   {
     icon: FaBullseye,
     title: 'Focused by design',
+    gradient: 'linear-gradient(135deg, #ff3131 0%, #e02424 100%)',
+    shadow: 'rgba(255,49,49,0.3)',
     description:
       'Each Boolavas product solves one clearly defined problem well, instead of trying to do everything.',
   },
   {
     icon: FaFeatherAlt,
     title: 'Simple to use',
+    gradient: 'linear-gradient(135deg, #7c3aed 0%, #a855f7 100%)',
+    shadow: 'rgba(124,58,237,0.3)',
     description:
       'We keep interfaces clean and workflows practical, so the software gets out of your way.',
   },
   {
     icon: FaShieldAlt,
     title: 'Built to be safe',
+    gradient: 'linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%)',
+    shadow: 'rgba(14,165,233,0.3)',
     description:
       'Our tools are designed to catch risky changes early — before they become production problems.',
   },
   {
     icon: FaChartLine,
     title: 'Made for real work',
+    gradient: 'linear-gradient(135deg, #059669 0%, #10b981 100%)',
+    shadow: 'rgba(5,150,105,0.3)',
     description:
       'Every product comes from a real workflow, built to fit how people actually work day to day.',
   },
@@ -91,30 +99,49 @@ const WhyBoolavas = () => {
                   transition: springFast,
                 }}
                 bg="white"
-                border="1px solid"
+                border="1.5px solid"
                 borderColor="brand.border"
                 borderRadius="2xl"
                 p={7}
                 h="100%"
                 cursor="default"
-                boxShadow="0 1px 3px rgba(15,23,42,0.05)"
+                position="relative"
+                overflow="hidden"
+                boxShadow="0 1px 4px rgba(15,23,42,0.05)"
                 _hover={{
-                  borderColor: 'brand.blue',
-                  boxShadow: '0 20px 40px rgba(15,23,42,0.08)',
+                  borderColor: 'transparent',
+                  boxShadow: '0 20px 48px rgba(15,23,42,0.10)',
                 }}
-                sx={{ transition: 'border-color 0.25s ease, box-shadow 0.25s ease' }}
+                sx={{
+                  transition: 'border-color 0.25s ease, box-shadow 0.25s ease',
+                  '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    inset: 0,
+                    borderRadius: '15px',
+                    padding: '1.5px',
+                    background: reason.gradient,
+                    WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                    WebkitMaskComposite: 'xor',
+                    maskComposite: 'exclude',
+                    opacity: 0,
+                    transition: 'opacity 0.25s ease',
+                  },
+                  '&:hover::after': { opacity: 1 },
+                }}
               >
                 <VStack align="flex-start" spacing={4}>
                   <MotionBox
-                    display="flex"
-                    justify="center"
-                    align="center"
-                    bg="brand.50"
+                    display="inline-flex"
+                    alignItems="center"
+                    justifyContent="center"
                     borderRadius="xl"
                     boxSize={12}
+                    background={reason.gradient}
+                    boxShadow={`0 4px 12px ${reason.shadow}`}
                     whileHover={{ scale: 1.1, rotate: 4, transition: springFast }}
                   >
-                    <Icon as={reason.icon} boxSize={6} color="brand.blue" />
+                    <Icon as={reason.icon} boxSize={6} color="white" />
                   </MotionBox>
                   <Heading as="h3" size="md" color="brand.navy">
                     {reason.title}

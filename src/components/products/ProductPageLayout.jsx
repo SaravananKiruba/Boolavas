@@ -12,7 +12,6 @@ import {
   List,
   ListItem,
   ListIcon,
-  Image,
 } from '@chakra-ui/react'
 import { useState } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
@@ -24,7 +23,7 @@ import BreadcrumbSchema from '../schemas/BreadcrumbSchema'
 import SoftwareApplicationSchema from '../schemas/SoftwareApplicationSchema'
 import FAQ from '../home/FAQ'
 import LeadCaptureModal from '../common/LeadCaptureModal'
-import medibooLogo from '../../assets/MediBoo Logo.png'
+import MediBooLogo from '../../assets/MediBooLogo'
 
 const MotionBox = motion(Box)
 
@@ -32,6 +31,8 @@ const ProductPageLayout = ({ product }) => {
   const { name, category, icon, appUrl, seo, hero, problem, howItWorks, capabilities, audience, whyMatters, faqs } = product
   const [leadModalOpen, setLeadModalOpen] = useState(false)
 
+  const accentColor = product.accentColor || '#ff3131'
+  const accentGradient = product.accentGradient || 'linear-gradient(135deg, #ff3131 0%, #e02424 100%)'
   const schemaCategory = product.slug === 'mediboo' ? 'BusinessApplication' : 'DeveloperApplication'
 
   return (
@@ -65,7 +66,7 @@ const ProductPageLayout = ({ product }) => {
           right="-15%"
           width="70%"
           height="100%"
-          bg="radial-gradient(circle, rgba(255, 49, 49, 0.08) 0%, transparent 70%)"
+          bg={`radial-gradient(circle, ${accentColor}18 0%, transparent 70%)`}
           pointerEvents="none"
         />
         <Container maxW="6xl" position="relative" zIndex={1}>
@@ -77,16 +78,11 @@ const ProductPageLayout = ({ product }) => {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ duration: 0.7, ease: 'easeOut' }}
                 >
-                  <Image
-                    src={medibooLogo}
-                    h="40px"
-                    objectFit="contain"
-                    alt="MediBoo"
-                  />
+                  <MediBooLogo h="44px" />
                 </MotionBox>
               ) : (
-                <HStack justify="center" align="center" bg="brand.50" borderRadius="xl" boxSize={12}>
-                  <Icon as={icon} boxSize={6} color="brand.blue" />
+                <HStack justify="center" align="center" background={product.accentGradient || 'linear-gradient(135deg, #ff3131, #e02424)'} borderRadius="xl" boxSize={12}>
+                  <Icon as={icon} boxSize={6} color="white" />
                 </HStack>
               )}
               <Badge
@@ -122,6 +118,7 @@ const ProductPageLayout = ({ product }) => {
                 <CTAButton
                   onClick={() => setLeadModalOpen(true)}
                   size="lg"
+                  background={accentGradient}
                   rightIcon={<Icon as={FaExternalLinkAlt} boxSize={3} />}
                 >
                   Open {name}
@@ -176,7 +173,7 @@ const ProductPageLayout = ({ product }) => {
                 transition={{ duration: 0.5, delay: index * 0.08 }}
               >
                 <VStack align="flex-start" spacing={3} h="100%">
-                  <Text fontSize="2xl" fontWeight="extrabold" color="brand.blue" letterSpacing="-0.02em">
+                  <Text fontSize="2xl" fontWeight="extrabold" color={accentColor} letterSpacing="-0.02em">
                     {String(index + 1).padStart(2, '0')}
                   </Text>
                   <Heading as="h3" size="sm" color="brand.navy">
@@ -215,13 +212,19 @@ const ProductPageLayout = ({ product }) => {
                 p={7}
                 h="100%"
                 boxShadow="0 1px 3px rgba(15,23,42,0.05)"
-                _hover={{ borderColor: 'brand.blue', boxShadow: '0 20px 40px rgba(15,23,42,0.08)', transform: 'translateY(-3px)' }}
+                _hover={{ borderColor: accentColor, boxShadow: `0 20px 40px rgba(15,23,42,0.08), 0 0 0 1px ${accentColor}22`, transform: 'translateY(-3px)' }}
                 sx={{ transition: 'all 0.25s ease' }}
               >
                 <VStack align="flex-start" spacing={4}>
-                  <HStack justify="center" align="center" bg="brand.50" borderRadius="xl" boxSize={12}>
-                    <Icon as={cap.icon} boxSize={6} color="brand.blue" />
-                  </HStack>
+                  <Box
+                    display="inline-flex" alignItems="center" justifyContent="center"
+                    background={accentGradient}
+                    borderRadius="xl"
+                    boxSize={12}
+                    boxShadow={`0 4px 12px ${accentColor}33`}
+                  >
+                    <Icon as={cap.icon} boxSize={6} color="white" />
+                  </Box>
                   <Heading as="h3" size="sm" color="brand.navy">
                     {cap.title}
                   </Heading>
@@ -246,7 +249,7 @@ const ProductPageLayout = ({ product }) => {
               <List spacing={4}>
                 {audience.map((item) => (
                   <ListItem key={item} color="gray.700" display="flex" alignItems="flex-start">
-                    <ListIcon as={FaCheckCircle} color="brand.blue" mt={1} />
+                    <ListIcon as={FaCheckCircle} color={accentColor} mt={1} />
                     <Text as="span">{item}</Text>
                   </ListItem>
                 ))}
@@ -280,7 +283,7 @@ const ProductPageLayout = ({ product }) => {
           left="-10%"
           width="50%"
           height="60%"
-          bg="radial-gradient(circle, rgba(255, 49, 49, 0.06) 0%, transparent 70%)"
+          bg={`radial-gradient(circle, ${accentColor}10 0%, transparent 70%)`}
           pointerEvents="none"
         />
         <Container maxW="4xl" position="relative" zIndex={1}>
@@ -293,11 +296,11 @@ const ProductPageLayout = ({ product }) => {
             </Text>
             <HStack spacing={3} flexWrap="wrap" justify="center">
               {appUrl ? (
-                <CTAButton href={appUrl} size="lg">
+                <CTAButton href={appUrl} size="lg" background={accentGradient}>
                   Open {name}
                 </CTAButton>
               ) : (
-                <CTAButton href="/contact" size="lg">
+                <CTAButton href="/contact" size="lg" background={accentGradient}>
                   Contact Boolavas
                 </CTAButton>
               )}

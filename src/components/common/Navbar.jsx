@@ -21,6 +21,7 @@ import { Link as RouterLink, useLocation } from 'react-router-dom'
 import { motion, useScroll } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import boolavasLogo from '../../assets/boolavas logo.png'
+import MediBooLogo from '../../assets/MediBooLogo'
 import { products } from '../../data/products'
 
 const MotionBox = motion(Box)
@@ -109,21 +110,31 @@ const Navbar = () => {
                     px={4}
                     py={3}
                   >
-                    <HStack spacing={3} align="flex-start">
-                      <Box
-                        p={2}
-                        bg="brand.50"
-                        borderRadius="lg"
-                        display="flex"
-                        alignItems="center"
-                        justifyContent="center"
-                      >
-                        <Icon as={product.icon} color="brand.blue" boxSize={4} />
-                      </Box>
+                    <HStack spacing={3} align="center">
+                      {product.slug === 'mediboo' ? (
+                        <Box flexShrink={0}>
+                          <MediBooLogo h="28px" />
+                        </Box>
+                      ) : (
+                        <Box
+                          p={2}
+                          background={product.accentGradient}
+                          borderRadius="lg"
+                          display="flex"
+                          alignItems="center"
+                          justifyContent="center"
+                          flexShrink={0}
+                          boxShadow={`0 2px 8px ${product.accentColor}33`}
+                        >
+                          <Icon as={product.icon} color="white" boxSize={4} />
+                        </Box>
+                      )}
                       <Box>
-                        <Text color="brand.navy" fontWeight="semibold" fontSize="sm">
-                          {product.name}
-                        </Text>
+                        {product.slug !== 'mediboo' && (
+                          <Text color="brand.navy" fontWeight="semibold" fontSize="sm">
+                            {product.name}
+                          </Text>
+                        )}
                         <Text color="gray.500" fontSize="xs">
                           {product.category}
                         </Text>
