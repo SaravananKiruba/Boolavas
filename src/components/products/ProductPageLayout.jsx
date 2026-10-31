@@ -31,8 +31,8 @@ const ProductPageLayout = ({ product }) => {
   const { name, category, icon, appUrl, seo, hero, problem, howItWorks, capabilities, audience, whyMatters, faqs } = product
   const [leadModalOpen, setLeadModalOpen] = useState(false)
 
-  const accentColor = product.accentColor || '#ff3131'
-  const accentGradient = product.accentGradient || 'linear-gradient(135deg, #ff3131 0%, #e02424 100%)'
+  const accentColor = product.accentColor || '#A66BEF'
+  const accentGradient = product.accentGradient || 'linear-gradient(135deg, #A66BEF 0%, #8f4fe6 100%)'
   const schemaCategory = product.slug === 'mediboo' ? 'BusinessApplication' : 'DeveloperApplication'
 
   return (
@@ -81,7 +81,7 @@ const ProductPageLayout = ({ product }) => {
                   <MediBooLogo h="44px" />
                 </MotionBox>
               ) : (
-                <HStack justify="center" align="center" background={product.accentGradient || 'linear-gradient(135deg, #ff3131, #e02424)'} borderRadius="xl" boxSize={12}>
+                <HStack justify="center" align="center" background={product.accentGradient || 'linear-gradient(135deg, #A66BEF, #8f4fe6)'} borderRadius="xl" boxSize={12}>
                   <Icon as={icon} boxSize={6} color="white" />
                 </HStack>
               )}
@@ -292,7 +292,7 @@ const ProductPageLayout = ({ product }) => {
               Interested in {name}?
             </Heading>
             <Text fontSize="xl" color="gray.600" maxW="2xl">
-              Reach out to learn more, or explore the rest of the Boolavas product portfolio.
+              Reach out to learn more about {name} and how it fits your everyday workflow.
             </Text>
             <HStack spacing={3} flexWrap="wrap" justify="center">
               {appUrl ? (

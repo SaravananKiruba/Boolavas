@@ -14,8 +14,6 @@ import CTAButton from '../common/CTAButton'
 
 const ENQUIRY_TYPES = {
   mediboo:   ['Demo Request', 'Purchase & Pricing', 'Feature Discussion', 'Enterprise / Premium', 'General Question'],
-  migrasafe: ['Feature Discussion', 'Enterprise / Premium', 'Pricing', 'General Question'],
-  configsafe:['Feature Discussion', 'Enterprise / Premium', 'Pricing', 'General Question'],
   general:   ['General Question', 'Partnership', 'Other'],
 }
 
@@ -79,10 +77,10 @@ const ContactForm = () => {
     color: 'brand.ink',
     _placeholder: { color: 'gray.400' },
     _hover: { borderColor: 'gray.400' },
-    _focus: { borderColor: 'brand.blue', boxShadow: '0 0 0 3px rgba(255,49,49,0.15)' },
+    _focus: { borderColor: 'brand.blue', boxShadow: '0 0 0 3px rgba(166,107,239,0.2)' },
   }
 
-  const optStyle = { background: '#ffffff', color: '#0f172a' }
+  const optStyle = { background: '#ffffff', color: '#171717' }
 
   return (
     <Box
@@ -137,8 +135,6 @@ const ContactForm = () => {
             {...inputStyles}
           >
             <option value="mediboo"    style={optStyle}>MediBoo — Clinic Management Software</option>
-            <option value="migrasafe"  style={optStyle}>MigraSafe — SQL Migration Risk Analyzer</option>
-            <option value="configsafe" style={optStyle}>ConfigSafe — Environment Configuration Checker</option>
             <option value="general"    style={optStyle}>General / Not sure yet</option>
           </Select>
         </FormControl>

@@ -7,8 +7,8 @@ import MediBooLogo from '../../assets/MediBooLogo'
 const MotionBox = motion(Box)
 
 const ProductCard = ({ product, index = 0 }) => {
-  const gradient = product.accentGradient || 'linear-gradient(135deg, #ff3131 0%, #e02424 100%)'
-  const accent = product.accentColor || '#ff3131'
+  const gradient = product.accentGradient || 'linear-gradient(135deg, #A66BEF 0%, #8f4fe6 100%)'
+  const accent = product.accentColor || '#A66BEF'
 
   return (
     <MotionBox

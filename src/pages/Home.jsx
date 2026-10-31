@@ -12,8 +12,8 @@ const Home = () => {
     <Box>
       <SEO
         title="Boolavas | Modern Software Products for Real-World Problems"
-        description="Boolavas builds focused software products including MediBoo, MigraSafe and ConfigSafe for healthcare, database and software engineering workflows."
-        keywords="boolavas, software product company, mediboo, migrasafe, configsafe, clinic management software, sql migration risk analyzer, environment configuration checker"
+        description="Boolavas builds MediBoo — modern clinic management software for managing patients, appointments, prescriptions and everyday healthcare workflows."
+        keywords="boolavas, software product company, mediboo, clinic management software, patient management, appointment scheduling, prescription software"
         canonical="https://boolavas.in/"
       />
       <Hero />

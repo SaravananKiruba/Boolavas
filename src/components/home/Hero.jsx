@@ -4,25 +4,19 @@
   Heading,
   Text,
   Stack,
-  HStack,
   VStack,
   Icon,
-  SimpleGrid,
   Image,
 } from '@chakra-ui/react'
-import { Link as RouterLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { FaArrowRight, FaEnvelope } from 'react-icons/fa'
 import CTAButton from '../common/CTAButton'
-import { products } from '../../data/products'
 import boolavasLogo from '../../assets/boolavas logo.png'
-import MediBooLogo from '../../assets/MediBooLogo'
 
 const MotionBox = motion(Box)
 const MotionText = motion(Text)
 
 const spring = { type: 'spring', stiffness: 110, damping: 20 }
-const springFast = { type: 'spring', stiffness: 320, damping: 28 }
 
 // Word-level blur-fade-slide animation (Vercel/Linear style)
 const wordVariants = {
@@ -81,7 +75,7 @@ const Hero = () => {
       <Box
         position="absolute"
         inset={0}
-        background="radial-gradient(ellipse 80% 60% at 60% -10%, rgba(124,58,237,0.06) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at -10% 80%, rgba(255,49,49,0.05) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 110% 50%, rgba(14,165,233,0.04) 0%, transparent 60%)"
+        background="radial-gradient(ellipse 80% 60% at 60% -10%, rgba(166,107,239,0.08) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at -10% 80%, rgba(255,242,26,0.08) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 110% 50%, rgba(14,165,233,0.04) 0%, transparent 60%)"
         pointerEvents="none"
       />
       {/* Subtle grid */}
@@ -95,8 +89,8 @@ const Hero = () => {
       />
 
       {/* Soft ambient orbs */}
-      <Orb size="500px" color="rgba(124,58,237,0.07)" top="-20%"  right="-10%" delay={0}   duration={10} />
-      <Orb size="380px" color="rgba(255,49,49,0.06)"  bottom="-15%" left="-8%"  delay={2}   duration={8} />
+      <Orb size="500px" color="rgba(166,107,239,0.10)" top="-20%"  right="-10%" delay={0}   duration={10} />
+      <Orb size="380px" color="rgba(255,242,26,0.12)"  bottom="-15%" left="-8%"  delay={2}   duration={8} />
 
       <Container maxW="7xl" position="relative" zIndex={1}>
         <VStack spacing={{ base: 8, md: 10 }} align="center" textAlign="center">
@@ -122,9 +116,9 @@ const Hero = () => {
             letterSpacing="-0.02em"
             maxW="4xl"
           >
-            <AnimatedWords text="Software products built for" color="#0f172a" />
+            <AnimatedWords text="Software products built for" color="#171717" />
             {' '}
-            <AnimatedWords text="real-world problems." color="#ff3131" />
+            <AnimatedWords text="real-world problems." color="#A66BEF" />
           </Heading>
 
           <MotionText
@@ -164,73 +158,6 @@ const Hero = () => {
             </Stack>
           </MotionBox>
         </VStack>
-
-        {/* Product quick-glance strip */}
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={4} pt={{ base: 12, md: 16 }}>
-          {products.map((product, index) => (
-            <MotionBox
-              key={product.slug}
-              as={RouterLink}
-              to={product.route}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ ...spring, delay: 0.9 + index * 0.1 }}
-              whileHover={{
-                y: -4,
-                transition: springFast,
-              }}
-              bg="white"
-              backdropFilter="blur(8px)"
-              border="1px solid"
-              borderColor="brand.border"
-              borderRadius="2xl"
-              p={5}
-              role="group"
-              boxShadow="0 1px 3px rgba(15,23,42,0.05)"
-              _hover={{
-                borderColor: 'brand.blue',
-                boxShadow: '0 12px 32px rgba(15,23,42,0.10)',
-              }}
-              sx={{ transition: 'border-color 0.2s ease, box-shadow 0.2s ease' }}
-            >
-              <HStack spacing={4} align="center">
-                {product.slug === 'mediboo' ? (
-                  <Box
-                    flexShrink={0}
-                    transition="transform 0.25s ease"
-                    _groupHover={{ transform: 'scale(1.05)' }}
-                  >
-                    <MediBooLogo h="28px" />
-                  </Box>
-              ) : (
-                  <Box
-                    display="inline-flex"
-                    alignItems="center"
-                    justifyContent="center"
-                    borderRadius="lg"
-                    boxSize="30px"
-                    background={product.accentGradient || 'linear-gradient(135deg, #ff3131, #e02424)'}
-                    flexShrink={0}
-                    transition="transform 0.25s ease"
-                    _groupHover={{ transform: 'scale(1.1)' }}
-                  >
-                    <Icon as={product.icon} boxSize={4} color="white" />
-                  </Box>
-                )}
-                <Box textAlign="left">
-                  {product.slug !== 'mediboo' && (
-                    <Text color="brand.navy" fontWeight="semibold" fontSize="sm">
-                      {product.name}
-                    </Text>
-                  )}
-                  <Text color="gray.500" fontSize="xs">
-                    {product.category}
-                  </Text>
-                </Box>
-              </HStack>
-            </MotionBox>
-          ))}
-        </SimpleGrid>
       </Container>
     </Box>
   )

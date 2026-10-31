@@ -10,8 +10,8 @@ const Products = () => {
     <Box bg="brand.surface">
       <SEO
         title="Software Products | Boolavas"
-        description="Explore Boolavas software products including MediBoo clinic management software, MigraSafe SQL migration risk analyzer and ConfigSafe configuration risk checker."
-        keywords="boolavas products, mediboo, migrasafe, configsafe, clinic management software, sql migration risk analyzer, environment configuration checker"
+        description="Explore MediBoo — Boolavas clinic management software for managing patients, appointments, prescriptions and everyday healthcare workflows."
+        keywords="boolavas products, mediboo, clinic management software, patient management, appointment scheduling, prescription software"
         canonical="https://boolavas.in/products"
       />
       <BreadcrumbSchema
@@ -29,26 +29,26 @@ const Products = () => {
           right="-15%"
           width="60%"
           height="100%"
-          bg="radial-gradient(circle, rgba(255, 49, 49, 0.08) 0%, transparent 70%)"
+          bg="radial-gradient(circle, rgba(166,107,239,0.12) 0%, transparent 70%)"
           pointerEvents="none"
         />
         <Container maxW="7xl" position="relative" zIndex={1}>
           <VStack spacing={5} textAlign="center">
             <Heading as="h1" fontSize={{ base: '3xl', md: '5xl' }} color="brand.navy" lineHeight="1.1" letterSpacing="-0.02em" maxW="3xl">
-              Software products from Boolavas
+              The Boolavas product
             </Heading>
             <Text fontSize={{ base: 'lg', md: 'xl' }} color="gray.600" maxW="2xl">
-              A focused portfolio of software products designed to solve specific business and
-              engineering problems.
+              One focused product, designed to solve a specific real-world problem — without
+              unnecessary complexity.
             </Text>
           </VStack>
         </Container>
       </Box>
 
-      {/* Product grid */}
+      {/* Product */}
       <Box as="section" pb={{ base: 16, md: 24 }} bg="brand.surface">
-        <Container maxW="7xl">
-          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6}>
+        <Container maxW="md">
+          <SimpleGrid columns={1} spacing={6}>
             {products.map((product, index) => (
               <ProductCard key={product.slug} product={product} index={index} />
             ))}
@@ -57,8 +57,8 @@ const Products = () => {
       </Box>
 
       <CTASection
-        title="Not sure which product fits?"
-        description="Tell us about your workflow and we'll point you to the right Boolavas product."
+        title="Want to know if MediBoo fits your clinic?"
+        description="Tell us about your workflow and we'll show you how MediBoo can help."
         primaryCTA="Contact Boolavas"
         primaryHref="/contact"
         secondaryCTA="About Boolavas"

@@ -34,7 +34,7 @@ const Orb = ({ size, color, top, left, right, bottom, delay, duration = 7 }) => 
 
 const CTASection = ({
   title = "Ready to explore Boolavas products?",
-  description = "Discover MediBoo, MigraSafe and ConfigSafe — focused software products built to solve real business and engineering problems.",
+  description = "Discover MediBoo — modern clinic management software built to simplify everyday healthcare workflows.",
   primaryCTA = "Explore Products",
   primaryHref = "/products",
   secondaryCTA = "Contact Boolavas",
@@ -44,7 +44,7 @@ const CTASection = ({
   return (
     <Box as="section" bg={bg} py={24} position="relative" overflow="hidden">
       {/* Very subtle ambient orbs */}
-      <Orb size="480px" color="rgba(255,49,49,0.08)"  bottom="-25%" right="-12%" delay={0}   duration={9} />
+      <Orb size="480px" color="rgba(255,242,26,0.10)"  bottom="-25%" right="-12%" delay={0}   duration={9} />
       <Orb size="340px" color="rgba(212,175,55,0.10)" top="-20%"   left="-8%"   delay={1.5} duration={7} />
 
       <Container maxW="4xl" position="relative" zIndex={1}>

@@ -28,22 +28,6 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- MigraSafe -->
-  <url>
-    <loc>https://boolavas.in/products/migrasafe</loc>
-    <lastmod>2026-08-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- ConfigSafe -->
-  <url>
-    <loc>https://boolavas.in/products/configsafe</loc>
-    <lastmod>2026-08-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
   <!-- About -->
   <url>
     <loc>https://boolavas.in/about</loc>

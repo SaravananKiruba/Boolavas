@@ -66,7 +66,7 @@ const About = () => {
       <SEO
         title="About Boolavas | Software Product Company"
         description="Boolavas builds focused software products designed to solve practical business and engineering problems."
-        keywords="about boolavas, software product company, mediboo, migrasafe, configsafe, product philosophy"
+        keywords="about boolavas, software product company, mediboo, clinic management software, product philosophy"
         canonical="https://boolavas.in/about"
       />
       <BreadcrumbSchema
@@ -101,9 +101,9 @@ const About = () => {
               We build focused software products.
             </Heading>
             <Text fontSize={{ base: 'lg', md: 'xl' }} color="gray.600">
-              Boolavas is a software product company. We build practical, modern software products —
-              MediBoo, MigraSafe and ConfigSafe — designed around real problems in healthcare,
-              database engineering and application configuration.
+              Boolavas is a software product company. We build practical, modern software —
+              starting with MediBoo — designed around real problems in healthcare and everyday
+              clinic workflows.
             </Text>
           </VStack>
         </Container>
@@ -117,11 +117,9 @@ const About = () => {
               What we do
             </Heading>
             <Text fontSize="lg" color="gray.600" lineHeight="tall">
-              Boolavas builds focused software products designed around real problems. Rather than
+              Boolavas builds focused software designed around real problems. Rather than
               spreading thin across everything, each product does one thing well: MediBoo helps
-              clinics run everyday healthcare workflows, MigraSafe helps engineers catch risky SQL
-              migrations before production, and ConfigSafe helps teams find configuration problems
-              before they cause incidents.
+              clinics run everyday healthcare workflows from one modern platform.
             </Text>
             <Text fontSize="lg" color="gray.600" lineHeight="tall">
               We keep our products practical and our infrastructure simple, so they stay easy to use

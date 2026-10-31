@@ -4,7 +4,7 @@
 **Boolavas** is a software development company website built with React + Vite. Primary focus is promoting **MediBoo** — a multi-tenant clinic management SaaS. Targets Indian clients (healthcare + general software).
 
 - **Live domain:** `boolavas.in`
-- **MediBoo app:** `mediboo-platform.vercel.app`
+- **MediBoo app:** `mediboo.in`
 - **Location:** Madurai, Tamil Nadu, India
 - **Contact:** `contact@boolavas.in` | `+91 86674 30536`
 - **Stack:** React 18, Vite, Chakra UI v2, Framer Motion, React Router v6, react-helmet-async, react-icons

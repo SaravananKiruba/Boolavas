@@ -1,37 +1,41 @@
 import { extendTheme } from '@chakra-ui/react'
 
 /**
- * Boolavas theme — Google-inspired light UI.
- * brand.navy = deep graphite for headings / strong text on light bg.
- * Legacy tokens (brand.mid, brand.cream, brand.surface) kept as aliases
- * that now map to light-mode surfaces so existing components stay valid.
+ * Boolavas theme — lemon-yellow light UI.
+ * Palette: #fff21a page background, #171717 text, #A66BEF highlight (purple).
+ * Purple is used for primary buttons/CTAs and foreground highlights (links,
+ * active nav, icons) because it reads clearly on the yellow background.
+ * brand.blue is kept as the token name for the purple accent so existing
+ * usages work unchanged.
  */
 const theme = extendTheme({
   colors: {
     brand: {
-      navy:       '#0f172a',  // graphite — used for headings + strong text
-      ink:        '#1f2937',  // body copy
-      mid:        '#f1f3f4',  // legacy alias → soft grey alt section
-      surface:    '#ffffff',  // primary page surface
-      surfaceAlt: '#f8f9fa',  // Google-style soft grey
-      border:     '#e5e7eb',  // hairline outline
-      blue:       '#ff3131',  // primary red CTA
-      lightBlue:  '#ff5c5c',  // hover / lighter red
+      navy:       '#171717',  // headings + strong text
+      ink:        '#2b2b2b',  // body copy (darker for contrast on yellow)
+      mid:        '#fff799',  // legacy alias → lighter lemon alt section
+      surface:    '#fff21a',  // primary page surface (lemon yellow)
+      surfaceAlt: '#fff799',  // lighter lemon alt section
+      border:     '#e6d84a',  // yellow-tinted hairline
+      blue:       '#A66BEF',  // purple — primary buttons + highlights
+      lightBlue:  '#b98cf2',  // hover / lighter purple
+      yellow:     '#fff21a',  // main brand (page bg)
+      yellowDark: '#ffe600',  // deeper yellow
       gold:       '#D4AF37',
       goldLight:  '#f5d76e',
       amber:      '#D4AF37',
-      cream:      '#f8f9fa',  // legacy alias → surfaceAlt
-      light:      '#ffffff',
-      50:  '#fff0f0',
-      100: '#ffd4d4',
-      200: '#ffaaaa',
-      300: '#ff7777',
-      400: '#ff5252',
-      500: '#ff3131',
-      600: '#e02424',
-      700: '#b91c1c',
-      800: '#7f1d1d',
-      900: '#450a0a',
+      cream:      '#fff799',  // legacy alias → surfaceAlt
+      light:      '#fff21a',
+      50:  '#f5eefe',
+      100: '#e7d6fb',
+      200: '#d3b6f7',
+      300: '#bf95f3',
+      400: '#b380f0',
+      500: '#A66BEF',
+      600: '#8f4fe6',
+      700: '#7a37d6',
+      800: '#6329b0',
+      900: '#4a1f85',
     },
     // Neutral cool-grey scale (Material / Tailwind slate-inspired)
     gray: {
@@ -110,7 +114,7 @@ const theme = extendTheme({
           _hover: {
             bg: 'brand.lightBlue',
             transform: 'translateY(-1px)',
-            boxShadow: '0 8px 20px rgba(255,49,49,0.28)',
+            boxShadow: '0 8px 20px rgba(166,107,239,0.45)',
           },
           _active: { bg: 'brand.600' },
           transition: 'all 0.2s ease',
@@ -136,7 +140,7 @@ const theme = extendTheme({
         },
         amber: {
           bg: 'brand.gold',
-          color: 'brand.navy',
+          color: '#171717',
           _hover: {
             bg: 'brand.goldLight',
             transform: 'translateY(-1px)',
@@ -146,7 +150,7 @@ const theme = extendTheme({
         },
         gold: {
           bg: 'brand.gold',
-          color: 'brand.navy',
+          color: '#171717',
           fontWeight: 'bold',
           _hover: {
             bg: 'brand.goldLight',

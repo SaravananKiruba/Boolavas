@@ -22,8 +22,8 @@ const reasons = [
   {
     icon: FaBullseye,
     title: 'Focused by design',
-    gradient: 'linear-gradient(135deg, #ff3131 0%, #e02424 100%)',
-    shadow: 'rgba(255,49,49,0.3)',
+    gradient: 'linear-gradient(135deg, #A66BEF 0%, #8f4fe6 100%)',
+    shadow: 'rgba(166,107,239,0.3)',
     description:
       'Each Boolavas product solves one clearly defined problem well, instead of trying to do everything.',
   },

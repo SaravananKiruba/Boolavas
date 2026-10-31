@@ -10,7 +10,7 @@ const OrganizationSchema = () => {
       "@type": "ImageObject",
       "url": "https://boolavas.in/logo.png"
     },
-    "description": "Boolavas is a software product company building focused software products including MediBoo, MigraSafe and ConfigSafe for healthcare, database and software engineering workflows.",
+    "description": "Boolavas is a software product company building MediBoo, modern clinic management software for healthcare workflows.",
     "email": "contact@boolavas.in",
     "contactPoint": [{
       "@type": "ContactPoint",
@@ -20,10 +20,9 @@ const OrganizationSchema = () => {
     }],
     "knowsAbout": [
       "Clinic Management Software",
-      "SQL Migration Risk Analysis",
-      "Database Migration Safety",
-      "Environment Configuration Risk",
-      "Configuration Drift Detection"
+      "Patient Management",
+      "Appointment Scheduling",
+      "Prescription Software"
     ],
     "sameAs": [],
     "hasProduct": [
@@ -33,20 +32,6 @@ const OrganizationSchema = () => {
         "applicationCategory": "BusinessApplication",
         "description": "Clinic management software for managing patients, appointments, prescriptions and investigations.",
         "url": "https://boolavas.in/products/mediboo"
-      },
-      {
-        "@type": "SoftwareApplication",
-        "name": "MigraSafe",
-        "applicationCategory": "DeveloperApplication",
-        "description": "SQL migration risk analyzer that identifies potentially dangerous database changes before production.",
-        "url": "https://boolavas.in/products/migrasafe"
-      },
-      {
-        "@type": "SoftwareApplication",
-        "name": "ConfigSafe",
-        "applicationCategory": "DeveloperApplication",
-        "description": "Environment configuration risk and drift checker for identifying configuration problems before production.",
-        "url": "https://boolavas.in/products/configsafe"
       }
     ]
   }

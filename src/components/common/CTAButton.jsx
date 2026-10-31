@@ -14,19 +14,19 @@ const MotionLink = motion(Link)
 const styleFor = (variant) => {
   if (variant === 'primary') {
     return {
-      background: 'linear-gradient(135deg, #ff3131 0%, #d12020 100%)',
+      background: 'linear-gradient(135deg, #A66BEF 0%, #8f4fe6 100%)',
       color: 'white',
       border: 'none',
-      boxShadow: '0 1px 0 rgba(255,255,255,0.12) inset, 0 4px 14px rgba(209,32,32,0.32)',
+      boxShadow: '0 1px 0 rgba(255,255,255,0.25) inset, 0 4px 14px rgba(166,107,239,0.38)',
       _hover: {
-        background: 'linear-gradient(135deg, #ff5252 0%, #ff3131 100%)',
-        boxShadow: '0 1px 0 rgba(255,255,255,0.15) inset, 0 8px 24px rgba(255,49,49,0.42)',
+        background: 'linear-gradient(135deg, #b98cf2 0%, #A66BEF 100%)',
+        boxShadow: '0 1px 0 rgba(255,255,255,0.3) inset, 0 8px 24px rgba(166,107,239,0.5)',
         textDecoration: 'none',
         transform: 'translateY(-1px)',
       },
       _active: {
-        background: 'linear-gradient(135deg, #d12020 0%, #b91c1c 100%)',
-        boxShadow: '0 1px 4px rgba(209,32,32,0.3)',
+        background: 'linear-gradient(135deg, #8f4fe6 0%, #7a37d6 100%)',
+        boxShadow: '0 1px 4px rgba(166,107,239,0.4)',
         transform: 'translateY(0)',
       },
     }

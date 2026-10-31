@@ -18,23 +18,15 @@ const MotionBox = motion(Box)
 const companyFaqs = [
   {
     question: 'What is Boolavas?',
-    answer: 'Boolavas is a software product company building focused tools for healthcare, database engineering and application configuration workflows.',
+    answer: 'Boolavas is a software product company building focused tools for healthcare and everyday clinic workflows.',
   },
   {
     question: 'What products does Boolavas build?',
-    answer: 'Boolavas currently builds MediBoo, MigraSafe and ConfigSafe.',
+    answer: 'Boolavas currently builds MediBoo, its clinic management software.',
   },
   {
     question: 'What is MediBoo?',
     answer: 'MediBoo is clinic management software designed for modern clinics and healthcare businesses.',
-  },
-  {
-    question: 'What is MigraSafe?',
-    answer: 'MigraSafe is an SQL migration risk analyzer that helps identify potentially dangerous database migration changes before production.',
-  },
-  {
-    question: 'What is ConfigSafe?',
-    answer: 'ConfigSafe is an environment configuration risk and drift checker designed to identify configuration problems before they become production issues.',
   },
   {
     question: 'How can I contact Boolavas?',

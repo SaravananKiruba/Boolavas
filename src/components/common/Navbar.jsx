@@ -51,7 +51,7 @@ const Navbar = () => {
     <MotionBox
       as="nav"
       aria-label="Primary"
-      bg="rgba(255,255,255,0.85)"
+      bg="rgba(255,242,26,0.85)"
       backdropFilter="saturate(180%) blur(14px)"
       position="sticky"
       top={0}

@@ -89,7 +89,7 @@ const LeadCaptureModal = ({ isOpen, onClose, productName, appUrl }) => {
                     borderColor="brand.border"
                     color="brand.ink"
                     _placeholder={{ color: 'gray.400' }}
-                    _focus={{ borderColor: 'brand.blue', boxShadow: '0 0 0 3px rgba(255,49,49,0.15)' }}
+                    _focus={{ borderColor: 'brand.blue', boxShadow: '0 0 0 3px rgba(166,107,239,0.2)' }}
                     _hover={{ borderColor: 'gray.400' }}
                     borderRadius="lg"
                     autoFocus
@@ -110,7 +110,7 @@ const LeadCaptureModal = ({ isOpen, onClose, productName, appUrl }) => {
                     borderColor="brand.border"
                     color="brand.ink"
                     _placeholder={{ color: 'gray.400' }}
-                    _focus={{ borderColor: 'brand.blue', boxShadow: '0 0 0 3px rgba(255,49,49,0.15)' }}
+                    _focus={{ borderColor: 'brand.blue', boxShadow: '0 0 0 3px rgba(166,107,239,0.2)' }}
                     _hover={{ borderColor: 'gray.400' }}
                     borderRadius="lg"
                   />
